@@ -8,3 +8,5 @@ export * from "./distance";
 export * from "./top-names";
 export * from "./typosquat";
 export * from "./policy";
+export * from "./config";
+export * from "./report";
