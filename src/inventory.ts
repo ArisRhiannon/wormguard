@@ -28,16 +28,24 @@ function collect(dir: string, out: InstalledPackage[]): void {
   out.push({ name: typeof json.name === "string" ? json.name : basename(dir), dir, scripts });
 }
 
+function safeReaddir(dir: string): string[] {
+  try {
+    return readdirSync(dir);
+  } catch {
+    return [];
+  }
+}
+
 /** Scan `<root>/node_modules` for installed packages and their lifecycle scripts. */
 export function scanNodeModules(root: string): InstalledPackage[] {
   const nm = join(root, "node_modules");
   if (!existsSync(nm)) return [];
   const out: InstalledPackage[] = [];
-  for (const entry of readdirSync(nm)) {
+  for (const entry of safeReaddir(nm)) {
     if (entry.startsWith(".")) continue;
     const full = join(nm, entry);
     if (entry.startsWith("@")) {
-      for (const sub of readdirSync(full)) collect(join(full, sub), out);
+      for (const sub of safeReaddir(full)) collect(join(full, sub), out);
     } else {
       collect(full, out);
     }

@@ -11,6 +11,7 @@ import type { WormguardConfig } from "./config";
 const SCRIPT_RULE_IDS = new Set([
   "WG-INSTALL-SCRIPT", "WG-SHELL-PIPE", "WG-NET-DOWNLOAD", "WG-CHILD-PROCESS",
   "WG-EVAL", "WG-SECRET-PATH", "WG-ENV-ENUM", "WG-BASE64", "WG-SELF-PROPAGATE",
+  "WG-NODE-EVAL-FLAG", "WG-NODE-NET-MODULE", "WG-FETCH",
 ]);
 
 export interface ScanResult {

@@ -28,6 +28,7 @@ let json = false, ci = false, baseline: string | undefined, out: string | undefi
 const pos: string[] = [];
 for (let i = 0; i < rest.length; i++) {
   const a = rest[i] as string;
+  if (a === "--") { for (let j = i + 1; j < rest.length; j++) { const t = rest[j]; if (t !== undefined) pos.push(t); } break; }
   if (a === "--json") json = true;
   else if (a === "--ci") ci = true;
   else if (a === "--baseline") { const v = rest[++i]; if (v) baseline = v; }

@@ -17,4 +17,7 @@ export const SCRIPT_RULES: Rule[] = [
   { id: "WG-ENV-ENUM", severity: "medium", re: /process\.env(\b|\[|\.)/i, message: "reads environment variables during install" },
   { id: "WG-BASE64", severity: "medium", re: /base64|\batob\s*\(|from\s*\(\s*['"][^'"]*['"]\s*,\s*['"]base64/i, message: "base64 decode (possible obfuscated payload)" },
   { id: "WG-SELF-PROPAGATE", severity: "medium", re: /node_modules\//i, message: "writes into node_modules paths (possible self-propagation)" },
+  { id: "WG-NODE-EVAL-FLAG", severity: "high", re: /\bnode\b[^\n]{0,120}?\s-(?:-eval|-print|e|p)\b/i, message: "runs inline code via `node -e/-p` during install" },
+  { id: "WG-NODE-NET-MODULE", severity: "high", re: /require\(\s*['"](?:node:)?(?:https?|net|tls|dns|dgram)['"]\s*\)|from\s+['"](?:node:)?(?:https?|net|tls|dns|dgram)['"]/i, message: "uses a Node network/builtin module (http/net/dns/tls) during install" },
+  { id: "WG-FETCH", severity: "high", re: /\bfetch\s*\(/i, message: "uses fetch() network call during install" },
 ];
