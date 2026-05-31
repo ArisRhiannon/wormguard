@@ -4,6 +4,54 @@ All notable changes to wormguard are documented here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.1] — 2026-05-31
+
+False-positive calibration (measured, not asserted), corpus-maintenance
+automation, and documentation honesty. No breaking changes.
+
+### Fixed
+- **Eliminated CI-gating false positives.** The first empirical benchmark
+  (`scripts/fp-benchmark.ts`, against a 662-package tree of popular deps)
+  found **14 high-severity false positives** — refuting the prior
+  "no false positives" assumption. Now **0 critical/high** on that tree.
+  Root causes and fixes:
+  - `TOP_NAMES` expanded 500 → ~5,075 most-depended-on packages, so
+    ubiquitous names (`cookie`, `ini`, `rc`, `source-map`, `nypm`,
+    `pathe`, …) are recognised as legitimate and skipped.
+  - `WG-TYPOSQUAT`: the scan path now uses edit-distance 1 only (the
+    distance-2 tier produced only false positives — `effect`~`expect`,
+    `esquery`~`jquery`, `exsolve`~`resolve` — and zero true positives).
+    The library `typosquatFindings()` still supports `maxDist=2`.
+  - `WG-TYPOSQUAT`: added a target-length floor (ultra-short popular
+    targets like `npm`/`ms`/`rc` no longer flag legit 4-char neighbours
+    such as `nypm`).
+  - `WG-IOC-NEAR`: downgraded **high → medium** (it is a name-proximity
+    heuristic, not a confirmed indicator; the exact `WG-IOC-NAME` match
+    stays critical) and gained a ≥5-char length floor.
+  - Real-attack detection re-verified intact (`expresss` → high,
+    `curl … | sh` → critical, exit 1 under `--ci`).
+
+### Added
+- `scripts/fp-benchmark.ts` — reproducible false-positive regression guard
+  (exits non-zero on any critical/high finding over a known-clean tree).
+- `docs/false-positive-baseline.md` — methodology, before/after numbers,
+  root causes, and honest residual caveats.
+- `.github/workflows/refresh-corpus.yml` — weekly cron (and manual
+  dispatch) that refreshes the IoC corpus from GHSA, validates it inline,
+  and opens a pull request. It **never** commits to `main` and **never**
+  auto-publishes; shipping stays gated behind an explicit release.
+- `CONTRIBUTING.md` and `docs/adr/0002-corpus-and-allowlist-maintenance.md`
+  — evidence-required contribution rubric and the (deliberately manual)
+  research-curation process.
+- `scripts/refresh-top-names.ts` is now configurable (target count via
+  arg/env) and resilient to the upstream API's anonymous rate limiting.
+
+### Changed
+- `README` §Limits documents five further evasion classes
+  (cross-file/cross-function taint, WebAssembly payloads, DNS-tunnel
+  exfiltration, worker/IPC indirection, write-now-execute-later) and a
+  measured false-positive subsection.
+
 ## [1.0.0] — 2026-05-31
 
 First stable release. Cumulative summary of every change since v0:
