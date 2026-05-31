@@ -103,7 +103,97 @@ short: this is not a sandbox, not a CVE scanner, not a SaaS behavioral
 monitor, and cannot deobfuscate arbitrary JavaScript beyond one layer of
 constant folding + base64.
 
-## [1.0.0-rc.2] — 2026-05-31
+## [1.0.0-rc.3] — 2026-05-31
+
+Self-imposed red-team pass. Four CRITICAL design issues found, fixed,
+and tested.
+
+### C1 — Configuration trust model (CRITICAL)
+
+`.wormguard.json` is no longer read from the scanned tree by default.
+The previous design was a confused deputy: an attacker who landed a
+malicious dep also landed the config that audited it (`failSeverity:low`,
+`ignoreRules:[everything]`, or `scriptFingerprints[attacker-sha]` would
+silently kill the scanner).
+
+- Config now loads from `--config FILE` (CI-controlled) or the
+  `WORMGUARD_CONFIG` env var.
+- An in-repo `.wormguard.json` emits `WG-CONFIG-IN-REPO-IGNORED` (low)
+  so operators see it.
+- Pass `--trust-repo-config` to opt back into the v0 behavior for
+  local development. Documented as **do-not-use-in-CI**.
+- New `WG-CONFIG-MISSING` (medium) when `--config FILE` points at a
+  missing/invalid file.
+
+### C2 — IoC matching is now version-range aware (CRITICAL)
+
+Previous schema kept only package names from the GHSA `type=malware`
+feed. A package whose history included one compromised version was
+flagged critical forever (e.g. `ansi-regex`, `chalk`, `strip-ansi`).
+This produced critical FPs on legitimately-recovered installs.
+
+- `scripts/refresh-corpus.ts` now extracts `vulnerable_version_range`
+  per advisory.
+- `data/iocs.json` schema upgraded to v2 with `ranges:
+  Record<name, string[]>`. Re-fetched: 23 055 names, 23 055 with
+  explicit ranges, 1.7 MB. Examples: `ansi-regex` → `["= 6.2.1"]`,
+  `chalk` → `["= 5.6.1"]`, `strip-ansi` → `["= 7.1.1"]`.
+- `matchPackageName(name, version)` uses `semver.satisfies` to verify
+  the installed version is inside an affected range before firing
+  `WG-IOC-NAME` (critical).
+- A name in the corpus without a concrete range (or with only the
+  catch-all `>= 0`) yields `WG-IOC-NAME-LEGACY` (medium) instead.
+- Adds `semver` (the official npm semver library) as a runtime dep.
+
+### C3 — Lockfile DoS via deeply-nested `dependencies` (CRITICAL)
+
+`fromDependencies` was recursive; a `package-lock.json` v1 with 20 000
+levels of nesting triggered `RangeError: Maximum call stack size
+exceeded`, crashing the scanner. A hostile lockfile in the scanned
+tree was a trivial DoS.
+
+- Rewritten as iterative BFS with a 256-level depth bound.
+- Throws `WormguardError` on excessive depth instead of stack-overflow.
+- Test confirms 200-level lockfile parses cleanly; 10 000-level
+  lockfile is rejected as `WormguardError`.
+
+### C4 — `verifyBundle` confused-deputy (CRITICAL)
+
+`verifyBundle(pkg, bundleJson, payload)` only verified the cryptographic
+signature over the payload bytes. It did not check that the bundle's
+DSSE statement subject matched `pkg@version`, or that the subject
+digest matched the expected payload digest. A valid bundle for a
+package the attacker controls could be presented as evidence for a
+victim package.
+
+- Required parameters: `expectedSubjectName`, optional `expectedDigest`.
+- After the cryptographic verify succeeds, the DSSE envelope is
+  decoded and the `subject[].name` is matched against
+  `expectedSubjectName`. Mismatch → critical
+  `WG-PROVENANCE-INVALID`.
+- If `expectedDigest` is supplied, the subject's `sha512` (or
+  `sha256`) digest must match. Mismatch → critical.
+- Bundles without a DSSE envelope (signature-only mode) cannot be
+  bound to a package identity and are rejected.
+- Tests use real npm provenance fixtures (`sigstore@3.1.0`) committed
+  under `test/fixtures/provenance/` to prove cross-package and
+  cross-artifact replay are rejected.
+
+### Tests
+
+169 pass, 0 fail across 22 files. TS strict clean.
+
+### Migration
+
+Existing users with an in-repo `.wormguard.json` will start seeing the
+file ignored. Three options:
+
+1. (Recommended) Move the file outside the scanned tree and pass
+   `--config /path/to/it`. Set up via your CI runner's environment.
+2. Set `WORMGUARD_CONFIG=/abs/path` in the CI environment.
+3. (Local dev only) Pass `--trust-repo-config` to opt back in.
+
+
 
 Second pass after a self-imposed "no smoke must remain" audit. Each
 fix below addresses a specific gap that was identified after the

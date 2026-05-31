@@ -145,7 +145,44 @@ GITHUB_TOKEN=…  wormguard refresh   # or: bun run refresh-corpus
 Drop `wormguard scan . --ci` into your pipeline right after `npm ci` /
 `pnpm install` / `yarn install`.
 
-## Configuration — `.wormguard.json`
+## Configuration trust model (read this before deploying in CI)
+
+wormguard's whole purpose is to detect malicious code introduced into a
+project. The threat model therefore assumes that an attacker may already
+have write access to the project tree (a compromised dependency, a
+commandeered branch, etc.). Reading config from inside the same project
+tree would be a confused deputy: the attacker who lands the payload
+also lands the policy that audits it.
+
+**Default behavior:**
+
+1. wormguard does **NOT** load `.wormguard.json` from the scanned tree by
+   default.
+2. Config is loaded from, in priority order:
+   1. `--config FILE` CLI flag (path resolved at scan time).
+   2. `WORMGUARD_CONFIG` environment variable (absolute path).
+3. If a `.wormguard.json` is present in the scanned tree but neither (a)
+   nor (b) is supplied, wormguard emits `WG-CONFIG-IN-REPO-IGNORED`
+   (low) so operators know the file exists and is being ignored.
+4. To opt back into the v0 behavior (e.g. local development, where the
+   developer trusts their own repo), pass `--trust-repo-config`. **Do
+   not use this in CI** — it re-opens the confused-deputy hole.
+
+**Recommended CI pattern:**
+
+Place your wormguard policy in a CI-controlled location (a separate
+secured branch, an org-wide policy repo, or a build-server file), then:
+
+```yaml
+# .github/workflows/audit.yml
+- run: bun add -D wormguard
+- run: bun wormguard scan . --ci --config ${{ runner.workspace }}/policy/wormguard.json
+```
+
+A compromised repo cannot influence the path passed to `--config` from
+the workflow.
+
+## Configuration — `.wormguard.json` schema
 
 ```json
 {
@@ -184,7 +221,8 @@ notice.
 
 | id | severity | meaning |
 |----|----------|---------|
-| WG-IOC-NAME | critical | package name appears in the GHSA `type=malware` corpus |
+| WG-IOC-NAME | critical | package version is in a confirmed-malicious range from the GHSA `type=malware` corpus |
+| WG-IOC-NAME-LEGACY | medium | package name is in the GHSA corpus but the installed version cannot be confirmed inside the affected range (or no version was supplied) |
 | WG-IOC-NEAR | high | package name is 1 edit from a confirmed-malicious npm package (likely typosquat *of* a known-malicious package) |
 | WG-IOC-SCRIPT-HASH | critical | sha256 of a lifecycle script body matches a known-malicious fingerprint |
 | WG-IOC-DOMAIN | critical | lifecycle script source references a known C2/exfil hostname |
@@ -221,6 +259,8 @@ notice.
 | WG-PROVENANCE-NO-ATTESTATION | low | registry-signed but no `npm publish --provenance` attestation |
 | WG-PROVENANCE-EXPIRED-KEY | low | registry signature verifies, but the signing key has since expired |
 | WG-PROVENANCE-NO-KEYS | medium | bundled npm registry public keys are unavailable; cannot verify |
+| WG-CONFIG-IN-REPO-IGNORED | low | found `.wormguard.json` in the scanned tree but ignoring it (default trust model) |
+| WG-CONFIG-MISSING | medium | `--config FILE` or `WORMGUARD_CONFIG` was supplied but the file is missing or invalid |
 | WG-YARN-PNP-NO-NODE-MODULES | medium | yarn-berry lockfile present but no `node_modules` (PnP mode) |
 | WG-DIFF-ADDED / -REMOVED / -VERSION | low | inventory changes since baseline |
 

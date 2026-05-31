@@ -29,22 +29,28 @@ function die(msg: string, code = 1): never {
 
 const HELP = `wormguard — offline AST-grade supply-chain auditor for npm/pnpm/yarn/bun
 usage:
-  wormguard scan [dir] [--json] [--ci]
+  wormguard scan [dir] [--json] [--ci] [--config FILE] [--trust-repo-config]
       AST + IoC corpus + provenance + policy + typosquat audit. Read-only.
   wormguard snapshot [dir] [--out <file>]
       Snapshot inventory + script body hashes; default: <dir>/.wormguard-baseline.json
-  wormguard audit [dir] [--baseline <file>] [--json] [--ci]
+  wormguard audit [dir] [--baseline <file>] [--json] [--ci] [--config FILE] [--trust-repo-config]
       Diff against the baseline AND re-run scan; both sets gate the exit.
   wormguard refresh
       Refresh the bundled IoC corpus from the GHSA type=malware feed
       (the only network-touching subcommand; honors GITHUB_TOKEN).
   wormguard help
 flags:
-  --json      machine-readable output
-  --ci        exit non-zero if any finding >= fail severity (default: high)
-  --baseline  path to a baseline file (audit only)
-  --out       path to write a baseline (snapshot only)
-config: .wormguard.json (see README)`;
+  --json                machine-readable output
+  --ci                  exit non-zero if any finding >= fail severity (default: high)
+  --baseline FILE       path to a baseline file (audit only)
+  --out FILE            path to write a baseline (snapshot only)
+  --config FILE         load config from FILE (or set WORMGUARD_CONFIG=path).
+                        IMPORTANT: by default, .wormguard.json IN THE SCANNED REPO
+                        is IGNORED (an attacker who lands a malicious dep can also
+                        land a permissive config). Use --config (CI-controlled) or
+                        --trust-repo-config to opt back in.
+  --trust-repo-config   opt in to reading .wormguard.json from the scanned tree
+config: see README §"Configuration trust model"`;
 
 const argv = process.argv.slice(2);
 const cmd = argv[0];
@@ -53,6 +59,8 @@ let json = false;
 let ci = false;
 let baseline: string | undefined;
 let out: string | undefined;
+let configPath: string | undefined;
+let trustRepoConfig = false;
 const pos: string[] = [];
 for (let i = 0; i < rest.length; i++) {
   const a = rest[i] as string;
@@ -65,12 +73,22 @@ for (let i = 0; i < rest.length; i++) {
   }
   if (a === "--json") json = true;
   else if (a === "--ci") ci = true;
+  else if (a === "--trust-repo-config") trustRepoConfig = true;
   else if (a === "--baseline") {
     const v = rest[++i];
     if (v) baseline = v;
+  } else if (a.startsWith("--baseline=")) {
+    baseline = a.slice("--baseline=".length);
   } else if (a === "--out") {
     const v = rest[++i];
     if (v) out = v;
+  } else if (a.startsWith("--out=")) {
+    out = a.slice("--out=".length);
+  } else if (a === "--config") {
+    const v = rest[++i];
+    if (v) configPath = v;
+  } else if (a.startsWith("--config=")) {
+    configPath = a.slice("--config=".length);
   } else if (!a.startsWith("--")) {
     pos.push(a);
   }
@@ -118,9 +136,10 @@ function thisDir(): string {
 switch (cmd) {
   case "scan": {
     if (!existsSync(dir)) die(`no such directory: ${dir}`);
-    const cfg = loadConfig(dir);
-    const result = scan(dir, cfg);
-    emit(result.findings, cfg.failSeverity ?? "high", fmtHeader(dir, result.lockfilesUsed));
+    const cfgRes = loadConfig(dir, { configPath, trustRepoConfig });
+    const result = scan(dir, cfgRes.config);
+    const findings = [...cfgRes.findings, ...result.findings];
+    emit(findings, cfgRes.config.failSeverity ?? "high", fmtHeader(dir, result.lockfilesUsed, `# config source: ${cfgRes.source}`));
     break;
   }
   case "snapshot": {
@@ -141,19 +160,16 @@ switch (cmd) {
     if (!existsSync(dir)) die(`no such directory: ${dir}`);
     const file = baseline ?? join(dir, ".wormguard-baseline.json");
     if (!existsSync(file)) die(`no baseline at ${file}; run: wormguard snapshot ${dir}`);
-    const cfg = loadConfig(dir);
-    const ignore = new Set(cfg.ignoreRules ?? []);
+    const cfgRes = loadConfig(dir, { configPath, trustRepoConfig });
+    const ignore = new Set(cfgRes.config.ignoreRules ?? []);
     const old = parseBaseline(readFileSync(file, "utf8"));
     const inv = inventoryOf(dir);
     const installed = scanNodeModules(dir);
     const diffFindings = diff(old, inv, installed).filter((f) => !ignore.has(f.ruleId));
-    // Also re-run the live scan so worm-injection signatures (script
-    // fingerprint drift, IoC matches, AST hits on a current install) gate
-    // the audit too — not just delta-from-baseline changes.
-    const liveResult = scan(dir, cfg);
+    const liveResult = scan(dir, cfgRes.config);
     const seen = new Set<string>();
     const merged: Finding[] = [];
-    for (const f of [...diffFindings, ...liveResult.findings]) {
+    for (const f of [...cfgRes.findings, ...diffFindings, ...liveResult.findings]) {
       const k = `${f.pkg}|${f.ruleId}|${f.location?.file ?? ""}|${f.location?.line ?? ""}`;
       if (!seen.has(k)) {
         seen.add(k);
@@ -162,8 +178,8 @@ switch (cmd) {
     }
     emit(
       merged,
-      cfg.failSeverity ?? "high",
-      fmtHeader(dir, liveResult.lockfilesUsed, `# baseline: ${file} (v${old.version})`),
+      cfgRes.config.failSeverity ?? "high",
+      fmtHeader(dir, liveResult.lockfilesUsed, `# baseline: ${file} (v${old.version})\n# config source: ${cfgRes.source}`),
     );
     break;
   }

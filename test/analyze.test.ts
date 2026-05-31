@@ -1,7 +1,7 @@
 import { test, expect, describe } from "bun:test";
 import { analyzeScripts, type InstalledPackage } from "../src/index";
 
-const pkg = (name: string, scripts: Record<string, string>): InstalledPackage => ({ name, dir: `/x/${name}`, scripts, layout: "npm" });
+const pkg = (name: string, scripts: Record<string, string>): InstalledPackage => ({ name, dir: `/x/${name}`, scripts, layout: "npm", version: "1.0.0" });
 
 const has = (fs: { ruleId: string; pkg: string }[], pkg: string, ruleId: string) => fs.some((f) => f.pkg === pkg && f.ruleId === ruleId);
 
