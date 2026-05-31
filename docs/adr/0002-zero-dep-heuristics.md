@@ -1,26 +1,49 @@
-# ADR-0002: Zero-dependency heuristics, severity tiers & false-positive control
+# ADR-0002: Industry-standard dependencies (the "zero-dep" stance was vanity)
 
-**Status**: Accepted · **Date**: 2026-05-31 · **Decider**: Aris Rhiannon
+**Status**: Accepted (supersedes the original "zero-dep" ADR) · **Decider**: Aris Rhiannon
 
 ## Context
-A security tool people will actually run in CI must be tiny, auditable, and low-noise. Pulling in a JS
-parser, YAML library, or a remote feed would add attack surface and friction — ironic for a
-supply-chain tool.
+
+The original v0 implementation tried to parse `package-lock.json` v1/v2/v3
+by hand, with the goal of having no runtime dependencies. This stance
+was self-defeating: lockfile formats evolve (pnpm v6→v7→v9, yarn classic
+vs berry, bun.lock JSONC), edge cases proliferate (workspaces, peer
+deps, registry overrides), and the pursuit of zero-deps was driving us
+toward a parser zoo we'd be debugging instead of improving the actual
+detection logic. The same applies to JavaScript AST parsing and to
+cryptography: rolling our own would be both slower and less safe than
+delegating to maintained libraries authored by the ecosystem itself.
 
 ## Decision
-- **Zero runtime dependencies.** Parse `package-lock.json` with `JSON.parse`; read lifecycle scripts
-  from `node_modules/*/package.json`; analyze script **command strings** with a small, reviewable
-  regex rule set (no JS AST parser). Bundle the typosquat reference list as a TS array.
-- **Severity tiers** (`critical|high|medium|low`) with a configurable `failSeverity` (default `high`),
-  so CI only fails on meaningful signal and `low` advisories stay quiet.
-- **False-positive control**: benign build scripts (`tsc -b`, `node-gyp rebuild`) yield at most a `low`
-  advisory; an allowlist (`allowInstallScripts`, `allowedHosts`, `ignoreRules`) suppresses known-good
-  cases; the high-signal `WG-DIFF-NEW-SCRIPT` is preferred over blanket "has a script" alarms.
+
+Adopt a small, audited set of dependencies, all from official ecosystem
+maintainers:
+
+- `acorn` + `acorn-walk` — the JavaScript parser used by webpack, rollup,
+  ESLint. Permits ECMAScript 2024, location tracking, and module/script
+  fallback. Tiny, dependency-free.
+- `shell-quote` — the shell tokenizer used by webpack, vercel, etc.
+  We need this to correctly parse lifecycle commands across `&&`, `||`,
+  `;`, `|` operators without losing the quoting of inline `node -e "…"`.
+- `@yarnpkg/lockfile` — the official yarn classic lockfile parser.
+- `yaml` — the standard JS YAML parser; used for pnpm and yarn berry
+  lockfiles.
+- `ssri` — the official npm Subresource Integrity verifier.
+- `sigstore` — the official sigstore-js library; ships its own bundled
+  trust roots (Fulcio CA, Rekor public key, CT log keys) via TUF, and
+  performs the cryptography offline. We never roll our own crypto.
 
 ## Consequences
-- **+** Tiny, fast, auditable; no supply-chain risk from wormguard itself.
-- **+** Tunable noise floor fits real CI pipelines.
-- **−** Regex heuristics on command strings can miss heavily obfuscated payloads or over-match unusual
-  but benign scripts; mitigated by severity tiers, the allowlist, and the diff-first philosophy.
-- **−** npm-lockfile-first; pnpm/yarn/bun metadata parsing is roadmap (their *scripts* are already
-  covered by the package-manager-agnostic `node_modules` scan).
+
+- **+** Lockfile parsing is now correct across npm v1/v2/v3, pnpm v6/v7/v9,
+  yarn classic, yarn berry, and bun.lock — by reusing the same code the
+  package managers themselves ship.
+- **+** AST analysis is real, not regex pattern matching.
+- **+** Cryptographic verification of sigstore bundles is delegated to
+  the same library npm uses for `npm publish --provenance`.
+- **−** Larger install footprint (~99 transitive packages at devtime,
+  much of which is dev-only TypeScript types). The total runtime
+  dependency tree is small and audit-tractable; we accept the trade.
+- **−** We now have a supply-chain dependency on these packages. We
+  reduce the risk by pinning to specific minor versions in
+  `package.json` and by including the dependency review in our own CI.

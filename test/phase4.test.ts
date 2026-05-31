@@ -28,7 +28,7 @@ describe("AC4.2 typosquat", () => {
 describe("AC4.3 integrity/registry policy", () => {
   const rec = (p: Partial<PackageRecord>): PackageRecord => ({
     name: "p", version: "1.0.0", resolved: "https://registry.npmjs.org/p/-/p-1.0.0.tgz",
-    integrity: "sha512-A", registryHost: "registry.npmjs.org", hasInstallScript: false, dev: false, ...p,
+    integrity: "sha512-A", registryHost: "registry.npmjs.org", hasInstallScript: false, dev: false, packageManager: "npm", ...p,
   });
   test("flags http, unknown registry, missing integrity", () => {
     const f = policyFindings([

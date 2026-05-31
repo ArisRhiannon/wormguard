@@ -1,0 +1,11 @@
+{
+  "pkg": "sigstore",
+  "version": "3.1.0",
+  "integrity": "sha512-ZpzWAFHIFqyFE56dXqgX/DkDRZdz+rRcjoIk/RQU4IX0wiCv1l8S7ZrXDHcCc+uaf+6o7w3h2l3g6GYG5TKN9Q==",
+  "signatures": [
+    {
+      "sig": "MEUCIQCCs7f3ZfBv/GAQbS2bwYKkP7qA+YhEXPVcTlRrP88JHAIgaWJxIIvEupPr1wB3i15BqqC768dquUTCaFcnxxMfK+I=",
+      "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+    }
+  ]
+}

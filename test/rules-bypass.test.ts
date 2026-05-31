@@ -1,7 +1,7 @@
 import { test, expect, describe } from "bun:test";
 import { analyzeScripts, type InstalledPackage } from "../src/index";
 
-const pkg = (name: string, scripts: Record<string, string>): InstalledPackage => ({ name, dir: `/x/${name}`, scripts });
+const pkg = (name: string, scripts: Record<string, string>): InstalledPackage => ({ name, dir: `/x/${name}`, scripts, layout: "npm" });
 const has = (f: { ruleId: string }[], id: string) => f.some((x) => x.ruleId === id);
 
 describe("SEC2/SEC3 evasion coverage", () => {

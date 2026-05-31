@@ -5,7 +5,7 @@ const rec = (name: string, p: Partial<PackageRecord> = {}): PackageRecord => ({
   name, version: "1.0.0",
   resolved: "https://registry.npmjs.org/x/-/x-1.0.0.tgz",
   integrity: "sha512-A", registryHost: "registry.npmjs.org",
-  hasInstallScript: false, dev: false, ...p,
+  hasInstallScript: false, dev: false, packageManager: "npm", ...p,
 });
 
 const base = () => snapshot([rec("a"), rec("b")]);

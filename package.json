@@ -1,30 +1,78 @@
 {
   "name": "wormguard",
-  "version": "0.1.0",
-  "description": "Offline, zero-dependency npm supply-chain auditor. Behavioral + baseline-diff detection of malicious install scripts (Shai-Hulud-style worms) — no network, no account, no CVE database.",
+  "version": "1.0.0-rc.2",
+  "description": "Offline AST-grade npm/pnpm/yarn/bun supply-chain auditor. Real JavaScript AST analysis with taint approximation, IoC corpus matching, sigstore provenance verification, and baseline diffing — designed as defense-in-depth alongside LavaMoat/Socket/osv-scanner, not a replacement.",
   "type": "module",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "author": "Aris Rhiannon",
   "homepage": "https://github.com/ArisRhiannon/wormguard#readme",
   "repository": { "type": "git", "url": "git+https://github.com/ArisRhiannon/wormguard.git" },
   "bugs": { "url": "https://github.com/ArisRhiannon/wormguard/issues" },
-  "keywords": ["npm", "supply-chain", "security", "malware", "install-script", "lifecycle-script", "typosquat", "lockfile", "audit", "shai-hulud", "devsecops", "offline", "zero-dependency", "ci", "typescript"],
+  "keywords": [
+    "npm",
+    "pnpm",
+    "yarn",
+    "bun",
+    "supply-chain",
+    "security",
+    "ast",
+    "static-analysis",
+    "install-script",
+    "lifecycle-script",
+    "provenance",
+    "sigstore",
+    "ioc",
+    "lockfile",
+    "audit",
+    "devsecops",
+    "ci",
+    "typescript"
+  ],
   "main": "src/index.ts",
   "module": "src/index.ts",
   "types": "src/index.ts",
-  "exports": { ".": "./src/index.ts" },
-  "bin": { "wormguard": "src/cli.ts" },
-  "files": ["src", "data", "docs", "LICENSE", "README.md"],
+  "exports": {
+    ".": "./src/index.ts",
+    "./corpus": "./src/corpus/index.ts"
+  },
+  "bin": {
+    "wormguard": "src/cli.ts"
+  },
+  "files": [
+    "src",
+    "data",
+    "docs",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "test": "bun test",
     "typecheck": "tsc --noEmit",
-    "check": "bun run typecheck && bun test"
+    "check": "bun run typecheck && bun test",
+    "refresh-corpus": "bun run scripts/refresh-corpus.ts",
+    "refresh-top-names": "bun run scripts/refresh-top-names.ts",
+    "refresh-allowlist": "bun run scripts/populate-allowlist.ts"
   },
-  "engines": { "bun": ">=1.1.0", "node": ">=20" },
-  "dependencies": {},
+  "engines": {
+    "bun": ">=1.1.0",
+    "node": ">=20"
+  },
+  "dependencies": {
+    "acorn": "^8.14.0",
+    "acorn-walk": "^8.3.4",
+    "shell-quote": "^1.8.2",
+    "ssri": "^12.0.0",
+    "yaml": "^2.7.0",
+    "@yarnpkg/lockfile": "^1.1.0",
+    "sigstore": "^3.1.0"
+  },
   "devDependencies": {
     "@types/bun": "^1.1.0",
     "@types/node": "^22.0.0",
+    "@types/shell-quote": "^1.7.5",
+    "@types/ssri": "^7.1.5",
+    "@types/yarnpkg__lockfile": "^1.1.9",
     "typescript": "^5.6.0"
   }
 }
