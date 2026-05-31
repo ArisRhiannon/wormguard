@@ -21,6 +21,7 @@ import { loadConfig } from "./config";
 import { snapshot, serializeBaseline, parseBaseline, diff } from "./baseline";
 import { scanNodeModules } from "./inventory";
 import { corpusStats } from "./corpus/iocs";
+import { emitAllowScripts, emitAllowScriptsJson } from "./emit-allow-scripts";
 
 function die(msg: string, code = 1): never {
   console.error(msg);
@@ -38,6 +39,13 @@ usage:
   wormguard refresh
       Refresh the bundled IoC corpus from the GHSA type=malware feed
       (the only network-touching subcommand; honors GITHUB_TOKEN).
+  wormguard emit-allow-scripts [dir] [--out FILE] [--config FILE]
+      Generate a LavaMoat-compatible allowScripts JSON object. Default
+      deny: only packages whose lifecycle scripts match a known-good
+      fingerprint in the bundled allowlist (or in user-supplied
+      scriptFingerprints) are allowed. Output goes to stdout, or to
+      FILE when --out is given. Embed the result in your package.json
+      under "lavamoat.allowScripts".
   wormguard help
 flags:
   --json                machine-readable output
@@ -198,6 +206,26 @@ switch (cmd) {
     }
     const result = spawnSync("bun", ["run", populator], { stdio: "inherit", env: process.env });
     process.exit(result.status ?? 1);
+  }
+  case "emit-allow-scripts": {
+    if (!existsSync(dir)) die(`no such directory: ${dir}`);
+    const cfgRes = loadConfig(dir, { configPath, trustRepoConfig });
+    const installed = scanNodeModules(dir);
+    const result = emitAllowScripts(installed, {
+      ...(cfgRes.config.scriptFingerprints ? { scriptFingerprints: cfgRes.config.scriptFingerprints } : {}),
+    });
+    const json = emitAllowScriptsJson(result);
+    if (out) {
+      writeFileSync(out, json + "\n");
+      const denied = result.rationale.filter((r) => !r.allow).length;
+      const allowed = result.rationale.filter((r) => r.allow).length;
+      console.log(`wormguard: wrote ${out} (${allowed} allowed, ${denied} denied)`);
+      console.log(`# embed under "lavamoat" key in package.json:`);
+      console.log(`#   "lavamoat": { "allowScripts": <contents of ${out}> }`);
+    } else {
+      console.log(json);
+    }
+    process.exit(0);
   }
   case "help":
   case "--help":

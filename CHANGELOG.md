@@ -103,7 +103,41 @@ short: this is not a sandbox, not a CVE scanner, not a SaaS behavioral
 monitor, and cannot deobfuscate arbitrary JavaScript beyond one layer of
 constant folding + base64.
 
-## [1.0.0-rc.4] — 2026-05-31
+## [1.0.0-rc.5] — 2026-05-31
+
+### Added
+
+- **`WG-NO-PREVENTION-LAYER`** (low) advisory: when a lockfile is
+  detected (project actually installs deps) but no install-time
+  prevention layer is configured. Detected layers:
+  `@lavamoat/allow-scripts` in dependencies (or `lavamoat.allowScripts`
+  in `package.json`), `ignore-scripts=true` in `.npmrc` or
+  `npmrc.json`, `enableScripts: false` in `.yarnrc.yml`, or
+  pnpm `onlyBuiltDependencies` in `package.json`. wormguard reports
+  findings; a complete defense in depth requires a prevention layer.
+- **`wormguard emit-allow-scripts [dir] [--out FILE]`** subcommand.
+  One-shot config bridge from wormguard's bundled script-fingerprint
+  allowlist to LavaMoat's `lavamoat.allowScripts` schema. Default
+  deny: only packages whose lifecycle scripts match a known-good
+  fingerprint (or a user-supplied `scriptFingerprints` entry) become
+  `allow: true`. Drift on a known package becomes `allow: false`
+  (the worm-injection signal carries through). Output goes to stdout
+  by default, or to `--out FILE`.
+
+### Changed
+
+- README §Roadmap: out-of-scope clarified — wormguard does NOT plan
+  to integrate with LavaMoat at the runtime level. They coexist
+  cleanly as separate layers (LavaMoat = prevention, wormguard =
+  detection + config bridge).
+
+### Tests
+
+216 pass, 0 fail. 12 new tests covering the prevention-layer detector
+(7 layer combinations) and the emit-allow-scripts bridge (5 cases
+including drift-as-deny).
+
+
 
 Closes red-team P1 (AST evasions) and P2 (FP / robustness) findings.
 

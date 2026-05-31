@@ -140,6 +140,13 @@ wormguard audit . --ci              # exit non-zero on a worm-shaped diff
 
 # 3) Refresh the bundled IoC corpus (the ONLY network-touching command)
 GITHUB_TOKEN=…  wormguard refresh   # or: bun run refresh-corpus
+
+# 4) Emit a LavaMoat-compatible allowScripts JSON (config bridge)
+wormguard emit-allow-scripts .              # prints to stdout
+wormguard emit-allow-scripts . --out a.json # write to file
+# Then embed under "lavamoat.allowScripts" in package.json and install
+# @lavamoat/allow-scripts. wormguard's known-good fingerprints become
+# allow:true; everything else defaults to deny.
 ```
 
 Drop `wormguard scan . --ci` into your pipeline right after `npm ci` /
@@ -260,6 +267,7 @@ notice.
 | WG-PROVENANCE-NO-ATTESTATION | low | registry-signed but no `npm publish --provenance` attestation |
 | WG-PROVENANCE-EXPIRED-KEY | low | registry signature verifies, but the signing key has since expired |
 | WG-PROVENANCE-NO-KEYS | medium | bundled npm registry public keys are unavailable; cannot verify |
+| WG-NO-PREVENTION-LAYER | low | a lockfile is present (project installs deps) but no install-time prevention layer is configured (`@lavamoat/allow-scripts`, `ignore-scripts=true` in `.npmrc`, `enableScripts: false` in `.yarnrc.yml`, or pnpm `onlyBuiltDependencies`). wormguard reports findings; you also need a prevention layer to block. |
 | WG-CONFIG-IN-REPO-IGNORED | low | found `.wormguard.json` in the scanned tree but ignoring it (default trust model) |
 | WG-CONFIG-MISSING | medium | `--config FILE` or `WORMGUARD_CONFIG` was supplied but the file is missing or invalid |
 | WG-YARN-PNP-NO-NODE-MODULES | medium | yarn-berry lockfile present but no `node_modules` (PnP mode) |
@@ -362,13 +370,24 @@ integrity/registry policy, CLI + JSON + CI codes.
 
 Roadmap:
 
-- Sigstore bundle auto-discovery from local npm cache.
+- Sigstore bundle auto-discovery from the local npm cache (`~/.npm/_cacache/`).
 - Optional online enrichment (`wormguard scan --online` to fetch
-  attestations from the registry and verify them in-line).
-- Bigger curated allowlist (community-driven).
-- Bigger curated IoC corpus (community-driven).
-- pnpm/yarn `hasInstallScript` extraction (currently filled in by the
-  node_modules walker; we can read it from each PM's metadata too).
+  attestations from the registry and verify them in-line; today,
+  bundles must be supplied to `verifyBundle` explicitly).
+- Bigger curated script-fingerprint allowlist (community PRs).
+- Bigger curated IoC corpus refresh on a CI schedule.
+- pnpm/yarn `hasInstallScript` extraction directly from each lockfile's
+  metadata (today, the field is filled in by the node_modules walker).
+
+Out of scope (not on the roadmap, by design):
+
+- Runtime sandboxing or blocking: that is the job of
+  [`@lavamoat/allow-scripts`](https://github.com/LavaMoat/LavaMoat/tree/main/packages/allow-scripts)
+  / `npm install --ignore-scripts`. wormguard reports; your CI gate +
+  prevention layer block. We **do not** plan to integrate with
+  LavaMoat at the runtime level — they coexist cleanly without it.
+  See [`wormguard emit-allow-scripts`](#cli) below for a one-shot
+  config bridge.
 
 ## License
 

@@ -23,6 +23,7 @@ import { provenanceContextFromLockEntry, provenanceFindings, verifyRegistrySigna
 import type { WormguardConfig, ScriptAllowlistEntry } from "./config";
 import { scriptSha256 } from "./corpus/allowlist";
 import { iocFuzzyFindings } from "./corpus/iocs-fuzzy";
+import { preventionLayerCheck } from "./prevention";
 
 export interface ScanResult {
   findings: Finding[];
@@ -196,6 +197,10 @@ export function scan(dir: string, cfg: WormguardConfig = {}): ScanResult {
     }),
     ...provenanceForNpm(dir, inv),
     ...yarnPnpAdvisory(dir, lockfilesUsed),
+    ...(() => {
+      const r = preventionLayerCheck(dir, lockfilesUsed.length > 0);
+      return r.finding ? [r.finding] : [];
+    })(),
   ];
   const findings = sortFindings(dedupe(applyConfig(raw, cfg, scriptHashes)));
   return { findings, counts: countBySeverity(findings), lockfilesUsed };
