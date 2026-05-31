@@ -10,7 +10,7 @@
 //   refresh                                                 update the bundled IoC corpus from GHSA (only network call)
 //   help
 
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync, renameSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -148,7 +148,13 @@ switch (cmd) {
     const inv = inventoryOf(dir);
     const installed = scanNodeModules(dir);
     const base = snapshot(inv, installed);
-    writeFileSync(file, serializeBaseline(base));
+    // Atomic write (red-team M3): write to a temp file in the same directory
+    // then renameSync to the final path. This avoids a partial-file race when
+    // multiple `wormguard snapshot` invocations run concurrently, and prevents
+    // a reader from observing a half-written baseline.
+    const tmp = `${file}.${process.pid}.${Date.now()}.tmp`;
+    writeFileSync(tmp, serializeBaseline(base));
+    renameSync(tmp, file);
     console.log(
       `wormguard: baseline v2 written to ${file} (${Object.keys(base.packages).length} packages, ${
         Object.values(base.packages).filter((p) => typeof p.scriptsHash === "string").length

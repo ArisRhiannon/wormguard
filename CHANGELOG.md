@@ -103,7 +103,63 @@ short: this is not a sandbox, not a CVE scanner, not a SaaS behavioral
 monitor, and cannot deobfuscate arbitrary JavaScript beyond one layer of
 constant folding + base64.
 
-## [1.0.0-rc.3] — 2026-05-31
+## [1.0.0-rc.4] — 2026-05-31
+
+Closes red-team P1 (AST evasions) and P2 (FP / robustness) findings.
+
+### P1 — 18 AST evasions closed
+
+The red-team identified 18 patterns that bypassed the v1 AST analyzer. The
+analyzer is now a two-pass walker: pass 1 collects aliases (`const r =
+require`), pass 2 detects sinks consulting that alias table.
+
+New / improved detections:
+
+- `(0, eval)('...')` SequenceExpression with eval-alias tail (H1)
+- `globalThis.eval` / `globalThis.Function` / `global.eval` direct (H2)
+- Function constructor via prototype chain `({}).constructor.constructor` and `[].constructor.constructor`, both as alias init RHS and as direct call site (H3, H4)
+- Alias propagation through `const r = require`, `const r = globalThis.require`, `const F = Function` etc. — every call to a known-alias is now treated as the underlying primitive (H5, H6)
+- `Reflect.apply(eval, null, [...])` (H7)
+- `eval.call/apply/bind(...)`, `globalThis.eval.call(...)`, `globalThis.fetch.call(...)` and any chain ending in `.call|.apply|.bind` rooted at an eval/fetch alias (H8, H16)
+- `import('https')` and `import('htt'+'ps')` dynamic ESM with constant folding (H9, H10, H11)
+- `new Worker(src, {eval:true})` — both the Worker call and the inline source are scanned (H12)
+- `process.binding('http_parser')` (H13)
+- `process.dlopen({...}, '/path/to.so')` native shared object load (H14)
+- `module.constructor._load('child_process').exec(...)` — Node's internal `_load` is a documented worm technique and is now treated identically to `require` (H15)
+- `process[String.fromCharCode(0x65, 0x6e, 0x76)]` — computed property where the key folds to "env" (H18)
+
+`foldString` now folds numeric `String.fromCharCode(...)` arguments and
+`memberPath` canonicalizes through `SequenceExpression` and
+`ParenthesizedExpression`. 22 dedicated tests in
+`test/ast-evasions-h1-h18.test.ts`.
+
+### P2 — Robustness fixes
+
+- **M1 worm-propagate rule**: a lifecycle script that writes to
+  `package.json` AND invokes `npm publish` (directly or via
+  `execSync('npm publish ...')` / `spawnSync('npm', ['publish', ...])`)
+  emits `WG-WORM-PROPAGATE` (critical). This is the canonical
+  Shai-Hulud-style self-propagation primitive and was previously only
+  flagged as `medium` `child-process` + `medium` `fs-write-outside`.
+- **M2 typosquat length floor**: short legitimate names (`ms`, `fs`,
+  `os`, etc.) no longer flag `WG-TYPOSQUAT`. The new rule requires
+  name length ≥ 4 for distance-1 firing and ≥ 6 for distance-2.
+  `lodaash` (length 7, distance 1 of `lodash`) still flags.
+- **M3 atomic baseline writes**: `wormguard snapshot` writes via a
+  temp-file in the same directory, then `renameSync` to the final
+  path. Concurrent snapshot invocations no longer leave a baseline
+  file half-written.
+- **M4 TOCTOU narrowing**: `detectLockfiles` returns the file content
+  alongside the path. Callers no longer re-read; the second-read
+  race window is closed.
+- **M5 NUL byte sanitization**: `snip()` (used for evidence strings)
+  escapes NUL and ASCII control characters as `\0` / `\x07` etc. so
+  malicious package.json entries with embedded control chars don't
+  produce broken JSON consumers or terminal-corruption artifacts.
+
+204 pass, 0 fail. TS strict clean.
+
+
 
 Self-imposed red-team pass. Four CRITICAL design issues found, fixed,
 and tested.

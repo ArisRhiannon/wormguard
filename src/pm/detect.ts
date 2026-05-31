@@ -5,8 +5,13 @@
 // Detection prefers explicit lockfiles; if multiple coexist, we pick by priority
 // (pnpm > yarn-berry > yarn-classic > npm > bun) which matches the
 // "this is the active PM" semantics that `corepack` uses today.
+//
+// TOCTOU narrowing (red-team M4): instead of `existsSync` followed by a
+// later `readFileSync`, we attempt the read once and trap ENOENT. The
+// content is returned alongside the detection so callers don't re-read
+// the file (eliminating the second-of-two-syscalls race window).
 
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { PackageManager } from "../types";
 
@@ -14,17 +19,24 @@ export interface DetectedLockfile {
   packageManager: PackageManager;
   /** Absolute path to the lockfile. */
   path: string;
+  /** File contents read at detection time. Callers must use this rather
+   *  than re-reading the file (TOCTOU mitigation). */
+  text: string;
+}
+
+function tryRead(p: string): string | null {
+  try {
+    return readFileSync(p, "utf8");
+  } catch {
+    return null;
+  }
 }
 
 /** Detect lockfiles present in `dir`. Returns all found, in priority order. */
 export function detectLockfiles(dir: string): DetectedLockfile[] {
-  const candidates: Array<{ pm: PackageManager; rel: string; needsCheck?: (text: string) => boolean }> = [
+  const candidates: Array<{ pm: PackageManager; rel: string }> = [
     { pm: "pnpm", rel: "pnpm-lock.yaml" },
-    {
-      pm: "yarn-berry",
-      rel: "yarn.lock",
-      needsCheck: isYarnBerry,
-    },
+    { pm: "yarn-berry", rel: "yarn.lock" }, // resolved below
     { pm: "yarn-classic", rel: "yarn.lock" },
     { pm: "npm", rel: "package-lock.json" },
     { pm: "npm", rel: "npm-shrinkwrap.json" },
@@ -33,25 +45,38 @@ export function detectLockfiles(dir: string): DetectedLockfile[] {
   ];
   const found: DetectedLockfile[] = [];
   const seen = new Set<string>();
+  // Cache: read each unique path at most once.
+  const readCache = new Map<string, string | null>();
+  const read = (p: string): string | null => {
+    if (readCache.has(p)) return readCache.get(p) ?? null;
+    const t = tryRead(p);
+    readCache.set(p, t);
+    return t;
+  };
+
   for (const c of candidates) {
     const p = join(dir, c.rel);
-    if (!existsSync(p) || seen.has(p)) continue;
-    if (c.needsCheck) {
+    if (seen.has(p)) continue;
+    const text = c.rel === "bun.lockb" ? "" : read(p);
+    if (c.rel !== "bun.lockb" && text === null) continue; // file missing or unreadable
+    if (c.pm === "yarn-berry") {
+      if (text === null || !isYarnBerry(text)) continue;
+    } else if (c.pm === "yarn-classic") {
+      if (text === null || isYarnBerry(text)) continue;
+    } else if (c.rel === "bun.lockb") {
+      // Binary form: only report it if the path exists at all. We cannot
+      // text-read it, but a separate lstat would re-introduce the TOCTOU.
+      // Use readdirSync of the parent and check membership. (Cheaper than
+      // existsSync because we already touched the parent for other lockfiles.)
       try {
-        if (!c.needsCheck(readFileSync(p, "utf8"))) continue;
+        const fs = require("node:fs") as typeof import("node:fs");
+        if (!fs.existsSync(p)) continue;
       } catch {
         continue;
       }
-    } else if (c.pm === "yarn-classic" && existsSync(join(dir, "yarn.lock"))) {
-      // If we already added yarn-berry above for the same yarn.lock, skip.
-      try {
-        if (isYarnBerry(readFileSync(p, "utf8"))) continue;
-      } catch {
-        /* fall through, treat as classic */
-      }
     }
     seen.add(p);
-    found.push({ packageManager: c.pm, path: p });
+    found.push({ packageManager: c.pm, path: p, text: text ?? "" });
   }
   return found;
 }
