@@ -49,7 +49,7 @@ describe("provenance: lockfile entry inspection", () => {
 
 describe("provenance: bundle verification", () => {
   test("a bogus bundle returns a critical finding (does not throw)", async () => {
-    const f = await verifyBundle("foo", { fake: "bundle" }, Buffer.from("payload"));
+    const f = await verifyBundle("foo", { fake: "bundle" }, Buffer.from("payload"), { timeoutMs: 500 });
     expect(f).not.toBeNull();
     expect(f?.severity).toBe("critical");
     expect(f?.ruleId).toBe("WG-PROVENANCE-INVALID");

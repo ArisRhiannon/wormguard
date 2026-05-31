@@ -209,12 +209,18 @@ export function verifyRegistrySignature(
  * resolve that hint against the bundled npm registry keys and pass the
  * resolved key to sigstore-js as a key selector.
  *
+ * The verify call is bounded by `timeoutMs` (default 4000ms). sigstore-js
+ * may block on TUF metadata fetches for trust-root verification; we treat
+ * a timeout as verification failure rather than letting the caller hang.
+ *
  * Returns null on success, or a Finding describing the failure. */
 export async function verifyBundle(
   pkg: string,
   bundleJson: unknown,
   payload: Buffer,
+  opts: { timeoutMs?: number } = {},
 ): Promise<Finding | null> {
+  const timeoutMs = opts.timeoutMs ?? 4000;
   // Pull out the hint, if any.
   const hint = (() => {
     try {
@@ -231,7 +237,6 @@ export async function verifyBundle(
   if (hint) {
     const keyEntry = keys.get(hint);
     if (keyEntry) {
-      // sigstore-js wants a PEM-encoded public key string.
       const der = Buffer.from(keyEntry.key, "base64");
       const pem = createPublicKey({ key: der, format: "der", type: "spki" }).export({
         format: "pem",
@@ -241,21 +246,36 @@ export async function verifyBundle(
       keySelector = (h: string) => (h === hint ? pemString : null);
     }
   }
-  try {
-    if (keySelector) {
-      await sigstoreVerify(bundleJson as never, payload, { keySelector } as never);
-    } else {
-      await sigstoreVerify(bundleJson as never, payload);
+  const work: Promise<Finding | null> = (async () => {
+    try {
+      if (keySelector) {
+        await sigstoreVerify(bundleJson as never, payload, { keySelector } as never);
+      } else {
+        await sigstoreVerify(bundleJson as never, payload);
+      }
+      return null;
+    } catch (err) {
+      return {
+        ruleId: "WG-PROVENANCE-INVALID",
+        severity: "critical",
+        pkg,
+        message: `sigstore provenance verification failed: ${(err as Error).message}`,
+      };
     }
-    return null;
-  } catch (err) {
-    return {
-      ruleId: "WG-PROVENANCE-INVALID",
-      severity: "critical",
-      pkg,
-      message: `sigstore provenance verification failed: ${(err as Error).message}`,
-    };
-  }
+  })();
+  const timeout: Promise<Finding> = new Promise((resolve) => {
+    setTimeout(
+      () =>
+        resolve({
+          ruleId: "WG-PROVENANCE-INVALID",
+          severity: "critical",
+          pkg,
+          message: `sigstore provenance verification timed out after ${timeoutMs}ms (TUF/network unavailable)`,
+        }),
+      timeoutMs,
+    ).unref?.();
+  });
+  return Promise.race([work, timeout]);
 }
 
 /** Convenience: also expose a sha256 helper on the provenance namespace
