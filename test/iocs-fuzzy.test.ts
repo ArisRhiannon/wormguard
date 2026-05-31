@@ -18,18 +18,18 @@ describe("IoC fuzzy matching (against confirmed-malicious names)", () => {
     expect(iocFuzzyFindings([sample])).toEqual([]); // covered by WG-IOC-NAME
   });
 
-  test("emits WG-IOC-NEAR (high) for a name 1 edit from a malicious entry", () => {
+  test("emits WG-IOC-NEAR (medium) for a name 1 edit from a malicious entry", () => {
     if (!existsSync("data/iocs.json")) return;
     resetIocFuzzyCache();
     const corpus = JSON.parse(readFileSync("data/iocs.json", "utf8")) as { names: string[] };
-    // Pick a corpus name and mutate one character.
-    const sample = corpus.names.find((n) => n.length > 4 && /^[a-z0-9-_]+$/.test(n)) ?? corpus.names[0];
+    // Pick a corpus name ≥5 chars (the WG-IOC-NEAR length floor) and mutate one char.
+    const sample = corpus.names.find((n) => n.length >= 5 && /^[a-z0-9-_]+$/.test(n)) ?? corpus.names[0];
     if (typeof sample !== "string") return;
     const mutated = sample.slice(0, -1) + (sample.slice(-1) === "x" ? "y" : "x");
     const f = iocFuzzyFindings([mutated]);
     expect(f.length).toBe(1);
     expect(f[0]?.ruleId).toBe("WG-IOC-NEAR");
-    expect(f[0]?.severity).toBe("high");
+    expect(f[0]?.severity).toBe("medium");
     expect(f[0]?.message).toContain(sample);
   });
 

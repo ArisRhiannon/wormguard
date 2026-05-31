@@ -81,6 +81,11 @@ export function iocFuzzyFindings(names: string[]): Finding[] {
     const name = raw.toLowerCase();
     if (exact.has(name)) continue; // already covered by WG-IOC-NAME
     if (POPULAR.has(name)) continue; // legitimate popular package: typosquats targeting IT will be in the corpus, not the other way around.
+    // Length floor (FP benchmark, docs/false-positive-baseline.md): in a 23k-name
+    // corpus the distance-1 neighbourhood of a short name is dense, so legit short
+    // packages (fdir, levn, etag, rc, ini, ...) collide with malicious entries.
+    // Require ≥5 chars; the exact matcher (WG-IOC-NAME) still covers short names.
+    if (name.length < 5) continue;
     if (seen.has(name)) continue;
     seen.add(name);
     const lens = [name.length - 1, name.length, name.length + 1];
@@ -101,9 +106,14 @@ export function iocFuzzyFindings(names: string[]): Finding[] {
     if (bestNeighbor) {
       out.push({
         ruleId: "WG-IOC-NEAR",
-        severity: "high",
+        // medium, not high: this is a fuzzy proximity heuristic (name is *near*
+        // a malicious name), not a confirmed indicator. The exact match
+        // (WG-IOC-NAME) remains critical. Empirically (FP baseline) the
+        // distance-1 neighbourhood still catches legit mid-tier packages
+        // (color-support ~ colors-support), so this must not gate CI as high.
+        severity: "medium",
         pkg: raw,
-        message: `name is 1 edit from a confirmed-malicious npm package "${bestNeighbor}" (likely typosquat of a known-malicious package)`,
+        message: `name is 1 edit from a confirmed-malicious npm package "${bestNeighbor}" (possible typosquat of a known-malicious package — verify this dependency is intentional)`,
       });
     }
   }

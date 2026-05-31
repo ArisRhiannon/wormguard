@@ -30,6 +30,12 @@ export function typosquatFindings(names: string[], popular: string[] = TOP_NAMES
     if (name.length < 4) continue;
     let best: { p: string; d: number } | null = null;
     for (const p of popular) {
+      // Target-length floor: ultra-short popular names (npm, ms, fs, rc, pg) have
+      // dense distance-1 neighbourhoods of legitimate packages (nypm, pathe→path
+      // handled elsewhere) and are rarely typosquat *targets* in practice. Skipping
+      // them removes a class of false positives without losing real detection
+      // (attackers typosquat long recognisable names: react, lodash, webpack…).
+      if (p.length < 4) continue;
       if (Math.abs(p.length - name.length) > maxDist) continue;
       const d = editDistance(name, p);
       if (d >= 1 && d <= maxDist && (!best || d < best.d)) best = { p, d };

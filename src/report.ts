@@ -187,7 +187,12 @@ export function scan(dir: string, cfg: WormguardConfig = {}): ScanResult {
   const names = [...new Set([...inv.map((r) => r.name), ...installed.map((p) => p.name)])];
   const raw: Finding[] = [
     ...ast.findings,
-    ...typosquatFindings(names),
+    // maxDist=1 only: empirical FP benchmark (docs/false-positive-baseline.md)
+    // showed the distance-2 tier produced only false positives on a 662-package
+    // tree of popular deps (effect~expect, esquery~jquery, exsolve~resolve, ...)
+    // with zero true positives. Real typosquats are overwhelmingly single-edit.
+    // The library function still supports maxDist=2 for explicit/aggressive callers.
+    ...typosquatFindings(names, undefined, 1),
     ...iocFuzzyFindings(names),
     ...policyFindings(inv, {
       ...(cfg.allowedHosts ? { allowedHosts: cfg.allowedHosts } : {}),
