@@ -183,8 +183,10 @@ export function analyzeInstalledAst(
   };
 
   for (const p of installed) {
-    // 1. IoC name match — applies regardless of lifecycle scripts.
-    const iocName = matchPackageName(p.name);
+    // 1. IoC name match — applies regardless of lifecycle scripts. We pass
+    //    the installed version so the matcher can verify against the
+    //    advisory's vulnerable_version_range.
+    const iocName = matchPackageName(p.name, p.version);
     if (iocName) push(iocName);
 
     const entries = Object.entries(p.scripts) as Array<["preinstall" | "install" | "postinstall" | "prepare", string]>;

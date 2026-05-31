@@ -49,9 +49,22 @@ describe("provenance: lockfile entry inspection", () => {
 
 describe("provenance: bundle verification", () => {
   test("a bogus bundle returns a critical finding (does not throw)", async () => {
-    const f = await verifyBundle("foo", { fake: "bundle" }, Buffer.from("payload"), { timeoutMs: 500 });
+    const f = await verifyBundle("foo", { fake: "bundle" }, Buffer.from("payload"), {
+      timeoutMs: 500,
+      expectedSubjectName: "pkg:npm/foo@1.0.0",
+    });
     expect(f).not.toBeNull();
     expect(f?.severity).toBe("critical");
     expect(f?.ruleId).toBe("WG-PROVENANCE-INVALID");
+  });
+
+  test("missing expectedSubjectName refuses to verify (confused-deputy guard, red-team C4)", async () => {
+    const f = await verifyBundle("foo", {}, Buffer.from("payload"), {
+      timeoutMs: 500,
+      expectedSubjectName: "",
+    });
+    expect(f?.ruleId).toBe("WG-PROVENANCE-INVALID");
+    expect(f?.severity).toBe("critical");
+    expect(f?.message?.toLowerCase()).toContain("confused deputy");
   });
 });

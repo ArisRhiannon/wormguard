@@ -1,13 +1,18 @@
 {
   "name": "wormguard",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "description": "Offline AST-grade npm/pnpm/yarn/bun supply-chain auditor. Real JavaScript AST analysis with taint approximation, IoC corpus matching, sigstore provenance verification, and baseline diffing — designed as defense-in-depth alongside LavaMoat/Socket/osv-scanner, not a replacement.",
   "type": "module",
   "license": "MIT",
   "author": "Aris Rhiannon",
   "homepage": "https://github.com/ArisRhiannon/wormguard#readme",
-  "repository": { "type": "git", "url": "git+https://github.com/ArisRhiannon/wormguard.git" },
-  "bugs": { "url": "https://github.com/ArisRhiannon/wormguard/issues" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArisRhiannon/wormguard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ArisRhiannon/wormguard/issues"
+  },
   "keywords": [
     "npm",
     "pnpm",
@@ -59,17 +64,19 @@
     "node": ">=20"
   },
   "dependencies": {
+    "@yarnpkg/lockfile": "^1.1.0",
     "acorn": "^8.14.0",
     "acorn-walk": "^8.3.4",
+    "semver": "^7",
     "shell-quote": "^1.8.2",
+    "sigstore": "^3.1.0",
     "ssri": "^12.0.0",
-    "yaml": "^2.7.0",
-    "@yarnpkg/lockfile": "^1.1.0",
-    "sigstore": "^3.1.0"
+    "yaml": "^2.7.0"
   },
   "devDependencies": {
     "@types/bun": "^1.1.0",
     "@types/node": "^22.0.0",
+    "@types/semver": "^7",
     "@types/shell-quote": "^1.7.5",
     "@types/ssri": "^7.1.5",
     "@types/yarnpkg__lockfile": "^1.1.9",

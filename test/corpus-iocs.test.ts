@@ -16,22 +16,49 @@ describe("IoC corpus matcher", () => {
     expect(s.size).toBeGreaterThan(100);
   });
 
-  test("matches a known-malicious package name (GHSA seed)", () => {
-    // Pull one entry from the bundled corpus to make this test stable.
-    const path = (require as unknown as { resolve(s: string): string }).resolve
-      ? // ts-node-ish — fall back to absolute
-        ""
-      : "";
-    void path;
-    // We avoid hardcoding a name (corpus refreshes) by reading one from disk.
+  test("matches a known-malicious package name + version (concrete advisory range)", () => {
     const fs = require("node:fs") as typeof import("node:fs");
-    const corpus = JSON.parse(fs.readFileSync("data/iocs.json", "utf8")) as { names: string[] };
+    const corpus = JSON.parse(fs.readFileSync("data/iocs.json", "utf8")) as {
+      names: string[];
+      ranges: Record<string, string[]>;
+    };
     expect(corpus.names.length).toBeGreaterThan(0);
-    const sample = corpus.names[0]!;
-    const f = matchPackageName(sample);
+    // Find an entry with a concrete (non-catch-all) range so we can prove the
+    // version-aware matcher fires critical.
+    let pkg: string | null = null;
+    let badVersion: string | null = null;
+    for (const [name, ranges] of Object.entries(corpus.ranges)) {
+      const concrete = (ranges as string[]).filter((r) => r.replace(/\s+/g, "") !== ">=0");
+      if (concrete.length === 0) continue;
+      // "= 1.2.3" → 1.2.3
+      const m = (concrete[0] as string).match(/=\s*([0-9][^\s]*)/);
+      if (m) {
+        pkg = name;
+        badVersion = m[1] as string;
+        break;
+      }
+    }
+    if (!pkg || !badVersion) return; // corpus has no concrete ranges (unlikely)
+    const f = matchPackageName(pkg, badVersion);
     expect(f).not.toBeNull();
     expect(f?.ruleId).toBe("WG-IOC-NAME");
     expect(f?.severity).toBe("critical");
+  });
+
+  test("a recovered version of a once-compromised package is NOT flagged critical", () => {
+    // ansi-regex was compromised at 6.2.1; 6.3.0 is clean.
+    const f = matchPackageName("ansi-regex", "6.3.0");
+    if (f) expect(f.ruleId).not.toBe("WG-IOC-NAME"); // no critical
+  });
+
+  test("name-only match (no version) returns WG-IOC-NAME-LEGACY medium", () => {
+    const fs = require("node:fs") as typeof import("node:fs");
+    const corpus = JSON.parse(fs.readFileSync("data/iocs.json", "utf8")) as { names: string[] };
+    const sample = corpus.names[0]!;
+    const f = matchPackageName(sample);
+    expect(f).not.toBeNull();
+    expect(f?.ruleId).toBe("WG-IOC-NAME-LEGACY");
+    expect(f?.severity).toBe("medium");
   });
 
   test("does not match a benign package name", () => {

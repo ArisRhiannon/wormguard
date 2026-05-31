@@ -29,6 +29,7 @@ const inst = (name: string, scripts: Record<string, string>): InstalledPackage =
   dir: `/x/${name}`,
   scripts,
   layout: "npm",
+  version: "1.0.0",
 });
 
 describe("baseline v2", () => {

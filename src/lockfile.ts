@@ -39,21 +39,39 @@ function fromPackages(packages: Record<string, any>): PackageRecord[] {
 }
 
 function fromDependencies(deps: Record<string, any>, out: Map<string, PackageRecord>): void {
-  for (const [name, info] of Object.entries(deps)) {
-    if (!info || typeof info !== "object") continue;
-    const version: string = typeof info.version === "string" ? info.version : "";
-    const resolved: string | null = typeof info.resolved === "string" ? info.resolved : null;
-    out.set(`${name}@${version}`, {
-      name,
-      version,
-      resolved,
-      integrity: typeof info.integrity === "string" ? info.integrity : null,
-      registryHost: hostOf(resolved),
-      hasInstallScript: false, // not available in legacy lockfiles
-      dev: info.dev === true,
-      packageManager: "npm",
-    });
-    if (info.dependencies && typeof info.dependencies === "object") fromDependencies(info.dependencies, out);
+  // Iterative breadth-first walk with a hard depth bound. The recursive
+  // version was vulnerable to RangeError stack overflow on hostile lockfiles
+  // with deeply nested `dependencies` trees (red-team finding C3). The
+  // depth bound also doubles as a sanity check: legitimate npm v1 lockfiles
+  // do not exceed ~50-100 levels even on the largest monorepos.
+  const MAX_DEPTH = 256;
+  interface Frame { node: Record<string, any>; depth: number }
+  const stack: Frame[] = [{ node: deps, depth: 0 }];
+  while (stack.length > 0) {
+    const frame = stack.pop() as Frame;
+    if (frame.depth > MAX_DEPTH) {
+      throw new WormguardError(
+        `lockfile dependencies tree exceeds ${MAX_DEPTH} levels of nesting; refusing to walk further (possible DoS or pathologically nested lockfile)`,
+      );
+    }
+    for (const [name, info] of Object.entries(frame.node)) {
+      if (!info || typeof info !== "object") continue;
+      const version: string = typeof info.version === "string" ? info.version : "";
+      const resolved: string | null = typeof info.resolved === "string" ? info.resolved : null;
+      out.set(`${name}@${version}`, {
+        name,
+        version,
+        resolved,
+        integrity: typeof info.integrity === "string" ? info.integrity : null,
+        registryHost: hostOf(resolved),
+        hasInstallScript: false,
+        dev: info.dev === true,
+        packageManager: "npm",
+      });
+      if (info.dependencies && typeof info.dependencies === "object") {
+        stack.push({ node: info.dependencies, depth: frame.depth + 1 });
+      }
+    }
   }
 }
 

@@ -31,6 +31,8 @@ import type { LifecycleScripts } from "./types";
 
 export interface InstalledPackage {
   name: string;
+  /** Resolved version from package.json, or "" when missing/non-string. */
+  version: string;
   /** Real (resolved) directory of the package. */
   dir: string;
   scripts: LifecycleScripts;
@@ -40,10 +42,10 @@ export interface InstalledPackage {
 
 const LIFECYCLE = ["preinstall", "install", "postinstall", "prepare"] as const;
 
-function readScripts(dir: string): { name: string; scripts: LifecycleScripts } | null {
+function readScripts(dir: string): { name: string; version: string; scripts: LifecycleScripts } | null {
   const pj = join(dir, "package.json");
   if (!existsSync(pj)) return null;
-  let json: { name?: unknown; scripts?: Record<string, unknown> };
+  let json: { name?: unknown; version?: unknown; scripts?: Record<string, unknown> };
   try {
     json = JSON.parse(readFileSync(pj, "utf8"));
   } catch {
@@ -56,7 +58,8 @@ function readScripts(dir: string): { name: string; scripts: LifecycleScripts } |
     if (typeof v === "string") scripts[k] = v;
   }
   const name = typeof json.name === "string" ? json.name : basename(dir);
-  return { name, scripts };
+  const version = typeof json.version === "string" ? json.version : "";
+  return { name, version, scripts };
 }
 
 function safeReaddir(dir: string): string[] {
@@ -158,7 +161,7 @@ export function scanNodeModules(root: string): InstalledPackage[] {
   for (const v of visits) {
     const meta = readScripts(v.dir);
     if (!meta) continue;
-    out.push({ name: meta.name, dir: v.dir, scripts: meta.scripts, layout: v.layout });
+    out.push({ name: meta.name, version: meta.version, dir: v.dir, scripts: meta.scripts, layout: v.layout });
   }
   // Final dedupe by name+real-dir so we do not report the same package twice
   // when it is reachable via both the symlinked surface and the .pnpm store.

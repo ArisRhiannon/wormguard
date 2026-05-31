@@ -1,48 +1,63 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 Aris Rhiannon
 //
-// Indicator-of-Compromise matcher.
+// Indicator-of-Compromise matcher (v2: version-range aware).
 //
-// Loads `data/iocs.json` (built by scripts/refresh-corpus.ts from the public
-// GitHub Advisory Database `type=malware` feed) and exposes:
+// Loads `data/iocs.json` (built by scripts/refresh-corpus.ts from the
+// public GitHub Advisory Database `type=malware` feed) and exposes:
 //
-//   matchPackageName(name)  -> Finding | null   (exact name match against the
-//                                                23k+ confirmed malicious npm
-//                                                packages from GHSA)
-//   matchScriptHash(sha256) -> Finding | null   (sha256 of a known-malicious
-//                                                lifecycle script body)
-//   matchDomains(text)      -> string[]         (C2/exfil hostnames found
-//                                                anywhere in the script text)
-//   matchWallets(text)      -> string[]         (crypto wallet addresses found
-//                                                in the script text)
+//   matchPackageName(name, version?)
+//     - if `version` is supplied AND the corpus has at least one concrete
+//       SemVer range for the package, only fires WG-IOC-NAME when the
+//       supplied version satisfies one of the affected ranges. This is
+//       the fix for the false-positive on legitimately-recovered
+//       packages (red-team finding C2): ansi-regex@6.2.1 was malicious;
+//       ansi-regex@6.3.0 is clean. The previous schema flagged the
+//       whole package permanently.
+//     - if `version` is NOT supplied, falls back to name-only match
+//       (legacy v1 behavior, only safe for callers that have already
+//       reasoned about ranges).
 //
-// The corpus is bundled, so the matcher works fully offline. The corpus is
-// updated by `bun run refresh-corpus` (the only network-touching code path
-// in the project).
+// All version comparisons are delegated to the `semver` package
+// (the same one npm uses internally).
 
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import semverSatisfies from "semver/functions/satisfies";
+import semverValid from "semver/functions/valid";
+import semverCoerce from "semver/functions/coerce";
 import type { Finding } from "../types";
 
-interface IocCorpus {
-  version: number;
-  fetchedAt: string;
-  sources: { ghsa: { count: number; lastIso: string } };
-  names: string[];
-  scriptSha256: string[];
-  domains: string[];
-  wallets: string[];
+interface IocCorpusV1 {
+  version: 1;
+  fetchedAt?: string;
+  names?: string[];
+  scriptSha256?: string[];
+  domains?: string[];
+  wallets?: string[];
 }
+interface IocCorpusV2 {
+  version: 2;
+  fetchedAt?: string;
+  names?: string[];
+  ranges?: Record<string, string[]>;
+  scriptSha256?: string[];
+  domains?: string[];
+  wallets?: string[];
+}
+type IocCorpus = IocCorpusV1 | IocCorpusV2;
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-// data/iocs.json sits two levels up from src/corpus/iocs.ts
 const CORPUS_PATH = join(HERE, "..", "..", "data", "iocs.json");
 
 interface PreparedCorpus {
+  /** Lowercased package names present in the corpus. Used for membership. */
   names: Set<string>;
+  /** Lowercased package name -> array of vulnerable_version_range strings. */
+  ranges: Map<string, string[]>;
   scriptSha256: Set<string>;
-  domains: string[]; // kept ordered by length desc for substring matching
+  domains: string[];
   wallets: Set<string>;
   fetchedAt: string;
   size: number;
@@ -53,6 +68,7 @@ let cached: PreparedCorpus | null = null;
 function emptyCorpus(): PreparedCorpus {
   return {
     names: new Set(),
+    ranges: new Map(),
     scriptSha256: new Set(),
     domains: [],
     wallets: new Set(),
@@ -74,17 +90,26 @@ function loadCorpus(): PreparedCorpus {
     cached = emptyCorpus();
     return cached;
   }
+  const names = new Set<string>(Array.isArray(json.names) ? json.names.map((n) => n.toLowerCase()) : []);
+  const ranges = new Map<string, string[]>();
+  if (json.version === 2 && json.ranges && typeof json.ranges === "object") {
+    for (const [name, arr] of Object.entries(json.ranges)) {
+      if (!Array.isArray(arr)) continue;
+      const lc = name.toLowerCase();
+      ranges.set(lc, arr.filter((s): s is string => typeof s === "string"));
+      names.add(lc);
+    }
+  }
   cached = {
-    names: new Set(Array.isArray(json.names) ? json.names.map((n) => n.toLowerCase()) : []),
+    names,
+    ranges,
     scriptSha256: new Set(
       Array.isArray(json.scriptSha256) ? json.scriptSha256.map((h) => h.toLowerCase()) : [],
     ),
-    domains: Array.isArray(json.domains)
-      ? [...json.domains].sort((a, b) => b.length - a.length)
-      : [],
+    domains: Array.isArray(json.domains) ? [...json.domains].sort((a, b) => b.length - a.length) : [],
     wallets: new Set(Array.isArray(json.wallets) ? json.wallets : []),
     fetchedAt: typeof json.fetchedAt === "string" ? json.fetchedAt : "",
-    size: Array.isArray(json.names) ? json.names.length : 0,
+    size: names.size,
   };
   return cached;
 }
@@ -95,21 +120,91 @@ export function resetCorpusCache(): void {
 }
 
 /** Return summary metadata about the loaded corpus. */
-export function corpusStats(): { fetchedAt: string; size: number } {
+export function corpusStats(): { fetchedAt: string; size: number; rangedCount: number } {
   const c = loadCorpus();
-  return { fetchedAt: c.fetchedAt, size: c.size };
+  return { fetchedAt: c.fetchedAt, size: c.size, rangedCount: c.ranges.size };
 }
 
-/** Match an npm package name against the IoC corpus (case-insensitive exact match). */
-export function matchPackageName(name: string): Finding | null {
+/**
+ * Test whether a given version is inside any of `ranges`. We support:
+ *   - SemVer range strings like "= 1.2.3", ">= 0", ">=1.0.0 <2.0.0"
+ *     (semver.satisfies handles these directly).
+ *   - The catch-all ">= 0" is treated as "no narrower information"; we
+ *     don't fire a critical finding on its sole basis.
+ */
+function versionInsideRanges(version: string, ranges: string[]): {
+  inside: boolean;
+  matchedRange: string | null;
+  onlyCatchAll: boolean;
+} {
+  const v = semverValid(version) ?? semverValid(semverCoerce(version) ?? "");
+  if (!v) {
+    // We can't compare; do not claim a hit on an unparseable version. Fall
+    // back to "uncertain" so the caller can downgrade the finding instead
+    // of emitting a critical false positive.
+    return { inside: false, matchedRange: null, onlyCatchAll: false };
+  }
+  const concrete = ranges.filter((r) => r.replace(/\s+/g, "") !== ">=0");
+  const onlyCatchAll = concrete.length === 0 && ranges.length > 0;
+  for (const range of concrete) {
+    try {
+      if (semverSatisfies(v, range, { includePrerelease: true })) {
+        return { inside: true, matchedRange: range, onlyCatchAll: false };
+      }
+    } catch {
+      /* skip unparseable range */
+    }
+  }
+  return { inside: false, matchedRange: null, onlyCatchAll };
+}
+
+/**
+ * Match an npm package name (and optionally version) against the IoC corpus.
+ *
+ * Behavior:
+ *
+ * - If `version` is supplied and the corpus has at least one concrete
+ *   range for `name`, fire `WG-IOC-NAME` (critical) ONLY when the version
+ *   intersects one of those ranges. Versions outside any concrete range
+ *   yield null (not a false positive).
+ * - If the corpus has only the catch-all ">= 0" range for `name`, OR no
+ *   range at all, AND a version was supplied, fire `WG-IOC-NAME-LEGACY`
+ *   (medium) instead — telling the operator the package was historically
+ *   compromised but the corpus has no version information to confirm
+ *   the installed version is affected.
+ * - If `version` is NOT supplied, fall back to legacy v1 name-only match
+ *   (medium severity, since we cannot rule out a since-recovered version).
+ */
+export function matchPackageName(name: string, version?: string): Finding | null {
   const c = loadCorpus();
-  if (c.names.has(name.toLowerCase())) {
+  const lc = name.toLowerCase();
+  if (!c.names.has(lc)) return null;
+  const ranges = c.ranges.get(lc) ?? [];
+  if (typeof version !== "string" || version.length === 0) {
+    // No version info from the caller. Stay conservative.
+    return {
+      ruleId: "WG-IOC-NAME-LEGACY",
+      severity: "medium",
+      pkg: name,
+      message:
+        "package name appears in the GitHub Advisory Database malware list, but version information was not supplied by the lockfile (cannot verify installed version is the affected one)",
+    };
+  }
+  const r = versionInsideRanges(version, ranges);
+  if (r.inside) {
     return {
       ruleId: "WG-IOC-NAME",
       severity: "critical",
       pkg: name,
-      message:
-        "package name appears in the GitHub Advisory Database malware list (confirmed malicious npm package)",
+      message: `package version ${version} is in a confirmed-malicious range "${r.matchedRange}" from the GitHub Advisory Database (malware advisory)`,
+    };
+  }
+  if (ranges.length === 0 || r.onlyCatchAll) {
+    return {
+      ruleId: "WG-IOC-NAME-LEGACY",
+      severity: "medium",
+      pkg: name,
+      message: `package name appears in the GitHub Advisory Database malware list with only a catch-all range; installed version ${version} cannot be confirmed inside the affected window. Treat as historical advisory.`,
     };
   }
   return null;

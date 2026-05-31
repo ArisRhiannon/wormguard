@@ -202,24 +202,42 @@ export function verifyRegistrySignature(
 // Sigstore bundle verification (npm publish --provenance)
 // ---------------------------------------------------------------------------
 
-/** Run sigstore-js verification on a user-supplied bundle + payload.
+/** Run sigstore-js verification on a user-supplied bundle + payload, AND
+ *  bind the bundle's DSSE statement to the expected package identity.
  *
- * For npm-style provenance bundles the bundle uses the "public key" mode
- * (`verificationMaterial.publicKey.hint` referencing a SHA256 keyid). We
- * resolve that hint against the bundled npm registry keys and pass the
- * resolved key to sigstore-js as a key selector.
+ *  Red-team C4 fix: previously `verifyBundle(pkg, bundleJson, payload)`
+ *  only verified the cryptographic signature over the payload bytes. It
+ *  did not check that the bundle's `subject[].name` matched `pkg@version`
+ *  nor that the bundle's `subject[].digest.sha512` matched the integrity
+ *  we expected. That made the API a confused deputy: an attacker could
+ *  present a valid bundle for a package they control as if it were a
+ *  bundle for the victim package.
  *
- * The verify call is bounded by `timeoutMs` (default 4000ms). sigstore-js
- * may block on TUF metadata fetches for trust-root verification; we treat
- * a timeout as verification failure rather than letting the caller hang.
+ *  Required fields:
+ *    `expectedSubjectName`  e.g. "pkg:npm/lodash@4.17.21"
+ *    `expectedDigest`       hex sha512 of the tarball, OR null to skip the
+ *                           digest cross-check (only safe when the caller
+ *                           already verified the digest separately).
  *
- * Returns null on success, or a Finding describing the failure. */
+ *  Returns null on success, or a Finding describing the failure. */
 export async function verifyBundle(
   pkg: string,
   bundleJson: unknown,
   payload: Buffer,
-  opts: { timeoutMs?: number } = {},
+  opts: {
+    timeoutMs?: number;
+    expectedSubjectName: string;
+    expectedDigest?: string | null;
+  },
 ): Promise<Finding | null> {
+  if (typeof opts.expectedSubjectName !== "string" || opts.expectedSubjectName.length === 0) {
+    return {
+      ruleId: "WG-PROVENANCE-INVALID",
+      severity: "critical",
+      pkg,
+      message: "verifyBundle called without expectedSubjectName; refusing to verify (would be a confused deputy)",
+    };
+  }
   const timeoutMs = opts.timeoutMs ?? 4000;
   // Pull out the hint, if any.
   const hint = (() => {
@@ -253,7 +271,6 @@ export async function verifyBundle(
       } else {
         await sigstoreVerify(bundleJson as never, payload);
       }
-      return null;
     } catch (err) {
       return {
         ruleId: "WG-PROVENANCE-INVALID",
@@ -262,6 +279,57 @@ export async function verifyBundle(
         message: `sigstore provenance verification failed: ${(err as Error).message}`,
       };
     }
+    // Cryptographic verification succeeded. Now bind the bundle's DSSE
+    // statement to the package identity we expect.
+    try {
+      const env = (bundleJson as { dsseEnvelope?: { payload?: string }; messageSignature?: unknown })?.dsseEnvelope;
+      if (!env || typeof env.payload !== "string") {
+        // Some bundles use messageSignature instead of dsseEnvelope. In that
+        // case the bundle does not contain a subject statement and we cannot
+        // bind it to a package identity at all.
+        return {
+          ruleId: "WG-PROVENANCE-INVALID",
+          severity: "critical",
+          pkg,
+          message:
+            "sigstore bundle has no DSSE envelope; cannot verify package identity binding (bundle must be a build-provenance attestation)",
+        };
+      }
+      const stmtJson = Buffer.from(env.payload, "base64").toString("utf8");
+      const stmt = JSON.parse(stmtJson) as {
+        subject?: Array<{ name?: string; digest?: Record<string, string> }>;
+      };
+      const subjects = Array.isArray(stmt.subject) ? stmt.subject : [];
+      const subjMatch = subjects.find((s) => typeof s.name === "string" && s.name === opts.expectedSubjectName);
+      if (!subjMatch) {
+        return {
+          ruleId: "WG-PROVENANCE-INVALID",
+          severity: "critical",
+          pkg,
+          message: `sigstore bundle subject does not include "${opts.expectedSubjectName}"; bundle is for a different package (cross-package replay rejected). Subjects in bundle: ${subjects.map((s) => s.name ?? "<unknown>").slice(0, 3).join(", ")}`,
+        };
+      }
+      if (typeof opts.expectedDigest === "string") {
+        const want = opts.expectedDigest.toLowerCase();
+        const got = (subjMatch.digest?.sha512 ?? subjMatch.digest?.sha256 ?? "").toLowerCase();
+        if (!got || got !== want) {
+          return {
+            ruleId: "WG-PROVENANCE-INVALID",
+            severity: "critical",
+            pkg,
+            message: `sigstore bundle subject digest does not match expected payload digest (want ${want.slice(0, 16)}…, got ${got.slice(0, 16) || "<empty>"}…). Bundle may be valid for a different artifact bytes.`,
+          };
+        }
+      }
+    } catch (err) {
+      return {
+        ruleId: "WG-PROVENANCE-INVALID",
+        severity: "critical",
+        pkg,
+        message: `sigstore bundle subject parsing failed: ${(err as Error).message}`,
+      };
+    }
+    return null;
   })();
   const timeout: Promise<Finding> = new Promise((resolve) => {
     setTimeout(
