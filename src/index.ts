@@ -4,3 +4,7 @@ export * from "./inventory";
 export * from "./rules";
 export * from "./analyze";
 export * from "./baseline";
+export * from "./distance";
+export * from "./top-names";
+export * from "./typosquat";
+export * from "./policy";
