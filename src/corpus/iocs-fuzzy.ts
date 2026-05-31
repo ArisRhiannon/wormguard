@@ -21,14 +21,12 @@
 import { editDistance } from "../distance";
 import { TOP_NAMES } from "../top-names";
 import { readFileSync, existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { resolveDataPath } from "../data-path";
 import type { Finding } from "../types";
 
 const POPULAR = new Set(TOP_NAMES.map((n) => n.toLowerCase()));
 
-const HERE = dirname(fileURLToPath(import.meta.url));
-const CORPUS_PATH = join(HERE, "..", "..", "data", "iocs.json");
+const CORPUS_PATH = resolveDataPath(import.meta.url, "iocs.json");
 
 let bucketed: Map<number, string[]> | null = null;
 let exactSet: Set<string> | null = null;

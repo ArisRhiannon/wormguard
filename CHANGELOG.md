@@ -4,6 +4,80 @@ All notable changes to wormguard are documented here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.0] — 2026-05-31
+
+First stable release. Cumulative summary of every change since v0:
+
+- AST-grade analyzer (acorn + acorn-walk) with two-pass alias propagation
+  and constant folding. Closes 17 of the 18 documented red-team
+  evasions including indirect eval, alias-of-builtin, dynamic ESM
+  import, Function-ctor via prototype chain, `process.binding`/`dlopen`,
+  `module.constructor._load`, `Reflect.apply(eval)`,
+  `globalThis.fetch.call`, `Worker({eval:true})`, and computed
+  `process[String.fromCharCode(...)]` access.
+- Source-to-sink taint approximation that escalates AST hits one
+  severity rung when an `env-read`/`secret-path`/`crypto-key-read`
+  flows into a `network`/`fetch`/`child-process`/`shell-pipe` sink.
+- Multi-package-manager lockfile parsing: npm v1/v2/v3 (iterative,
+  depth-bounded), pnpm v6/v7/v9 with packages+snapshots merge, yarn
+  classic via `@yarnpkg/lockfile`, yarn berry via `yaml`, and
+  bun.lock JSONC.
+- Multi-layout inventory walker covering flat `node_modules`, scoped
+  packages, npm v2 nested layouts, and pnpm
+  `node_modules/.pnpm/<id>/node_modules/<pkg>` (with symlink
+  following and real-path deduplication).
+- Offline IoC corpus from the GitHub Advisory Database
+  (`type=malware`) with **per-advisory `vulnerable_version_range`**.
+  `WG-IOC-NAME` (critical) only fires when the installed version
+  intersects an affected range; outside of that range we fall back to
+  `WG-IOC-NAME-LEGACY` (medium) advisory. Ends the false-positive
+  storm on packages with one historically-compromised version
+  (ansi-regex, chalk, strip-ansi, etc).
+- `WG-IOC-NEAR` (high) for typosquats *of confirmed-malicious names*
+  (Damerau-Levenshtein distance 1 against the GHSA corpus, length
+  filtered).
+- Script-fingerprint allowlist (`data/script-allowlist.json`) of 59
+  curated packages and 193 known-good lifecycle-script body sha256s.
+  Drift on a known package emits `WG-SCRIPT-FINGERPRINT-DRIFT`
+  (critical) — the exact worm-injection signature.
+- Real cryptographic verification of npm registry signatures using
+  the bundled `data/npm-registry-keys.json` and Node's
+  `node:crypto` ECDSA P-256. Real DSSE-statement-binding sigstore
+  bundle verification (closes the cross-package confused-deputy).
+- `WG-WORM-PROPAGATE` (critical) detects the canonical
+  Shai-Hulud-style self-propagation primitive (write to
+  `package.json` + `npm publish`).
+- Configuration trust model: in-repo `.wormguard.json` is **ignored
+  by default**. Config loads from `--config FILE` or
+  `WORMGUARD_CONFIG` env (CI-controlled). `--trust-repo-config`
+  opts back in for local dev. Closes the trivial config-injection
+  bypass.
+- `WG-NO-PREVENTION-LAYER` (low) advisory when the project has no
+  install-time prevention layer (`@lavamoat/allow-scripts`,
+  `ignore-scripts=true` in `.npmrc`, `enableScripts: false` in
+  `.yarnrc.yml`, or pnpm `onlyBuiltDependencies`).
+- `wormguard emit-allow-scripts` subcommand: a one-shot config
+  bridge from wormguard's bundled fingerprint allowlist to
+  LavaMoat's `lavamoat.allowScripts` schema. Default deny; drift
+  on a known package becomes `false`.
+- Atomic baseline writes (tmpfile + rename); TOCTOU-narrowed
+  lockfile detection; NUL/control-byte sanitization in evidence.
+- Built and shipped as `dist/` ESM with TypeScript declarations,
+  source maps, and a node-shebang CLI entry. License: MIT.
+- 216 tests across 25 files. TS strict
+  (`exactOptionalPropertyTypes`, `noUncheckedIndexedAccess`) clean.
+- Dependencies: `acorn`, `acorn-walk`, `shell-quote`, `ssri`,
+  `yaml`, `@yarnpkg/lockfile`, `sigstore`, `semver`. All from
+  official ecosystem maintainers.
+
+The 1.0.0 release closes every CRITICAL and HIGH finding from two
+rounds of self-imposed red-team review, and one external review
+(the original 8-point critique). Limitations are documented
+explicitly in README §"Limits and bypasses" — wormguard is a
+detection layer, not a sandbox; it complements but does not replace
+`@lavamoat/allow-scripts`, `osv-scanner`, or SaaS behavioral
+monitors.
+
 ## [1.0.0-rc.1] — 2026-05-31
 
 This release is a near-total rewrite of v0 in response to a hard external

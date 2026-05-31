@@ -26,9 +26,9 @@
 // a bundle file or fetched payload, can verify it offline-after-fetch.
 
 import { existsSync, readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { join } from "node:path";
 import { createPublicKey, createVerify, createHash } from "node:crypto";
-import { fileURLToPath } from "node:url";
+import { resolveDataPath } from "../data-path";
 import { verify as sigstoreVerify } from "sigstore";
 import type { Finding } from "../types";
 
@@ -94,8 +94,7 @@ interface NpmRegistryKey {
   key: string;
 }
 
-const HERE = dirname(fileURLToPath(import.meta.url));
-const REGISTRY_KEYS_PATH = join(HERE, "..", "..", "data", "npm-registry-keys.json");
+const REGISTRY_KEYS_PATH = resolveDataPath(import.meta.url, "npm-registry-keys.json");
 
 let cachedRegistryKeys: Map<string, NpmRegistryKey> | null = null;
 function loadRegistryKeys(): Map<string, NpmRegistryKey> {

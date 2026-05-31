@@ -1,18 +1,13 @@
 {
   "name": "wormguard",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.0",
   "description": "Offline AST-grade npm/pnpm/yarn/bun supply-chain auditor. Real JavaScript AST analysis with taint approximation, IoC corpus matching, sigstore provenance verification, and baseline diffing — designed as defense-in-depth alongside LavaMoat/Socket/osv-scanner, not a replacement.",
   "type": "module",
   "license": "MIT",
   "author": "Aris Rhiannon",
   "homepage": "https://github.com/ArisRhiannon/wormguard#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ArisRhiannon/wormguard.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ArisRhiannon/wormguard/issues"
-  },
+  "repository": { "type": "git", "url": "git+https://github.com/ArisRhiannon/wormguard.git" },
+  "bugs": { "url": "https://github.com/ArisRhiannon/wormguard/issues" },
   "keywords": [
     "npm",
     "pnpm",
@@ -33,53 +28,61 @@
     "ci",
     "typescript"
   ],
-  "main": "src/index.ts",
-  "module": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./corpus": "./src/corpus/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./corpus": {
+      "types": "./dist/corpus/index.d.ts",
+      "import": "./dist/corpus/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "bin": {
-    "wormguard": "src/cli.ts"
+    "wormguard": "dist/cli.js"
   },
   "files": [
-    "src",
+    "dist",
     "data",
-    "docs",
     "LICENSE",
     "README.md",
     "CHANGELOG.md"
   ],
   "scripts": {
+    "build": "tsup",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "check": "bun run typecheck && bun test",
+    "prepublishOnly": "bun run check && bun run build",
     "refresh-corpus": "bun run scripts/refresh-corpus.ts",
     "refresh-top-names": "bun run scripts/refresh-top-names.ts",
     "refresh-allowlist": "bun run scripts/populate-allowlist.ts"
   },
   "engines": {
-    "bun": ">=1.1.0",
     "node": ">=20"
   },
   "dependencies": {
-    "@yarnpkg/lockfile": "^1.1.0",
     "acorn": "^8.14.0",
     "acorn-walk": "^8.3.4",
-    "semver": "^7",
     "shell-quote": "^1.8.2",
-    "sigstore": "^3.1.0",
     "ssri": "^12.0.0",
-    "yaml": "^2.7.0"
+    "yaml": "^2.7.0",
+    "@yarnpkg/lockfile": "^1.1.0",
+    "sigstore": "^3.1.0",
+    "semver": "^7.6.0"
   },
   "devDependencies": {
     "@types/bun": "^1.1.0",
     "@types/node": "^22.0.0",
-    "@types/semver": "^7",
+    "@types/semver": "^7.7.1",
     "@types/shell-quote": "^1.7.5",
     "@types/ssri": "^7.1.5",
     "@types/yarnpkg__lockfile": "^1.1.9",
+    "tsup": "^8.5.0",
     "typescript": "^5.6.0"
   }
 }
