@@ -43,6 +43,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: npm publish
         if: inputs.dry_run != true
-        run: npm publish --access public --provenance
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "wormguard@${VERSION}" version >/dev/null 2>&1; then
+            echo "wormguard@${VERSION} is already on the registry; skipping publish (idempotent)."
+          else
+            npm publish --access public --provenance
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
