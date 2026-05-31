@@ -64,7 +64,8 @@ severity that respects the false-positive cost of native build packages.
 6. **Battle-tested dependencies.** Lockfile parsing uses the official
    ecosystem libraries (`@yarnpkg/lockfile`, `yaml` for pnpm/berry).
    Cryptography is delegated entirely to `sigstore-js` and `ssri`.
-7. **No AI.** Pure heuristics, AST, and hash matching.
+7. **Deterministic.** Pure heuristics, AST, and hash matching — identical
+   inputs always produce identical findings.
 
 ## Measurable success criteria (v1.0)
 
@@ -123,7 +124,8 @@ registry policy; granular config; CLI + JSON + CI codes; ≥120 tests.
 - Full deobfuscation of arbitrary JS / complete data-flow analysis
   (best-effort; we fold one layer of concat + base64 and approximate
   taint).
-- Any AI/ML.
+- Learned or statistical detection models (every rule here is hand-written
+  and deterministic).
 
 ## Definition of done
 

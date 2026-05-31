@@ -359,7 +359,7 @@ It does **not** catch:
 
 ## How verification works (and what does NOT happen)
 
-The 154 tests are committed at `test/*.test.ts` and are reproducible by any
+The 216 tests are committed at `test/*.test.ts` and are reproducible by any
 clone with `bun test`. The CI workflow runs them on Ubuntu and macOS on
 every push/PR. Real-world fixtures used by the cryptographic-verification
 tests (`test/fixtures/provenance/sigstore-3.1.0.json`,
@@ -367,11 +367,7 @@ tests (`test/fixtures/provenance/sigstore-3.1.0.json`,
 captured from the public npm registry — anyone can re-fetch them and
 diff to confirm they have not been tampered with.
 
-There is **no AI self-validation** in this project. Earlier drafts of the
-repository contained an automated "validator" report produced by the same
-agent that wrote the code; that file was deleted in v1 because an
-automated validator validating itself is not independent in any useful
-sense. The current verification surface is:
+Verification rests entirely on artifacts you can run and inspect yourself:
 
 1. The committed test suite (`bun test`).
 2. The committed real-world fixtures used by the cryptographic
