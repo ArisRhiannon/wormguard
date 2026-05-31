@@ -6,7 +6,6 @@
 // produced the lockfile. The original npm parser is retained for backward
 // compatibility.
 
-import { readFileSync } from "node:fs";
 import { type PackageRecord } from "../types";
 import { detectLockfiles } from "./detect";
 import { parseLockfile as parseNpm } from "../lockfile";
@@ -20,7 +19,8 @@ export interface InventoryResult {
   lockfilesUsed: Array<{ packageManager: string; path: string }>;
 }
 
-/** Load inventory from `dir`, picking the right parser per detected lockfile. */
+/** Load inventory from `dir`, picking the right parser per detected lockfile.
+ *  TOCTOU-narrow: we use the text returned by detectLockfiles, not a re-read. */
 export function inventoryFromLockfiles(dir: string): InventoryResult {
   const found = detectLockfiles(dir);
   const all = new Map<string, PackageRecord>();
@@ -28,32 +28,29 @@ export function inventoryFromLockfiles(dir: string): InventoryResult {
   for (const f of found) {
     let recs: PackageRecord[] = [];
     try {
-      const text = readFileSync(f.path, "utf8");
       switch (f.packageManager) {
         case "npm":
-          recs = parseNpm(text);
+          recs = parseNpm(f.text);
           break;
         case "pnpm":
-          recs = parsePnpmLockfile(text);
+          recs = parsePnpmLockfile(f.text);
           break;
         case "yarn-classic":
-          recs = parseYarnClassicLockfile(text);
+          recs = parseYarnClassicLockfile(f.text);
           break;
         case "yarn-berry":
-          recs = parseYarnBerryLockfile(text);
+          recs = parseYarnBerryLockfile(f.text);
           break;
         case "bun":
-          recs = parseBunLockfile(text, f.path.endsWith(".lockb"));
+          recs = parseBunLockfile(f.text, f.path.endsWith(".lockb"));
           break;
       }
     } catch {
-      // Bad lockfile — record we tried and move on.
       continue;
     }
     used.push({ packageManager: f.packageManager, path: f.path });
     for (const r of recs) {
       const k = `${r.name}@${r.version}`;
-      // First lockfile wins (priority order from detectLockfiles).
       if (!all.has(k)) all.set(k, r);
     }
   }

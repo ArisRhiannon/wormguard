@@ -70,6 +70,7 @@ export type AstCategory =
   | "crypto-key-read" /* crypto.createPrivateKey, fs.readFile of *.pem etc */
   | "shell-pipe" /* exec("... | sh") in raw string */
   | "string-concat-eval" /* string concatenation feeding eval/Function */
+  | "worm-propagate" /* writes to package.json + invokes npm publish (self-propagation primitive) */
   | "import-meta-resolve" /* dynamic import.meta.resolve in install context */;
 
 export interface AstHit {

@@ -101,6 +101,12 @@ const AST_RULE: Record<string, { id: string; severity: Severity; message: string
     severity: "medium",
     message: "uses import.meta.resolve dynamically during install",
   },
+  "worm-propagate": {
+    id: "WG-WORM-PROPAGATE",
+    severity: "critical",
+    message:
+      "self-propagation primitive: lifecycle script writes to package.json AND invokes `npm publish` (canonical Shai-Hulud-style worm pattern). This is independent of any other finding.",
+  },
 };
 
 const SHELL_RULE: Record<string, { id: string; severity: Severity; message: string }> = {

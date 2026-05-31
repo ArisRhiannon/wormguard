@@ -222,6 +222,7 @@ notice.
 | id | severity | meaning |
 |----|----------|---------|
 | WG-IOC-NAME | critical | package version is in a confirmed-malicious range from the GHSA `type=malware` corpus |
+| WG-WORM-PROPAGATE | critical | lifecycle script writes to `package.json` AND invokes `npm publish` (Shai-Hulud-style self-propagation primitive) |
 | WG-IOC-NAME-LEGACY | medium | package name is in the GHSA corpus but the installed version cannot be confirmed inside the affected range (or no version was supplied) |
 | WG-IOC-NEAR | high | package name is 1 edit from a confirmed-malicious npm package (likely typosquat *of* a known-malicious package) |
 | WG-IOC-SCRIPT-HASH | critical | sha256 of a lifecycle script body matches a known-malicious fingerprint |
