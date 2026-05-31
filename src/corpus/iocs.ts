@@ -22,12 +22,9 @@
 // (the same one npm uses internally).
 
 import { readFileSync, existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
-import semverSatisfies from "semver/functions/satisfies";
-import semverValid from "semver/functions/valid";
-import semverCoerce from "semver/functions/coerce";
+import semver from "semver";
 import type { Finding } from "../types";
+import { resolveDataPath } from "../data-path";
 
 interface IocCorpusV1 {
   version: 1;
@@ -48,8 +45,7 @@ interface IocCorpusV2 {
 }
 type IocCorpus = IocCorpusV1 | IocCorpusV2;
 
-const HERE = dirname(fileURLToPath(import.meta.url));
-const CORPUS_PATH = join(HERE, "..", "..", "data", "iocs.json");
+const CORPUS_PATH = resolveDataPath(import.meta.url, "iocs.json");
 
 interface PreparedCorpus {
   /** Lowercased package names present in the corpus. Used for membership. */
@@ -137,7 +133,7 @@ function versionInsideRanges(version: string, ranges: string[]): {
   matchedRange: string | null;
   onlyCatchAll: boolean;
 } {
-  const v = semverValid(version) ?? semverValid(semverCoerce(version) ?? "");
+  const v = semver.valid(version) ?? semver.valid(semver.coerce(version) ?? "");
   if (!v) {
     // We can't compare; do not claim a hit on an unparseable version. Fall
     // back to "uncertain" so the caller can downgrade the finding instead
@@ -148,7 +144,7 @@ function versionInsideRanges(version: string, ranges: string[]): {
   const onlyCatchAll = concrete.length === 0 && ranges.length > 0;
   for (const range of concrete) {
     try {
-      if (semverSatisfies(v, range, { includePrerelease: true })) {
+      if (semver.satisfies(v, range, { includePrerelease: true })) {
         return { inside: true, matchedRange: range, onlyCatchAll: false };
       }
     } catch {

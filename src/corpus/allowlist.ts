@@ -41,8 +41,7 @@
 
 import { createHash } from "node:crypto";
 import { readFileSync, existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { resolveDataPath } from "../data-path";
 import type { Finding } from "../types";
 
 interface AllowlistFile {
@@ -51,8 +50,7 @@ interface AllowlistFile {
   packages: Record<string, string[]>;
 }
 
-const HERE = dirname(fileURLToPath(import.meta.url));
-const ALLOWLIST_PATH = join(HERE, "..", "..", "data", "script-allowlist.json");
+const ALLOWLIST_PATH = resolveDataPath(import.meta.url, "script-allowlist.json");
 
 interface PreparedAllowlist {
   /** name -> Set of accepted sha256 (lowercase hex). */

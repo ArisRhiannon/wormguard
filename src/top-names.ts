@@ -16,11 +16,9 @@
 // installed wormguard without the bundled data file.
 
 import { existsSync, readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { resolveDataPath } from "./data-path";
 
-const HERE = dirname(fileURLToPath(import.meta.url));
-const DATA_PATH = join(HERE, "..", "data", "top-names.json");
+const DATA_PATH = resolveDataPath(import.meta.url, "top-names.json");
 
 const FALLBACK: string[] = [
   "react", "react-dom", "lodash", "express", "axios", "typescript", "vue",
