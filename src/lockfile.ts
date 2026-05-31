@@ -31,6 +31,7 @@ function fromPackages(packages: Record<string, any>): PackageRecord[] {
       registryHost: hostOf(resolved),
       hasInstallScript: entry.hasInstallScript === true,
       dev: entry.dev === true,
+      packageManager: "npm",
     };
     out.set(`${name}@${version}`, rec);
   }
@@ -50,6 +51,7 @@ function fromDependencies(deps: Record<string, any>, out: Map<string, PackageRec
       registryHost: hostOf(resolved),
       hasInstallScript: false, // not available in legacy lockfiles
       dev: info.dev === true,
+      packageManager: "npm",
     });
     if (info.dependencies && typeof info.dependencies === "object") fromDependencies(info.dependencies, out);
   }

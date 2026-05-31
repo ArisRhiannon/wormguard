@@ -1,0 +1,1595 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-31T03:30:16.543Z",
+  "packages": {
+    "esbuild": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "sharp": [
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "da2fa5a750a2503e6c5e31558e8bdc94a1322277285cca81d7556edf6eab2007",
+      "2e25905c79ed586e044c57364c6bb872a6e872535c4571e03aeb745e63fec9b2",
+      "c0c190095c78bb9358304d3ebc6f2aca0a7c6061395f540c9662e9801526df0a",
+      "4a14bb68373a4a7fbe0409178e7b8e1719c1cef84a0a86443277abc917f69eaa",
+      "6cfd8375125371b98f77357e484ade12bca4cf299963c05a6ee9b65af5c05cf9",
+      "a74cfd901bf206229723e2db342848ae11d23d7fca5bf0230c1871db5c697feb"
+    ],
+    "sass-embedded": [
+      "52cb17ea6ad4be7f3b4352bb255e8d99d4d841c2c228f1b99222c13b39febc31"
+    ],
+    "bcrypt": [
+      "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+      "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1"
+    ],
+    "argon2": [
+      "86211242c0f35e782d3b1a1eb7281ccf7bd4be9c6579de3f9b93a6dc8e64d1c5",
+      "bcc460244a432f332cfbbb82116b8375a840283a7d0848780858760e82767067",
+      "bd32817cb6fc27a2664bafe6fe507c92a559cafeb35e00d2440863ef0143ce2b",
+      "748c25de7fd805831559112eb09840186393ec420bd2cc27beee7fdc33278493",
+      "16c0e4305ac213dff39fc82b69b6e08aeeb8758e33cd72d7c409752a70e9f054",
+      "5bb2b2698ed766516ec678f759ef3d146fd96703bb1f5fe5914bc778b7565e80",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1",
+      "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+      "98fb33e3d0a9e234d54789dfc7b8af34e8309bb6a45b1c26dff75272aad32185",
+      "5efcd711594e059d5f738c9068172914c1ad1b85c127a64d476bc81620401192",
+      "47d4923c52e2f86893e7bac14429b90a9e04fa5cb2a200f0715d51a704484dfb"
+    ],
+    "canvas": [
+      "95ccf6417dd790591448d3275dacd285b9b3ebe53c6672af151a0bee838abc7b",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "3847885838908bf6aff551434d686b15dd5054239793a63e1fd74566e5040f54",
+      "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+      "b688715dbe556b21d55a5fb8ca2f461bcfe8f579daca7b51b62b76c87fab623c",
+      "07593c03580777c26805afb4368df6fa4db9f3b81dfcb19479eb8151c24d1877"
+    ],
+    "sqlite3": [
+      "8f4ec494648b0433d4b96d218d1e0354ede548f720c2c0a45f8d15fc4fe38693",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "fb06378354edd97eda7081e36e21e6a83c9a34fc02c9285fd07f5fb87f59146c",
+      "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+      "95822562eadfd127407434a9c830bfe9e560ffb34f20a52e43f66f943d6c402e",
+      "07593c03580777c26805afb4368df6fa4db9f3b81dfcb19479eb8151c24d1877"
+    ],
+    "better-sqlite3": [
+      "180ed4eb10d44964928e914aee1194afacf69a11d9a7c1132511832ae6ebe00f",
+      "74676e9e464b586ebdc3e9c2a77e3fe26d534f60ddd9053bafd11e5b0a9c7cfe"
+    ],
+    "fsevents": [
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "a486452bf414df39a08cd559a9e5e74b1bf50c39dcc4d56f427c16f0921f488e",
+      "11b1e96864ce3b8c7f280a56c6a7fadd8270c826e6e3652eb8e32ffa901feeba",
+      "19b2b977001f039cc679034a52d886c4a20196734a86878eed66d9a536e6edd6"
+    ],
+    "lmdb": [
+      "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1",
+      "e3e46ff274fa091836fbbc67dd6a77cd6b63b55148cace8e31ce151b40592940",
+      "724f19be1ed612a6991ca763c3e8e701ac62427f4460fb1370aa4babd5e1fbb3"
+    ],
+    "robotjs": [
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "5f383d2b5b834b790142a8866302d2300fd7293106a0c52f8e6fdc573c8c2b92",
+      "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+      "f3cfe6609390e1ce660440fb13f0a63073d7f44810ec648f0001167f9b736734"
+    ],
+    "puppeteer": [
+      "b0ea937d008d34db1c32320e92535bc65c31ca0fec3d47027b174ee6362bb786"
+    ],
+    "puppeteer-core": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+      "69ae9590662b6e4f1fc4a4f303681d1523161fb2ccaf413633b0c6c4938b3b82",
+      "3628a5481c3bb3fede2ecfeb6763f01bca83ae2c2f6086bd17b1c2f7ffe479c8",
+      "1b85b4a3545be496dcf7b732760e4f6d70e8b80726a267dd01f720df4bd4e7c9"
+    ],
+    "playwright": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "playwright-core": [
+      "b6a46c342570ff059bc8399eb092e94fa08c923a442cd675694d7fe272f9391d",
+      "59d85878c6346c53c74ad7035a2bcb6c35877f08c61e7c7a746a7d8da5ea0233",
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+      "7fb69a2c83ede96f1582523809a2ab8763c110c7e3f0557a86ca0caad0f49335"
+    ],
+    "playwright-chromium": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "playwright-firefox": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "playwright-webkit": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "electron": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "@electron/rebuild": [
+      "40f2369e2775235b51e7b7f25f6a21f1cc04e11d035bd215ea7b0000a2042082",
+      "16c0e4305ac213dff39fc82b69b6e08aeeb8758e33cd72d7c409752a70e9f054",
+      "efcef32554181a435413e44f2b23fcf3e5e08039c9949b43f6bd847b5cfe53df"
+    ],
+    "cypress": [
+      "e87cca37ae8698bfedcd8bd7186cb218cae4858179bb478303fd4d315c4740c8",
+      "d381a4ae680a8612fbcebbb0ee3ce4d2f9f8375a8263282014a24b29fb6135df",
+      "d4951105d74d2e8a684c155c9ef75e2916c3a6ee3ce58f8d11db131011f882c4"
+    ],
+    "msnodesqlv8": [
+      "baed88252e2412af8c4a3636f708b2be2a90ff7dcf6179e54ae0d462a59ae845",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+      "0da1803e9f91318c246a149e25c92f8a3e8b09a517e522d97ddd8795d546ed06"
+    ],
+    "nodemon": [
+      "13c3cdb2faa86ac1052ea539e621674f450d78ff7f7e263f2db17c0b818468a2",
+      "c85487f9f64d96bbb64b66e2adefdd71b1337cd3b8c9f1d1cbec2ac0f8273263",
+      "717fc2d13a403e4b7dfeed9b25cb71f2a8a66f7e1011b2e202647bfb9f42de4a"
+    ],
+    "ws": [
+      "e10d12e81c0c63d4a09c1236c95584b739074d275124c84e0e980a32ba2d02ab",
+      "d05aa2a15fb3c40efeeb03bec445393f00074484cf01c8fb2da90ca6695a5531",
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+      "ea682fcb92d3e1ed70d5c02c6f739961d6576d893df7a3f6f0aa885f1a1b6a0a"
+    ],
+    "websocket": [
+      "e10d12e81c0c63d4a09c1236c95584b739074d275124c84e0e980a32ba2d02ab",
+      "23955b0ed245a33ad2790cd4b79d4354eb9cb253f2cbbd19c3413c71f0328e26",
+      "ee05fd3845289f1cf3aebcc8c068ce2b0d2b36533037652aa7ce008b153160f6",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+      "ea682fcb92d3e1ed70d5c02c6f739961d6576d893df7a3f6f0aa885f1a1b6a0a"
+    ],
+    "node-rdkafka": [
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "1de96de4dbae5368ecb31c5e6c3a6e833991fb4982264ea8b00f9e4442965b36"
+    ],
+    "kerberos": [
+      "ea682fcb92d3e1ed70d5c02c6f739961d6576d893df7a3f6f0aa885f1a1b6a0a",
+      "ce0198057a4c51e904a7058900f7d71a076113888bc1b1a8868c7c18f7ed899c",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+      "f3cfe6609390e1ce660440fb13f0a63073d7f44810ec648f0001167f9b736734"
+    ],
+    "snappy": [
+      "8f4ec494648b0433d4b96d218d1e0354ede548f720c2c0a45f8d15fc4fe38693",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "e84a1852b1deeb1044436b7898a6ca9f60dd59c309764f1ada1aca15cbd24362",
+      "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa"
+    ],
+    "node-zstd": [
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2"
+    ],
+    "tree-sitter": [
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+      "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1"
+    ],
+    "duckdb": [
+      "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab"
+    ],
+    "@parcel/watcher": [
+      "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+      "07593c03580777c26805afb4368df6fa4db9f3b81dfcb19479eb8151c24d1877",
+      "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "85d2f36f8ff4057c0891ad9196c74b56b8b6dcfbcfa480a3b0c7469b7e426b0f"
+    ],
+    "@swc/core": [
+      "edee4e5595740f25e43d3eb849f79fd727477a96450768b8a35ba3b2b0763ba0",
+      "228510400c9d621373cf7333c7e6a0f1053c230fbf20a3c122af350e199d987d",
+      "d1c103d1248ea16597b8b9c2c0bbfdc47214beaf2476decc2f7a591754db509a",
+      "885d5ccd7b46f4a46aae276232b2f64de1fadc6cd3daa161458eb2ae7dd04cef",
+      "7518d3fe7f22e1bc84bad2bcfa94d68c3db83c536814bd0f586aaf1e07f05778",
+      "8863e845ae71970403793549480c0a621aef8b6fc353dd93b046f9cc43542795"
+    ],
+    "@biomejs/biome": [
+      "2c59f627b59ab77d833031eefab449644a7957093cdf4ddf04beb14a3c8c39f5"
+    ],
+    "rollup": [
+      "16c0e4305ac213dff39fc82b69b6e08aeeb8758e33cd72d7c409752a70e9f054",
+      "e7a5e8577c656783b130d181f3acf96ff4314c806dfec70011dc2f778afb3a4c",
+      "829d17913d302b461dc3f6e693c42895641abe4b84e1f60aab95f6065582e5f8",
+      "0dc66408cb9e036e563000fd3dee4afd665efbdc83a919e35b97d6a4947bf7a3",
+      "e571f4c4d232d770a4978e83d2809000b845f032363e3520ea0c89417dc8eb17",
+      "da9b431651aaea4080ea8d5e0c4a35a4a9c1c01aa2f27a73acfa5db4066322d6",
+      "49765c4dc6bebef5e305895b67a29f6133a4e8568f1ab0b3e6d7e347c34b5b3a",
+      "5b85656b6bcaec4f3db4f97b518f24e0470846d33e6a2e5980f87ac3be6e769f",
+      "ddd2593d1f362895fb0ca14aa165853d84cb69c7bbc8e967583745d735e63663",
+      "7b341947666b3660518c6f7c76c5143a7b60358d092e2a0721427334fd276668",
+      "d26ef11be9bb2903194cc3d2abcc43bbfe41151de325e40031fc094511150b4c"
+    ],
+    "@next/swc-linux-x64-gnu": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "lightningcss": [
+      "ddd2593d1f362895fb0ca14aa165853d84cb69c7bbc8e967583745d735e63663"
+    ],
+    "tailwindcss": [
+      "463f8b524780dab764abbdbab0a2ddf3e70e15ea6cc3ca54db50326b99a88a4f",
+      "de70819facb2a1bd88c727396809f7b25dbfef5927a3ed86adea1a8e0cd6e624",
+      "b6b5c002f575f691b1b378b84fa612b5346bdf58b5ac8ea136bc0f737f60bb78",
+      "b0e48ba802e3e0da7fdd3660c350a3c6fc2998456036c9fc87ec7744386b764a"
+    ],
+    "parcel": [
+      "9ef5a3909c919e119886f40a8e0fe4e24fefd023f92b3e7c41e5714be649ee4b",
+      "f7bdabfd794093e4d8f17692d82c238cd442370e7aa658c9012ccacd983a6e72"
+    ],
+    "turbo": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "wasm-pack": [
+      "cf2b7bff1c5f5ef557c92311b9f214f57f21f54be11582a607b00610d3f2e547",
+      "ffcd30ee02ebe94ed91aaad2947b2a122838d0715e725833711b409c70c79605"
+    ],
+    "prisma": [
+      "e1fd997b0d6e14859a54c70c302841c54cd7e42980f519ff8df9a4dbee65f72a",
+      "8f44e77195c2d46ff5eadc391ab8a6370f8f5874c1e9a3684406696304602739",
+      "cf9f921427554f6ee4ff2be064d8251ec3d16fffafdea7766952963670ba5659",
+      "3603003e34022c3e3329dff65afc2cbfb226368283cb5a36de4e0b79fa02d43c",
+      "5e9268fc675c6786f8e94784d69acf67e954fd5927174764a2f95a37c491d521"
+    ],
+    "@prisma/client": [
+      "2c59f627b59ab77d833031eefab449644a7957093cdf4ddf04beb14a3c8c39f5",
+      "40613265db255a3c68d595f9d6161898badec7b8d10eae6844a62b98d14f2cf2",
+      "b7234357074d784b92914104abdeabf3184179470be11229e9f9da71d0757ec0",
+      "667e02cc0573b9097f61905eaee0ef00a89a1d42b59c5c2e904275a6ba84cf1c",
+      "c4e8c5d0900806d58212199f285e017d3eed13bac59ad3f0e3f82530df02e63a",
+      "7bcf4a2b6d8e0265f939efc4d83884e41dcc58db73b584e7d5ffca92f9beb6f9"
+    ],
+    "@prisma/engines": [
+      "4e8ad8b0f28aa98f1b94cd01c18c2c691d33dcee5555aec86ad9c4976f5f9a80",
+      "2c59f627b59ab77d833031eefab449644a7957093cdf4ddf04beb14a3c8c39f5"
+    ],
+    "drizzle-kit": [
+      "ed452c8aa45c139ec57c68486d1e0bb1060a6c9aebadde84330203f09e364278"
+    ],
+    "node-libcurl": [
+      "5d2301f58634e7dc384b63168740c7e63cf5280782c36a3c67080fa61b50aff4",
+      "4be5e65dba31f8f1a0bd8acf85bd6e9b50d30de1195a2df3d2c4407459a49066",
+      "55cb17f95dd57f1bc103587d8ec847807b354c127640c1fcab24992507633e4c",
+      "39bf4afe7b7b96c91af5908f2454e2480311588e47692de622afde872faee575",
+      "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "cf2656a681268daeab52846cd7b2f53a87bb21144b9b4b830a1c72eb0f23f50d",
+      "d1c103d1248ea16597b8b9c2c0bbfdc47214beaf2476decc2f7a591754db509a",
+      "09e28e9c5875ef3b2b7463e1c9adc3cefbd35af73283f9f9281dc9b8c48f9524",
+      "39f61f94adb2573ec8659f4cd6eba5516b9bf90950f747a7602da589e0ca9477"
+    ],
+    "ssh2": [
+      "ea75aee9401f6fcf0a2fd0cbb5627993d9d9a4f346607654f6b36d5379ec1429",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "husky": [
+      "5d359fc850d692a4d5eae30e59c7b09099c90592bff741adf4d549d3db8a8400",
+      "95d3f9762826a5e4eadecc6c3fbf401715f5f1b0b8883309a195bc854142d80e",
+      "3f0dde22a43b59fa518b3b946ce2fc8962372a8042b68b7ceceea606f96bdea6",
+      "6a0418b9644257a49ce680969520bdc35f479ea6b86936d2525890653947babe",
+      "266ba48e43c702c6c2dd15f7298947e329b09e421a70e271cb03cf35f0074f14",
+      "98fb33e3d0a9e234d54789dfc7b8af34e8309bb6a45b1c26dff75272aad32185",
+      "ad3f530e7a5d2b9adebe8ed8ba60dbf418460d9bc69d828e2012aadd681f1fa0",
+      "abf879803ae242ac593c50e8941bc54ed089f6b28f147a5e697d5daf976d9fca"
+    ],
+    "simple-git-hooks": [
+      "f0128b7ca00ffe31c2d324ec3f2b8976b6c39e6bcc927d159d0dfdc32e5756e8"
+    ],
+    "lefthook": [
+      "8863e845ae71970403793549480c0a621aef8b6fc353dd93b046f9cc43542795"
+    ],
+    "lint-staged": [
+      "59202d8ca525c5c3caf50be52d4346f58a04c108787d94db91827a98017b1eef",
+      "e2bb50f6beefe255c3cad54b2c0b7ac558828902230e4cb6d00d6bba10f35663",
+      "197f118f9e29b414af44e9b8ed46e2d9b4658cf29a8e2d7bbc7013df1b13004b"
+    ],
+    "core-js": [
+      "805d0c1942c17b9d94f8747adb1ef7c710c82c9fd12952ee28c66fd04f7bfe2b"
+    ],
+    "core-js-pure": [
+      "805d0c1942c17b9d94f8747adb1ef7c710c82c9fd12952ee28c66fd04f7bfe2b"
+    ],
+    "geckodriver": [
+      "8f44e77195c2d46ff5eadc391ab8a6370f8f5874c1e9a3684406696304602739",
+      "a58d1b497ce49544544708459b76caeb9545a0dcc2da5d6f9fc530e9cf729ca8",
+      "d1c103d1248ea16597b8b9c2c0bbfdc47214beaf2476decc2f7a591754db509a",
+      "9fb4196cc123a14704690fed779394bf9eb53faf9caf386059eef5b31227417b",
+      "09e28e9c5875ef3b2b7463e1c9adc3cefbd35af73283f9f9281dc9b8c48f9524"
+    ],
+    "chromedriver": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "phantomjs-prebuilt": [
+      "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe"
+    ],
+    "ts-node": [
+      "61973b9e01f5c5bb3bc18f8c5da31c4614778498089e3ca94d90f2a32d7da0e1",
+      "16c0e4305ac213dff39fc82b69b6e08aeeb8758e33cd72d7c409752a70e9f054",
+      "e65454b6007301d151d5f4890fe8ccd8783301a0153d96a883a5bdc1ad7d15b6",
+      "94f9dfd27722746809ecdfe6f4ea8e7dea8930a932bccbae2881f3d5b57d5172",
+      "45f769637043897085a73980eaa4a5059f994bbe379979d76f523fb6b93c3773"
+    ],
+    "deasync": [
+      "b40a57c665b2516dee423b3180349e4cf5ba47254ce7ff1045d5165a97af373e"
+    ],
+    "iconv": [
+      "6ed5e5281535c459685cc5e329c73f816cd84179391c1caf1e459e2fc64c0c97",
+      "2dbabf0eb102c8c15e313b31d9b784cfaaab91e8dd8b80e996c0e4a6c17858b1",
+      "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2"
+    ]
+  },
+  "origins": {
+    "esbuild": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "postinstall",
+        "body": "node install.js",
+        "versionCount": 477
+      }
+    ],
+    "sharp": [
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 64
+      },
+      {
+        "hash": "da2fa5a750a2503e6c5e31558e8bdc94a1322277285cca81d7556edf6eab2007",
+        "lifecycle": "install",
+        "body": "(node install/libvips && node install/dll-copy && prebuild-install) || (node-gyp rebuild && node install/dll-copy)",
+        "versionCount": 33
+      },
+      {
+        "hash": "2e25905c79ed586e044c57364c6bb872a6e872535c4571e03aeb745e63fec9b2",
+        "lifecycle": "install",
+        "body": "(node install/libvips && node install/dll-copy && prebuild-install --runtime=napi) || (node-gyp rebuild && node install/dll-copy)",
+        "versionCount": 4
+      },
+      {
+        "hash": "c0c190095c78bb9358304d3ebc6f2aca0a7c6061395f540c9662e9801526df0a",
+        "lifecycle": "install",
+        "body": "(node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)",
+        "versionCount": 24
+      },
+      {
+        "hash": "4a14bb68373a4a7fbe0409178e7b8e1719c1cef84a0a86443277abc917f69eaa",
+        "lifecycle": "install",
+        "body": "node install/check",
+        "versionCount": 30
+      },
+      {
+        "hash": "6cfd8375125371b98f77357e484ade12bca4cf299963c05a6ee9b65af5c05cf9",
+        "lifecycle": "install",
+        "body": "node install/check.js",
+        "versionCount": 6
+      },
+      {
+        "hash": "a74cfd901bf206229723e2db342848ae11d23d7fca5bf0230c1871db5c697feb",
+        "lifecycle": "install",
+        "body": "node install/check.js || npm run build",
+        "versionCount": 3
+      }
+    ],
+    "sass-embedded": [
+      {
+        "hash": "52cb17ea6ad4be7f3b4352bb255e8d99d4d841c2c228f1b99222c13b39febc31",
+        "lifecycle": "postinstall",
+        "body": "node ./download-compiler-for-end-user.js",
+        "versionCount": 22
+      }
+    ],
+    "bcrypt": [
+      {
+        "hash": "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+        "lifecycle": "install",
+        "body": "node-pre-gyp install --fallback-to-build",
+        "versionCount": 6
+      },
+      {
+        "hash": "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1",
+        "lifecycle": "install",
+        "body": "node-gyp-build",
+        "versionCount": 1
+      }
+    ],
+    "argon2": [
+      {
+        "hash": "86211242c0f35e782d3b1a1eb7281ccf7bd4be9c6579de3f9b93a6dc8e64d1c5",
+        "lifecycle": "preinstall",
+        "body": "git submodule init && git submodule update",
+        "versionCount": 4
+      },
+      {
+        "hash": "bcc460244a432f332cfbbb82116b8375a840283a7d0848780858760e82767067",
+        "lifecycle": "preinstall",
+        "body": "node-gyp rebuild && git submodule init && git submodule update",
+        "versionCount": 3
+      },
+      {
+        "hash": "bd32817cb6fc27a2664bafe6fe507c92a559cafeb35e00d2440863ef0143ce2b",
+        "lifecycle": "preinstall",
+        "body": "node-gyp rebuild && git submodule update --init",
+        "versionCount": 1
+      },
+      {
+        "hash": "748c25de7fd805831559112eb09840186393ec420bd2cc27beee7fdc33278493",
+        "lifecycle": "preinstall",
+        "body": "git submodule update --init && make -C argon2",
+        "versionCount": 1
+      },
+      {
+        "hash": "16c0e4305ac213dff39fc82b69b6e08aeeb8758e33cd72d7c409752a70e9f054",
+        "lifecycle": "postinstall",
+        "body": "npm run build",
+        "versionCount": 6
+      },
+      {
+        "hash": "5bb2b2698ed766516ec678f759ef3d146fd96703bb1f5fe5914bc778b7565e80",
+        "lifecycle": "preinstall",
+        "body": "git submodule update --init",
+        "versionCount": 3
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 32
+      },
+      {
+        "hash": "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1",
+        "lifecycle": "install",
+        "body": "node-gyp-build",
+        "versionCount": 12
+      },
+      {
+        "hash": "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+        "lifecycle": "install",
+        "body": "node-pre-gyp install --fallback-to-build",
+        "versionCount": 23
+      },
+      {
+        "hash": "98fb33e3d0a9e234d54789dfc7b8af34e8309bb6a45b1c26dff75272aad32185",
+        "lifecycle": "postinstall",
+        "body": "opencollective-postinstall || true",
+        "versionCount": 8
+      },
+      {
+        "hash": "5efcd711594e059d5f738c9068172914c1ad1b85c127a64d476bc81620401192",
+        "lifecycle": "prepare",
+        "body": "tsc",
+        "versionCount": 10
+      },
+      {
+        "hash": "47d4923c52e2f86893e7bac14429b90a9e04fa5cb2a200f0715d51a704484dfb",
+        "lifecycle": "install",
+        "body": "cross-env ZERO_AR_DATE=1 node-gyp-build",
+        "versionCount": 1
+      }
+    ],
+    "canvas": [
+      {
+        "hash": "95ccf6417dd790591448d3275dacd285b9b3ebe53c6672af151a0bee838abc7b",
+        "lifecycle": "preinstall",
+        "body": "node-waf configure build",
+        "versionCount": 44
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 68
+      },
+      {
+        "hash": "3847885838908bf6aff551434d686b15dd5054239793a63e1fd74566e5040f54",
+        "lifecycle": "install",
+        "body": "node-pre-gyp install",
+        "versionCount": 1
+      },
+      {
+        "hash": "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+        "lifecycle": "install",
+        "body": "node-pre-gyp install --fallback-to-build",
+        "versionCount": 22
+      },
+      {
+        "hash": "b688715dbe556b21d55a5fb8ca2f461bcfe8f579daca7b51b62b76c87fab623c",
+        "lifecycle": "install",
+        "body": "node-pre-gyp install --fallback-to-build --update-binary",
+        "versionCount": 8
+      },
+      {
+        "hash": "07593c03580777c26805afb4368df6fa4db9f3b81dfcb19479eb8151c24d1877",
+        "lifecycle": "install",
+        "body": "prebuild-install -r napi || node-gyp rebuild",
+        "versionCount": 11
+      }
+    ],
+    "sqlite3": [
+      {
+        "hash": "8f4ec494648b0433d4b96d218d1e0354ede548f720c2c0a45f8d15fc4fe38693",
+        "lifecycle": "preinstall",
+        "body": "node-waf clean || true; node-waf configure build",
+        "versionCount": 21
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 11
+      },
+      {
+        "hash": "fb06378354edd97eda7081e36e21e6a83c9a34fc02c9285fd07f5fb87f59146c",
+        "lifecycle": "install",
+        "body": "node build.js",
+        "versionCount": 4
+      },
+      {
+        "hash": "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+        "lifecycle": "install",
+        "body": "node-pre-gyp install --fallback-to-build",
+        "versionCount": 62
+      },
+      {
+        "hash": "95822562eadfd127407434a9c830bfe9e560ffb34f20a52e43f66f943d6c402e",
+        "lifecycle": "preinstall",
+        "body": "npm install node-pre-gyp",
+        "versionCount": 1
+      },
+      {
+        "hash": "07593c03580777c26805afb4368df6fa4db9f3b81dfcb19479eb8151c24d1877",
+        "lifecycle": "install",
+        "body": "prebuild-install -r napi || node-gyp rebuild",
+        "versionCount": 3
+      }
+    ],
+    "better-sqlite3": [
+      {
+        "hash": "180ed4eb10d44964928e914aee1194afacf69a11d9a7c1132511832ae6ebe00f",
+        "lifecycle": "install",
+        "body": "prebuild-install || npm run build-release",
+        "versionCount": 4
+      },
+      {
+        "hash": "74676e9e464b586ebdc3e9c2a77e3fe26d534f60ddd9053bafd11e5b0a9c7cfe",
+        "lifecycle": "install",
+        "body": "prebuild-install || node-gyp rebuild --release",
+        "versionCount": 58
+      }
+    ],
+    "fsevents": [
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 28
+      },
+      {
+        "hash": "a486452bf414df39a08cd559a9e5e74b1bf50c39dcc4d56f427c16f0921f488e",
+        "lifecycle": "install",
+        "body": "[ -f fsevents.node ] || npm run prepare",
+        "versionCount": 3
+      },
+      {
+        "hash": "11b1e96864ce3b8c7f280a56c6a7fadd8270c826e6e3652eb8e32ffa901feeba",
+        "lifecycle": "prepare",
+        "body": "node-gyp rebuild && node-gyp clean",
+        "versionCount": 2
+      },
+      {
+        "hash": "19b2b977001f039cc679034a52d886c4a20196734a86878eed66d9a536e6edd6",
+        "lifecycle": "install",
+        "body": "[ -f fsevents.node ] || npm run prepublishOnly",
+        "versionCount": 3
+      }
+    ],
+    "lmdb": [
+      {
+        "hash": "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1",
+        "lifecycle": "install",
+        "body": "node-gyp-build",
+        "versionCount": 47
+      },
+      {
+        "hash": "e3e46ff274fa091836fbbc67dd6a77cd6b63b55148cace8e31ce151b40592940",
+        "lifecycle": "prepare",
+        "body": "rollup -c",
+        "versionCount": 172
+      },
+      {
+        "hash": "724f19be1ed612a6991ca763c3e8e701ac62427f4460fb1370aa4babd5e1fbb3",
+        "lifecycle": "install",
+        "body": "node-gyp-build-optional-packages",
+        "versionCount": 139
+      }
+    ],
+    "robotjs": [
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 25
+      },
+      {
+        "hash": "5f383d2b5b834b790142a8866302d2300fd7293106a0c52f8e6fdc573c8c2b92",
+        "lifecycle": "install",
+        "body": "prebuild --install",
+        "versionCount": 4
+      },
+      {
+        "hash": "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+        "lifecycle": "install",
+        "body": "prebuild-install || node-gyp rebuild",
+        "versionCount": 4
+      },
+      {
+        "hash": "f3cfe6609390e1ce660440fb13f0a63073d7f44810ec648f0001167f9b736734",
+        "lifecycle": "install",
+        "body": "prebuild-install --runtime napi || node-gyp rebuild",
+        "versionCount": 2
+      }
+    ],
+    "puppeteer": [
+      {
+        "hash": "b0ea937d008d34db1c32320e92535bc65c31ca0fec3d47027b174ee6362bb786",
+        "lifecycle": "postinstall",
+        "body": "node install.mjs",
+        "versionCount": 53
+      }
+    ],
+    "puppeteer-core": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 19
+      },
+      {
+        "hash": "69ae9590662b6e4f1fc4a4f303681d1523161fb2ccaf413633b0c6c4938b3b82",
+        "lifecycle": "prepare",
+        "body": "node typescript-if-required.js",
+        "versionCount": 33
+      },
+      {
+        "hash": "3628a5481c3bb3fede2ecfeb6763f01bca83ae2c2f6086bd17b1c2f7ffe479c8",
+        "lifecycle": "prepare",
+        "body": "node typescript-if-required.js && husky install",
+        "versionCount": 43
+      },
+      {
+        "hash": "1b85b4a3545be496dcf7b732760e4f6d70e8b80726a267dd01f720df4bd4e7c9",
+        "lifecycle": "prepare",
+        "body": "node typescript-if-required.js && ([[ $HUSKY = 0 ]] || husky install)",
+        "versionCount": 15
+      }
+    ],
+    "playwright": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "prepare",
+        "body": "node install.js",
+        "versionCount": 6
+      }
+    ],
+    "playwright-core": [
+      {
+        "hash": "b6a46c342570ff059bc8399eb092e94fa08c923a442cd675694d7fe272f9391d",
+        "lifecycle": "prepare",
+        "body": "node prepare.js",
+        "versionCount": 17
+      },
+      {
+        "hash": "59d85878c6346c53c74ad7035a2bcb6c35877f08c61e7c7a746a7d8da5ea0233",
+        "lifecycle": "prepare",
+        "body": "node install-from-github.js",
+        "versionCount": 439
+      },
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 2138
+      },
+      {
+        "hash": "7fb69a2c83ede96f1582523809a2ab8763c110c7e3f0557a86ca0caad0f49335",
+        "lifecycle": "prepare",
+        "body": "babel --config-file ../../babel.config.json -s --extensions \".ts\" --out-dir lib/utils/ src/utils",
+        "versionCount": 237
+      }
+    ],
+    "playwright-chromium": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 5507
+      }
+    ],
+    "playwright-firefox": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 5510
+      }
+    ],
+    "playwright-webkit": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 5509
+      }
+    ],
+    "electron": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "postinstall",
+        "body": "node install.js",
+        "versionCount": 1674
+      }
+    ],
+    "@electron/rebuild": [
+      {
+        "hash": "40f2369e2775235b51e7b7f25f6a21f1cc04e11d035bd215ea7b0000a2042082",
+        "lifecycle": "prepare",
+        "body": "npm run compile",
+        "versionCount": 15
+      },
+      {
+        "hash": "16c0e4305ac213dff39fc82b69b6e08aeeb8758e33cd72d7c409752a70e9f054",
+        "lifecycle": "prepare",
+        "body": "npm run build",
+        "versionCount": 2
+      },
+      {
+        "hash": "efcef32554181a435413e44f2b23fcf3e5e08039c9949b43f6bd847b5cfe53df",
+        "lifecycle": "prepare",
+        "body": "yarn build",
+        "versionCount": 3
+      }
+    ],
+    "cypress": [
+      {
+        "hash": "e87cca37ae8698bfedcd8bd7186cb218cae4858179bb478303fd4d315c4740c8",
+        "lifecycle": "postinstall",
+        "body": "coffee ./lib/deprecation.coffee",
+        "versionCount": 1
+      },
+      {
+        "hash": "d381a4ae680a8612fbcebbb0ee3ce4d2f9f8375a8263282014a24b29fb6135df",
+        "lifecycle": "postinstall",
+        "body": "node index.js --exec install",
+        "versionCount": 239
+      },
+      {
+        "hash": "d4951105d74d2e8a684c155c9ef75e2916c3a6ee3ce58f8d11db131011f882c4",
+        "lifecycle": "postinstall",
+        "body": "node dist/index.js --exec install",
+        "versionCount": 20
+      }
+    ],
+    "msnodesqlv8": [
+      {
+        "hash": "baed88252e2412af8c4a3636f708b2be2a90ff7dcf6179e54ae0d462a59ae845",
+        "lifecycle": "install",
+        "body": "node scripts/install.js",
+        "versionCount": 1
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 20
+      },
+      {
+        "hash": "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+        "lifecycle": "install",
+        "body": "prebuild-install || node-gyp rebuild",
+        "versionCount": 49
+      },
+      {
+        "hash": "0da1803e9f91318c246a149e25c92f8a3e8b09a517e522d97ddd8795d546ed06",
+        "lifecycle": "install",
+        "body": "prebuild-install || node-gyp rebuild -j 4",
+        "versionCount": 9
+      }
+    ],
+    "nodemon": [
+      {
+        "hash": "13c3cdb2faa86ac1052ea539e621674f450d78ff7f7e263f2db17c0b818468a2",
+        "lifecycle": "postinstall",
+        "body": "node -e \"console.log('\\u001b[32mLove nodemon? You can now support the project via the open collective:\\u001b[22m\\u001b[39m\\n > \\u001b[96m\\u001b[1mhttps://opencollective.com/nodemon/donate\\u001b[0m\\n')\"",
+        "versionCount": 16
+      },
+      {
+        "hash": "c85487f9f64d96bbb64b66e2adefdd71b1337cd3b8c9f1d1cbec2ac0f8273263",
+        "lifecycle": "postinstall",
+        "body": "node -e \"console.log('\\u001b[32mLove nodemon? You can now support the project via the open collective:\\u001b[22m\\u001b[39m\\n > \\u001b[96m\\u001b[1mhttps://opencollective.com/nodemon/donate\\u001b[0m\\n')\" || exit 0",
+        "versionCount": 19
+      },
+      {
+        "hash": "717fc2d13a403e4b7dfeed9b25cb71f2a8a66f7e1011b2e202647bfb9f42de4a",
+        "lifecycle": "postinstall",
+        "body": "node bin/postinstall || exit 0",
+        "versionCount": 59
+      }
+    ],
+    "ws": [
+      {
+        "hash": "e10d12e81c0c63d4a09c1236c95584b739074d275124c84e0e980a32ba2d02ab",
+        "lifecycle": "preinstall",
+        "body": "make validator",
+        "versionCount": 16
+      },
+      {
+        "hash": "d05aa2a15fb3c40efeeb03bec445393f00074484cf01c8fb2da90ca6695a5531",
+        "lifecycle": "preinstall",
+        "body": "make",
+        "versionCount": 14
+      },
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 11
+      },
+      {
+        "hash": "ea682fcb92d3e1ed70d5c02c6f739961d6576d893df7a3f6f0aa885f1a1b6a0a",
+        "lifecycle": "install",
+        "body": "(node-gyp rebuild 2> builderror.log) || (exit 0)",
+        "versionCount": 15
+      }
+    ],
+    "websocket": [
+      {
+        "hash": "e10d12e81c0c63d4a09c1236c95584b739074d275124c84e0e980a32ba2d02ab",
+        "lifecycle": "preinstall",
+        "body": "make validator",
+        "versionCount": 1
+      },
+      {
+        "hash": "23955b0ed245a33ad2790cd4b79d4354eb9cb253f2cbbd19c3413c71f0328e26",
+        "lifecycle": "preinstall",
+        "body": "node-gyp configure",
+        "versionCount": 1
+      },
+      {
+        "hash": "ee05fd3845289f1cf3aebcc8c068ce2b0d2b36533037652aa7ce008b153160f6",
+        "lifecycle": "install",
+        "body": "node-gyp build",
+        "versionCount": 1
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 1
+      },
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 2
+      },
+      {
+        "hash": "ea682fcb92d3e1ed70d5c02c6f739961d6576d893df7a3f6f0aa885f1a1b6a0a",
+        "lifecycle": "install",
+        "body": "(node-gyp rebuild 2> builderror.log) || (exit 0)",
+        "versionCount": 23
+      }
+    ],
+    "node-rdkafka": [
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 86
+      },
+      {
+        "hash": "1de96de4dbae5368ecb31c5e6c3a6e833991fb4982264ea8b00f9e4442965b36",
+        "lifecycle": "preinstall",
+        "body": "node util/configure",
+        "versionCount": 8
+      }
+    ],
+    "kerberos": [
+      {
+        "hash": "ea682fcb92d3e1ed70d5c02c6f739961d6576d893df7a3f6f0aa885f1a1b6a0a",
+        "lifecycle": "install",
+        "body": "(node-gyp rebuild 2> builderror.log) || (exit 0)",
+        "versionCount": 12
+      },
+      {
+        "hash": "ce0198057a4c51e904a7058900f7d71a076113888bc1b1a8868c7c18f7ed899c",
+        "lifecycle": "install",
+        "body": "(node-gyp rebuild) || (exit 0)",
+        "versionCount": 10
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 1
+      },
+      {
+        "hash": "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+        "lifecycle": "install",
+        "body": "prebuild-install || node-gyp rebuild",
+        "versionCount": 9
+      },
+      {
+        "hash": "f3cfe6609390e1ce660440fb13f0a63073d7f44810ec648f0001167f9b736734",
+        "lifecycle": "install",
+        "body": "prebuild-install --runtime napi || node-gyp rebuild",
+        "versionCount": 14
+      }
+    ],
+    "snappy": [
+      {
+        "hash": "8f4ec494648b0433d4b96d218d1e0354ede548f720c2c0a45f8d15fc4fe38693",
+        "lifecycle": "preinstall",
+        "body": "node-waf clean || true; node-waf configure build",
+        "versionCount": 5
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 38
+      },
+      {
+        "hash": "e84a1852b1deeb1044436b7898a6ca9f60dd59c309764f1ada1aca15cbd24362",
+        "lifecycle": "install",
+        "body": "pangyp rebuild",
+        "versionCount": 3
+      },
+      {
+        "hash": "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+        "lifecycle": "install",
+        "body": "prebuild-install || node-gyp rebuild",
+        "versionCount": 10
+      }
+    ],
+    "node-zstd": [
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 9
+      }
+    ],
+    "tree-sitter": [
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 131
+      },
+      {
+        "hash": "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+        "lifecycle": "install",
+        "body": "prebuild-install || node-gyp rebuild",
+        "versionCount": 61
+      },
+      {
+        "hash": "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1",
+        "lifecycle": "install",
+        "body": "node-gyp-build",
+        "versionCount": 8
+      }
+    ],
+    "duckdb": [
+      {
+        "hash": "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+        "lifecycle": "install",
+        "body": "node-pre-gyp install --fallback-to-build",
+        "versionCount": 2316
+      }
+    ],
+    "@parcel/watcher": [
+      {
+        "hash": "582bbd5982901bafc7a72276d195e371d76dc1d1dd5d3e425682444c4feaa8aa",
+        "lifecycle": "install",
+        "body": "prebuild-install || node-gyp rebuild",
+        "versionCount": 2
+      },
+      {
+        "hash": "07593c03580777c26805afb4368df6fa4db9f3b81dfcb19479eb8151c24d1877",
+        "lifecycle": "install",
+        "body": "prebuild-install -r napi || node-gyp rebuild",
+        "versionCount": 3
+      },
+      {
+        "hash": "73c32bcbb50dd17b5f86139028097755803031a4b31753af52fc72cc105b73c1",
+        "lifecycle": "install",
+        "body": "node-gyp-build",
+        "versionCount": 15
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 10
+      },
+      {
+        "hash": "85d2f36f8ff4057c0891ad9196c74b56b8b6dcfbcfa480a3b0c7469b7e426b0f",
+        "lifecycle": "install",
+        "body": "node scripts/build-from-source.js",
+        "versionCount": 4
+      }
+    ],
+    "@swc/core": [
+      {
+        "hash": "edee4e5595740f25e43d3eb849f79fd727477a96450768b8a35ba3b2b0763ba0",
+        "lifecycle": "install",
+        "body": "node scripts/install.js || neon build --release",
+        "versionCount": 64
+      },
+      {
+        "hash": "228510400c9d621373cf7333c7e6a0f1053c230fbf20a3c122af350e199d987d",
+        "lifecycle": "install",
+        "body": "node scripts/install.js || (npm install neon-cli && neon build --release)",
+        "versionCount": 56
+      },
+      {
+        "hash": "d1c103d1248ea16597b8b9c2c0bbfdc47214beaf2476decc2f7a591754db509a",
+        "lifecycle": "prepare",
+        "body": "husky install",
+        "versionCount": 8
+      },
+      {
+        "hash": "885d5ccd7b46f4a46aae276232b2f64de1fadc6cd3daa161458eb2ae7dd04cef",
+        "lifecycle": "prepare",
+        "body": "husky install && git config feature.manyFiles true",
+        "versionCount": 43
+      },
+      {
+        "hash": "7518d3fe7f22e1bc84bad2bcfa94d68c3db83c536814bd0f586aaf1e07f05778",
+        "lifecycle": "prepare",
+        "body": "husky install && git config feature.manyFiles true && node ./crates/swc_ecma_preset_env/scripts/copy-data.js",
+        "versionCount": 166
+      },
+      {
+        "hash": "8863e845ae71970403793549480c0a621aef8b6fc353dd93b046f9cc43542795",
+        "lifecycle": "postinstall",
+        "body": "node postinstall.js",
+        "versionCount": 602
+      }
+    ],
+    "@biomejs/biome": [
+      {
+        "hash": "2c59f627b59ab77d833031eefab449644a7957093cdf4ddf04beb14a3c8c39f5",
+        "lifecycle": "postinstall",
+        "body": "node scripts/postinstall.js",
+        "versionCount": 79
+      }
+    ],
+    "rollup": [
+      {
+        "hash": "16c0e4305ac213dff39fc82b69b6e08aeeb8758e33cd72d7c409752a70e9f054",
+        "lifecycle": "prepare",
+        "body": "npm run build",
+        "versionCount": 338
+      },
+      {
+        "hash": "e7a5e8577c656783b130d181f3acf96ff4314c806dfec70011dc2f778afb3a4c",
+        "lifecycle": "postinstall",
+        "body": "opencollective postinstall",
+        "versionCount": 2
+      },
+      {
+        "hash": "829d17913d302b461dc3f6e693c42895641abe4b84e1f60aab95f6065582e5f8",
+        "lifecycle": "prepare",
+        "body": "npm run build:cjs && npm run build:bootstrap",
+        "versionCount": 1
+      },
+      {
+        "hash": "0dc66408cb9e036e563000fd3dee4afd665efbdc83a919e35b97d6a4947bf7a3",
+        "lifecycle": "prepare",
+        "body": "husky install && npm run build",
+        "versionCount": 89
+      },
+      {
+        "hash": "e571f4c4d232d770a4978e83d2809000b845f032363e3520ea0c89417dc8eb17",
+        "lifecycle": "prepare",
+        "body": "husky install && scripts/check-release.js || npm run build",
+        "versionCount": 7
+      },
+      {
+        "hash": "da9b431651aaea4080ea8d5e0c4a35a4a9c1c01aa2f27a73acfa5db4066322d6",
+        "lifecycle": "prepare",
+        "body": "husky install && node scripts/check-release.js || npm run build",
+        "versionCount": 112
+      },
+      {
+        "hash": "49765c4dc6bebef5e305895b67a29f6133a4e8568f1ab0b3e6d7e347c34b5b3a",
+        "lifecycle": "prepare",
+        "body": "husky install && node scripts/check-release.js || npm run build:prepare",
+        "versionCount": 40
+      },
+      {
+        "hash": "5b85656b6bcaec4f3db4f97b518f24e0470846d33e6a2e5980f87ac3be6e769f",
+        "lifecycle": "prepare",
+        "body": "husky && node scripts/check-release.js || npm run build:prepare",
+        "versionCount": 131
+      },
+      {
+        "hash": "ddd2593d1f362895fb0ca14aa165853d84cb69c7bbc8e967583745d735e63663",
+        "lifecycle": "postinstall",
+        "body": "patch-package",
+        "versionCount": 1
+      },
+      {
+        "hash": "7b341947666b3660518c6f7c76c5143a7b60358d092e2a0721427334fd276668",
+        "lifecycle": "prepare",
+        "body": "husky && patch-package && node scripts/check-release.js || npm run build:prepare",
+        "versionCount": 2
+      },
+      {
+        "hash": "d26ef11be9bb2903194cc3d2abcc43bbfe41151de325e40031fc094511150b4c",
+        "lifecycle": "prepare",
+        "body": "husky && npm run prepare:patch && node scripts/check-release.js || npm run build:prepare",
+        "versionCount": 19
+      }
+    ],
+    "@next/swc-linux-x64-gnu": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 1
+      }
+    ],
+    "lightningcss": [
+      {
+        "hash": "ddd2593d1f362895fb0ca14aa165853d84cb69c7bbc8e967583745d735e63663",
+        "lifecycle": "prepare",
+        "body": "patch-package",
+        "versionCount": 34
+      }
+    ],
+    "tailwindcss": [
+      {
+        "hash": "463f8b524780dab764abbdbab0a2ddf3e70e15ea6cc3ca54db50326b99a88a4f",
+        "lifecycle": "prepare",
+        "body": "npm run babelify",
+        "versionCount": 4
+      },
+      {
+        "hash": "de70819facb2a1bd88c727396809f7b25dbfef5927a3ed86adea1a8e0cd6e624",
+        "lifecycle": "prepare",
+        "body": "npm run babelify && babel-node src/build.js",
+        "versionCount": 55
+      },
+      {
+        "hash": "b6b5c002f575f691b1b378b84fa612b5346bdf58b5ac8ea136bc0f737f60bb78",
+        "lifecycle": "prepare",
+        "body": "npm run babelify && babel-node scripts/build.js",
+        "versionCount": 53
+      },
+      {
+        "hash": "b0e48ba802e3e0da7fdd3660c350a3c6fc2998456036c9fc87ec7744386b764a",
+        "lifecycle": "postinstall",
+        "body": "npm run generate:plugin-list",
+        "versionCount": 1
+      }
+    ],
+    "parcel": [
+      {
+        "hash": "9ef5a3909c919e119886f40a8e0fe4e24fefd023f92b3e7c41e5714be649ee4b",
+        "lifecycle": "preinstall",
+        "body": "echo \"You are looking for 'parcel-bundler'\" && exit 1",
+        "versionCount": 1
+      },
+      {
+        "hash": "f7bdabfd794093e4d8f17692d82c238cd442370e7aa658c9012ccacd983a6e72",
+        "lifecycle": "postinstall",
+        "body": "node -e \"console.log('\\u001b[35m\\u001b[1mLove Parcel? You can now donate to our open collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/parcel/donate\\u001b[0m')\"",
+        "versionCount": 22
+      }
+    ],
+    "turbo": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "postinstall",
+        "body": "node install.js",
+        "versionCount": 341
+      }
+    ],
+    "wasm-pack": [
+      {
+        "hash": "cf2b7bff1c5f5ef557c92311b9f214f57f21f54be11582a607b00610d3f2e547",
+        "lifecycle": "postinstall",
+        "body": "node -e 'require(\"./binary.js\").install()'",
+        "versionCount": 1
+      },
+      {
+        "hash": "ffcd30ee02ebe94ed91aaad2947b2a122838d0715e725833711b409c70c79605",
+        "lifecycle": "postinstall",
+        "body": "node ./install.js",
+        "versionCount": 15
+      }
+    ],
+    "prisma": [
+      {
+        "hash": "e1fd997b0d6e14859a54c70c302841c54cd7e42980f519ff8df9a4dbee65f72a",
+        "lifecycle": "postinstall",
+        "body": "prisma init-prisma || echo \"\"",
+        "versionCount": 251
+      },
+      {
+        "hash": "8f44e77195c2d46ff5eadc391ab8a6370f8f5874c1e9a3684406696304602739",
+        "lifecycle": "preinstall",
+        "body": "node index.js",
+        "versionCount": 1
+      },
+      {
+        "hash": "cf9f921427554f6ee4ff2be064d8251ec3d16fffafdea7766952963670ba5659",
+        "lifecycle": "preinstall",
+        "body": "node scripts/preinstall-entry.js",
+        "versionCount": 8473
+      },
+      {
+        "hash": "3603003e34022c3e3329dff65afc2cbfb226368283cb5a36de4e0b79fa02d43c",
+        "lifecycle": "install",
+        "body": "node scripts/install-entry.js",
+        "versionCount": 3831
+      },
+      {
+        "hash": "5e9268fc675c6786f8e94784d69acf67e954fd5927174764a2f95a37c491d521",
+        "lifecycle": "preinstall",
+        "body": "node scripts/preinstall-entry.js && node scripts/install-entry.js",
+        "versionCount": 5
+      }
+    ],
+    "@prisma/client": [
+      {
+        "hash": "2c59f627b59ab77d833031eefab449644a7957093cdf4ddf04beb14a3c8c39f5",
+        "lifecycle": "postinstall",
+        "body": "node scripts/postinstall.js",
+        "versionCount": 10248
+      },
+      {
+        "hash": "40613265db255a3c68d595f9d6161898badec7b8d10eae6844a62b98d14f2cf2",
+        "lifecycle": "prepare",
+        "body": "pnpm run cleanup && cp scripts/backup-index.js index.js && node scripts/download.js || echo \"\"",
+        "versionCount": 174
+      },
+      {
+        "hash": "b7234357074d784b92914104abdeabf3184179470be11229e9f9da71d0757ec0",
+        "lifecycle": "prepare",
+        "body": "pnpm run cleanup && cp scripts/backup-index.js index.js && cp scripts/backup-index.d.ts index.d.ts && node scripts/download.js || echo \"\"",
+        "versionCount": 1109
+      },
+      {
+        "hash": "667e02cc0573b9097f61905eaee0ef00a89a1d42b59c5c2e904275a6ba84cf1c",
+        "lifecycle": "prepare",
+        "body": "cp scripts/backup-index.js index.js && cp scripts/backup-index.d.ts index.d.ts && node scripts/download.js || echo \"\"",
+        "versionCount": 284
+      },
+      {
+        "hash": "c4e8c5d0900806d58212199f285e017d3eed13bac59ad3f0e3f82530df02e63a",
+        "lifecycle": "prepare",
+        "body": "cp scripts/backup-index.js index.js && cp scripts/backup-index.d.ts index.d.ts",
+        "versionCount": 1249
+      },
+      {
+        "hash": "7bcf4a2b6d8e0265f939efc4d83884e41dcc58db73b584e7d5ffca92f9beb6f9",
+        "lifecycle": "prepare",
+        "body": "cp scripts/backup-index.js index.js && cp scripts/backup-index.d.ts index.d.ts && cp scripts/backup-index.mjs index.mjs",
+        "versionCount": 1
+      }
+    ],
+    "@prisma/engines": [
+      {
+        "hash": "4e8ad8b0f28aa98f1b94cd01c18c2c691d33dcee5555aec86ad9c4976f5f9a80",
+        "lifecycle": "postinstall",
+        "body": "node download/index.js",
+        "versionCount": 1300
+      },
+      {
+        "hash": "2c59f627b59ab77d833031eefab449644a7957093cdf4ddf04beb14a3c8c39f5",
+        "lifecycle": "postinstall",
+        "body": "node scripts/postinstall.js",
+        "versionCount": 6069
+      }
+    ],
+    "drizzle-kit": [
+      {
+        "hash": "ed452c8aa45c139ec57c68486d1e0bb1060a6c9aebadde84330203f09e364278",
+        "lifecycle": "preinstall",
+        "body": "npx only-allow pnpm",
+        "versionCount": 2
+      }
+    ],
+    "node-libcurl": [
+      {
+        "hash": "5d2301f58634e7dc384b63168740c7e63cf5280782c36a3c67080fa61b50aff4",
+        "lifecycle": "install",
+        "body": "node src/generate-stubs && (node-gyp rebuild)",
+        "versionCount": 1
+      },
+      {
+        "hash": "4be5e65dba31f8f1a0bd8acf85bd6e9b50d30de1195a2df3d2c4407459a49066",
+        "lifecycle": "install",
+        "body": "node tools/retrieve-win-deps && node tools/generate-stubs && node-gyp rebuild",
+        "versionCount": 19
+      },
+      {
+        "hash": "55cb17f95dd57f1bc103587d8ec847807b354c127640c1fcab24992507633e4c",
+        "lifecycle": "install",
+        "body": "node tools/retrieve-win-deps && node tools/generate-stubs && pangyp rebuild",
+        "versionCount": 2
+      },
+      {
+        "hash": "39bf4afe7b7b96c91af5908f2454e2480311588e47692de622afde872faee575",
+        "lifecycle": "install",
+        "body": "node tools/retrieve-win-deps && node-gyp rebuild",
+        "versionCount": 4
+      },
+      {
+        "hash": "048005128f89c747e656ed3e378f96232323187027c86cbfec1d6cab7c0eaaab",
+        "lifecycle": "install",
+        "body": "node-pre-gyp install --fallback-to-build",
+        "versionCount": 64
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 1
+      },
+      {
+        "hash": "cf2656a681268daeab52846cd7b2f53a87bb21144b9b4b830a1c72eb0f23f50d",
+        "lifecycle": "postinstall",
+        "body": "node scripts/postinstall",
+        "versionCount": 60
+      },
+      {
+        "hash": "d1c103d1248ea16597b8b9c2c0bbfdc47214beaf2476decc2f7a591754db509a",
+        "lifecycle": "prepare",
+        "body": "husky install",
+        "versionCount": 2
+      },
+      {
+        "hash": "09e28e9c5875ef3b2b7463e1c9adc3cefbd35af73283f9f9281dc9b8c48f9524",
+        "lifecycle": "prepare",
+        "body": "husky",
+        "versionCount": 1
+      },
+      {
+        "hash": "39f61f94adb2573ec8659f4cd6eba5516b9bf90950f747a7602da589e0ca9477",
+        "lifecycle": "preinstall",
+        "body": "node scripts/vcpkg-setup.js",
+        "versionCount": 5
+      }
+    ],
+    "ssh2": [
+      {
+        "hash": "ea75aee9401f6fcf0a2fd0cbb5627993d9d9a4f346607654f6b36d5379ec1429",
+        "lifecycle": "preinstall",
+        "body": "node preconfig.js",
+        "versionCount": 1
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 1
+      },
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 18
+      }
+    ],
+    "husky": [
+      {
+        "hash": "5d359fc850d692a4d5eae30e59c7b09099c90592bff741adf4d549d3db8a8400",
+        "lifecycle": "install",
+        "body": "./bin/install.js",
+        "versionCount": 4
+      },
+      {
+        "hash": "95d3f9762826a5e4eadecc6c3fbf401715f5f1b0b8883309a195bc854142d80e",
+        "lifecycle": "install",
+        "body": "node ./bin/install.js",
+        "versionCount": 48
+      },
+      {
+        "hash": "3f0dde22a43b59fa518b3b946ce2fc8962372a8042b68b7ceceea606f96bdea6",
+        "lifecycle": "install",
+        "body": "bin/install.js",
+        "versionCount": 1
+      },
+      {
+        "hash": "6a0418b9644257a49ce680969520bdc35f479ea6b86936d2525890653947babe",
+        "lifecycle": "postinstall",
+        "body": "node husky install",
+        "versionCount": 8
+      },
+      {
+        "hash": "266ba48e43c702c6c2dd15f7298947e329b09e421a70e271cb03cf35f0074f14",
+        "lifecycle": "postinstall",
+        "body": "node lib/installer/bin install",
+        "versionCount": 15
+      },
+      {
+        "hash": "98fb33e3d0a9e234d54789dfc7b8af34e8309bb6a45b1c26dff75272aad32185",
+        "lifecycle": "postinstall",
+        "body": "opencollective-postinstall || true",
+        "versionCount": 9
+      },
+      {
+        "hash": "ad3f530e7a5d2b9adebe8ed8ba60dbf418460d9bc69d828e2012aadd681f1fa0",
+        "lifecycle": "postinstall",
+        "body": "opencollective-postinstall || exit 0",
+        "versionCount": 37
+      },
+      {
+        "hash": "abf879803ae242ac593c50e8941bc54ed089f6b28f147a5e697d5daf976d9fca",
+        "lifecycle": "postinstall",
+        "body": "npm run build && node lib/bin install",
+        "versionCount": 2
+      }
+    ],
+    "simple-git-hooks": [
+      {
+        "hash": "f0128b7ca00ffe31c2d324ec3f2b8976b6c39e6bcc927d159d0dfdc32e5756e8",
+        "lifecycle": "postinstall",
+        "body": "node ./postinstall.js",
+        "versionCount": 22
+      }
+    ],
+    "lefthook": [
+      {
+        "hash": "8863e845ae71970403793549480c0a621aef8b6fc353dd93b046f9cc43542795",
+        "lifecycle": "postinstall",
+        "body": "node postinstall.js",
+        "versionCount": 167
+      }
+    ],
+    "lint-staged": [
+      {
+        "hash": "59202d8ca525c5c3caf50be52d4346f58a04c108787d94db91827a98017b1eef",
+        "lifecycle": "postinstall",
+        "body": "echo \"lint-staged installed! Do not forget to install linters!\" && exit 0",
+        "versionCount": 6
+      },
+      {
+        "hash": "e2bb50f6beefe255c3cad54b2c0b7ac558828902230e4cb6d00d6bba10f35663",
+        "lifecycle": "postinstall",
+        "body": "echo \"lint-staged installed! Do not forget to configure it. See https://github.com/okonet/lint-staged/blob/master/README.md\" && exit 0",
+        "versionCount": 17
+      },
+      {
+        "hash": "197f118f9e29b414af44e9b8ed46e2d9b4658cf29a8e2d7bbc7013df1b13004b",
+        "lifecycle": "postinstall",
+        "body": "echo \"🚫💩 lint-staged installed! \nDo not forget to configure it. See https://github.com/okonet/lint-staged/blob/master/README.md\" && exit 0",
+        "versionCount": 19
+      }
+    ],
+    "core-js": [
+      {
+        "hash": "805d0c1942c17b9d94f8747adb1ef7c710c82c9fd12952ee28c66fd04f7bfe2b",
+        "lifecycle": "postinstall",
+        "body": "node -e \"try{require('./postinstall')}catch(e){}\"",
+        "versionCount": 53
+      }
+    ],
+    "core-js-pure": [
+      {
+        "hash": "805d0c1942c17b9d94f8747adb1ef7c710c82c9fd12952ee28c66fd04f7bfe2b",
+        "lifecycle": "postinstall",
+        "body": "node -e \"try{require('./postinstall')}catch(e){}\"",
+        "versionCount": 52
+      }
+    ],
+    "geckodriver": [
+      {
+        "hash": "8f44e77195c2d46ff5eadc391ab8a6370f8f5874c1e9a3684406696304602739",
+        "lifecycle": "postinstall",
+        "body": "node index.js",
+        "versionCount": 52
+      },
+      {
+        "hash": "a58d1b497ce49544544708459b76caeb9545a0dcc2da5d6f9fc530e9cf729ca8",
+        "lifecycle": "postinstall",
+        "body": "test -f ./dist/install.js && node ./dist/install.js || echo \"Skipping install, project not build!\"",
+        "versionCount": 24
+      },
+      {
+        "hash": "d1c103d1248ea16597b8b9c2c0bbfdc47214beaf2476decc2f7a591754db509a",
+        "lifecycle": "prepare",
+        "body": "husky install",
+        "versionCount": 24
+      },
+      {
+        "hash": "9fb4196cc123a14704690fed779394bf9eb53faf9caf386059eef5b31227417b",
+        "lifecycle": "postinstall",
+        "body": "test -f ./dist/install.js && node ./dist/install.js || echo \"Skipping install, project not built!\"",
+        "versionCount": 4
+      },
+      {
+        "hash": "09e28e9c5875ef3b2b7463e1c9adc3cefbd35af73283f9f9281dc9b8c48f9524",
+        "lifecycle": "prepare",
+        "body": "husky",
+        "versionCount": 4
+      }
+    ],
+    "chromedriver": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 156
+      }
+    ],
+    "phantomjs-prebuilt": [
+      {
+        "hash": "912d4d8f507b7b392ae422a459f98da94669a742e4cc43cfe061e630ee2846fe",
+        "lifecycle": "install",
+        "body": "node install.js",
+        "versionCount": 3
+      }
+    ],
+    "ts-node": [
+      {
+        "hash": "61973b9e01f5c5bb3bc18f8c5da31c4614778498089e3ca94d90f2a32d7da0e1",
+        "lifecycle": "postinstall",
+        "body": "typings install",
+        "versionCount": 1
+      },
+      {
+        "hash": "16c0e4305ac213dff39fc82b69b6e08aeeb8758e33cd72d7c409752a70e9f054",
+        "lifecycle": "prepare",
+        "body": "npm run build",
+        "versionCount": 24
+      },
+      {
+        "hash": "e65454b6007301d151d5f4890fe8ccd8783301a0153d96a883a5bdc1ad7d15b6",
+        "lifecycle": "prepare",
+        "body": "npm run build-nopack",
+        "versionCount": 4
+      },
+      {
+        "hash": "94f9dfd27722746809ecdfe6f4ea8e7dea8930a932bccbae2881f3d5b57d5172",
+        "lifecycle": "prepare",
+        "body": "npm run clean && npm run build-nopack",
+        "versionCount": 16
+      },
+      {
+        "hash": "45f769637043897085a73980eaa4a5059f994bbe379979d76f523fb6b93c3773",
+        "lifecycle": "prepare",
+        "body": "workaround-broken-npm-prepack-behavior prepack",
+        "versionCount": 1
+      }
+    ],
+    "deasync": [
+      {
+        "hash": "b40a57c665b2516dee423b3180349e4cf5ba47254ce7ff1045d5165a97af373e",
+        "lifecycle": "install",
+        "body": "node ./build.js",
+        "versionCount": 40
+      }
+    ],
+    "iconv": [
+      {
+        "hash": "6ed5e5281535c459685cc5e329c73f816cd84179391c1caf1e459e2fc64c0c97",
+        "lifecycle": "preinstall",
+        "body": "node-waf configure",
+        "versionCount": 6
+      },
+      {
+        "hash": "2dbabf0eb102c8c15e313b31d9b784cfaaab91e8dd8b80e996c0e4a6c17858b1",
+        "lifecycle": "install",
+        "body": "node-waf build install",
+        "versionCount": 6
+      },
+      {
+        "hash": "55941a60816361a50d221482fed3b3842464f10af4371a667af4268d13b953a2",
+        "lifecycle": "install",
+        "body": "node-gyp rebuild",
+        "versionCount": 36
+      }
+    ]
+  }
+}
