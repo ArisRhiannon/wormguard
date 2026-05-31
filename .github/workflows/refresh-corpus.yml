@@ -1,0 +1,85 @@
+# Weekly refresh of the bundled IoC corpus from the GitHub Advisory Database.
+#
+# DESIGN (deliberate): this workflow refreshes data/iocs.json and opens a PULL
+# REQUEST. It never commits to main and never publishes to npm. A supply-chain
+# security tool that auto-publishes itself from an unattended cron would itself
+# be an attack surface: a poisoned upstream feed would flow, signed, into users'
+# CI. So a human reviews the diff and merges; publishing still happens only via
+# an explicit GitHub release (see publish.yml).
+#
+# The job validates the refreshed corpus inline (typecheck + full test suite +
+# corpus-integrity) before opening the PR, so a broken refresh never produces a
+# PR. NOTE: a PR opened by the default GITHUB_TOKEN does not, by GitHub design,
+# trigger the `pull_request` CI workflow. A maintainer must trigger the required
+# checks on the PR (close+reopen, or push any commit) before merging — the PR
+# body repeats this.
+name: refresh-corpus
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # push the refresh branch
+  pull-requests: write # open the PR
+
+concurrency:
+  group: refresh-corpus
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3"
+      - run: bun install --frozen-lockfile || bun install
+
+      - name: Refresh IoC corpus from GHSA
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 1000 req/h authenticated
+        run: bun run refresh-corpus
+
+      - name: Detect change
+        id: diff
+        run: |
+          if git diff --quiet -- data/iocs.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Corpus unchanged; nothing to do."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git --no-pager diff --stat -- data/iocs.json
+          fi
+
+      - name: Validate refreshed corpus
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          bun run typecheck
+          bun test
+          NAMES=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/iocs.json','utf8')).names.length)")
+          echo "corpus names: $NAMES"
+          test "$NAMES" -gt 100
+
+      - name: Open pull request
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          DATE=$(date -u +%Y-%m-%d)
+          BR="corpus/auto-refresh-${DATE}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BR"
+          git add data/iocs.json
+          git commit -m "chore(corpus): weekly IoC refresh (${DATE})"
+          git push -f origin "$BR"
+          BODY=$'Automated weekly refresh of `data/iocs.json` from the GitHub Advisory Database (`type=malware&ecosystem=npm`).\n\n**This does not publish.** Publishing happens only via an explicit GitHub release.\n\nInline validation passed in the refresh run: `typecheck` + full test suite + corpus-integrity (names > 100).\n\n> ⚠️ A PR opened by the default `GITHUB_TOKEN` does not auto-trigger the required CI checks. Close+reopen this PR (or push any commit) to run them before merging.'
+          if ! gh pr create --base main --head "$BR" \
+                --title "chore(corpus): weekly IoC refresh (${DATE})" \
+                --body "$BODY"; then
+            gh pr edit "$BR" --body "$BODY" || true
+          fi
