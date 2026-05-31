@@ -1,0 +1,30 @@
+{
+  "name": "wormguard",
+  "version": "0.1.0",
+  "description": "Offline, zero-dependency npm supply-chain auditor. Behavioral + baseline-diff detection of malicious install scripts (Shai-Hulud-style worms) — no network, no account, no CVE database.",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Aris Rhiannon",
+  "homepage": "https://github.com/ArisRhiannon/wormguard#readme",
+  "repository": { "type": "git", "url": "git+https://github.com/ArisRhiannon/wormguard.git" },
+  "bugs": { "url": "https://github.com/ArisRhiannon/wormguard/issues" },
+  "keywords": ["npm", "supply-chain", "security", "malware", "install-script", "lifecycle-script", "typosquat", "lockfile", "audit", "shai-hulud", "devsecops", "offline", "zero-dependency", "ci", "typescript"],
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "bin": { "wormguard": "src/cli.ts" },
+  "files": ["src", "data", "docs", "LICENSE", "README.md"],
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "check": "bun run typecheck && bun test"
+  },
+  "engines": { "bun": ">=1.1.0", "node": ">=20" },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/bun": "^1.1.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
