@@ -4,6 +4,15 @@ All notable changes to wormguard are documented here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.2] — 2026-06-01
+
+Discoverability only — no code or behavior changes.
+
+### Changed
+- npm package description and keywords now name **Shai-Hulud-style
+  install-script worms** (the canonical threat wormguard targets), for search/SEO.
+  The shipped `dist`/`data` are identical to 1.0.1.
+
 ## [1.0.1] — 2026-05-31
 
 False-positive calibration (measured, not asserted), corpus-maintenance
