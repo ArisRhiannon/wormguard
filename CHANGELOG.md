@@ -4,6 +4,11 @@ All notable changes to wormguard are documented here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.3] — 2026-06-01
+
+First provenance-attested release (published via GitHub Actions with Sigstore).
+No code or behavior changes.
+
 ## [1.0.2] — 2026-06-01
 
 Discoverability only — no code or behavior changes.

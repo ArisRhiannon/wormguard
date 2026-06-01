@@ -1,6 +1,6 @@
 {
   "name": "wormguard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Offline AST-grade npm/pnpm/yarn/bun supply-chain auditor that flags Shai-Hulud-style install-script worms. Real JavaScript AST analysis with taint approximation, IoC corpus matching, sigstore provenance verification, and baseline diffing — designed as defense-in-depth alongside LavaMoat/Socket/osv-scanner, not a replacement.",
   "type": "module",
   "license": "MIT",
