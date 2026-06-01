@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "fetchedAt": "2026-05-31T04:39:51.517Z",
+  "fetchedAt": "2026-06-01T11:51:45.131Z",
   "sources": {
     "ghsa": {
-      "advisories": 23055,
-      "lastIso": "2026-05-29T23:52:54Z"
+      "advisories": 23070,
+      "lastIso": "2026-06-01T09:10:46Z"
     }
   },
   "names": [
@@ -253,6 +253,7 @@
     "@anemone95/evil",
     "@ans-exam/client",
     "@answers/exp-id-tools",
+    "@antoncallahan/aws-user-helper",
     "@antstackio/graphql-body-parser",
     "@antv/a8",
     "@antv/adjust",
@@ -1632,6 +1633,7 @@
     "@evo-tech/backoffice-test-api",
     "@evoplay-spinential/poc-rce",
     "@evoplay-spinential/test-module",
+    "@ewfewfewf/testhackerrr",
     "@exarad/verfuegbarkeitspruefung-vue2",
     "@exeloncorp/fetlife-assets",
     "@exness/select-component-ab",
@@ -2505,6 +2507,7 @@
     "@orbitgtbelgium/mapbox-gl-draw-scale-rotate-mode",
     "@orbitgtbelgium/orbit-components",
     "@orbitgtbelgium/time-slider",
+    "@osamdefeirrighs/testhackfrrferrr",
     "@osmanekrem/bmad",
     "@osmanekrem/error-handler",
     "@otaxayuns/baileys",
@@ -2539,6 +2542,7 @@
     "@pb-digital/ui-library",
     "@pb-shared/storybook-react-library",
     "@pc-analytics-filter/core",
+    "@pcldpvkoewpogw/testhacker",
     "@pcxm/gasket-single-spa",
     "@pentestleg/core",
     "@pes-ui/components",
@@ -3191,6 +3195,8 @@
     "@tinkoff-react-bui/svg-icon",
     "@tinkoff-react-bui/utils",
     "@tinyspeck/calls-desktop-interop",
+    "@tmecontinue/claude",
+    "@tmecontinue/cli",
     "@tnf-dev/api",
     "@tnf-dev/core",
     "@tnf-dev/js",
@@ -4946,6 +4952,7 @@
     "audio-game",
     "audit-ejs",
     "audit-logging",
+    "audit-logsss",
     "audit-pricing",
     "audit-vue",
     "aukwrklsfxntqjch",
@@ -6429,6 +6436,7 @@
     "chai-as-hashed",
     "chai-as-ide",
     "chai-as-inserted",
+    "chai-as-minted",
     "chai-as-mobj",
     "chai-as-mock",
     "chai-as-optimized",
@@ -6502,6 +6510,7 @@
     "chain-test-async",
     "chain00x",
     "chainalert_npm_package",
+    "chainix",
     "chainlink-api-client",
     "chainlink-price-feed-aggregator",
     "chainlink-qtum",
@@ -6776,12 +6785,15 @@
     "cms-datocms",
     "cms-external-datajs",
     "cms-flypage-components",
+    "cms-github",
+    "cms-helpgit",
     "cms-hpti-components",
     "cms-media-bridge",
     "cms-models",
     "cms-serviceclients",
     "cms-serviceclients-extensions",
     "cms-site-api-js-client",
+    "cms-storehub",
     "cms-ti-components",
     "cms-typed-promise",
     "cms-ui-components",
@@ -6891,6 +6903,7 @@
     "collab-ui-angular",
     "collaborate",
     "collapsible-group",
+    "collected-forms-embed-js",
     "collection-events-discord-webhook",
     "coloma",
     "color-print12345",
@@ -18285,6 +18298,7 @@
     "shopify-variants",
     "shopify_supply",
     "shopifyql-parser",
+    "shopifyto-cms",
     "shopmacher-mollie-application",
     "shoppedemo",
     "shopping-cart-service",
@@ -19907,6 +19921,7 @@
     "tnactgfds",
     "tnaparserxml",
     "tnet-dps",
+    "to-cms",
     "toast-pack",
     "toast-sliders",
     "toc-generator-markdown",
@@ -23800,6 +23815,9 @@
       ">= 0"
     ],
     "@answers/exp-id-tools": [
+      ">= 0"
+    ],
+    "@antoncallahan/aws-user-helper": [
       ">= 0"
     ],
     "@antstackio/graphql-body-parser": [
@@ -28163,6 +28181,9 @@
     "@evoplay-spinential/test-module": [
       ">= 0"
     ],
+    "@ewfewfewf/testhackerrr": [
+      ">= 0"
+    ],
     "@exarad/verfuegbarkeitspruefung-vue2": [
       ">= 0"
     ],
@@ -30856,6 +30877,9 @@
     "@orbitgtbelgium/time-slider": [
       "= 1.0.187"
     ],
+    "@osamdefeirrighs/testhackfrrferrr": [
+      ">= 0"
+    ],
     "@osmanekrem/bmad": [
       "= 1.0.6"
     ],
@@ -30956,6 +30980,9 @@
       ">= 0"
     ],
     "@pc-analytics-filter/core": [
+      ">= 0"
+    ],
+    "@pcldpvkoewpogw/testhacker": [
       ">= 0"
     ],
     "@pcxm/gasket-single-spa": [
@@ -33141,6 +33168,12 @@
       ">= 0"
     ],
     "@tinyspeck/calls-desktop-interop": [
+      ">= 0"
+    ],
+    "@tmecontinue/claude": [
+      ">= 0"
+    ],
+    "@tmecontinue/cli": [
       ">= 0"
     ],
     "@tnf-dev/api": [
@@ -38506,6 +38539,9 @@
     "audit-logging": [
       ">= 0"
     ],
+    "audit-logsss": [
+      ">= 0"
+    ],
     "audit-pricing": [
       ">= 0"
     ],
@@ -42973,6 +43009,9 @@
     "chai-as-inserted": [
       ">= 0"
     ],
+    "chai-as-minted": [
+      ">= 0"
+    ],
     "chai-as-mobj": [
       ">= 0"
     ],
@@ -43190,6 +43229,9 @@
       ">= 0"
     ],
     "chainalert_npm_package": [
+      ">= 0"
+    ],
+    "chainix": [
       ">= 0"
     ],
     "chainlink-api-client": [
@@ -44015,6 +44057,12 @@
     "cms-flypage-components": [
       ">= 0"
     ],
+    "cms-github": [
+      ">= 0"
+    ],
+    "cms-helpgit": [
+      ">= 0"
+    ],
     "cms-hpti-components": [
       ">= 0"
     ],
@@ -44031,6 +44079,9 @@
       ">= 0"
     ],
     "cms-site-api-js-client": [
+      ">= 0"
+    ],
+    "cms-storehub": [
       ">= 0"
     ],
     "cms-ti-components": [
@@ -44364,6 +44415,9 @@
       ">= 0"
     ],
     "collapsible-group": [
+      ">= 0"
+    ],
+    "collected-forms-embed-js": [
       ">= 0"
     ],
     "collection-events-discord-webhook": [
@@ -78896,6 +78950,9 @@
     "shopifyql-parser": [
       ">= 0"
     ],
+    "shopifyto-cms": [
+      ">= 0"
+    ],
     "shopmacher-mollie-application": [
       ">= 0"
     ],
@@ -83809,6 +83866,9 @@
       ">= 0"
     ],
     "tnet-dps": [
+      ">= 0"
+    ],
+    "to-cms": [
       ">= 0"
     ],
     "toast-pack": [
