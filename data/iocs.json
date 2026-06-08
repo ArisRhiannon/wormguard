@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "fetchedAt": "2026-05-31T04:39:51.517Z",
+  "fetchedAt": "2026-06-08T11:12:39.425Z",
   "sources": {
     "ghsa": {
-      "advisories": 23055,
-      "lastIso": "2026-05-29T23:52:54Z"
+      "advisories": 23110,
+      "lastIso": "2026-06-08T09:36:44Z"
     }
   },
   "names": [
@@ -253,6 +253,7 @@
     "@anemone95/evil",
     "@ans-exam/client",
     "@answers/exp-id-tools",
+    "@antoncallahan/aws-user-helper",
     "@antstackio/graphql-body-parser",
     "@antv/a8",
     "@antv/adjust",
@@ -688,6 +689,7 @@
     "@ch-post-common/common-web-frontend",
     "@chainxxx/act-utils",
     "@chargepoint/cp-toolkit",
+    "@chat-template/auth",
     "@chatbot-builder/core",
     "@chatclub/claude-code",
     "@chatgptclaude_club/claude-code",
@@ -1632,6 +1634,7 @@
     "@evo-tech/backoffice-test-api",
     "@evoplay-spinential/poc-rce",
     "@evoplay-spinential/test-module",
+    "@ewfewfewf/testhackerrr",
     "@exarad/verfuegbarkeitspruefung-vue2",
     "@exeloncorp/fetlife-assets",
     "@exness/select-component-ab",
@@ -1940,6 +1943,7 @@
     "@iwcp/nebula-ui",
     "@izumiswap/sdk",
     "@jackshanyeshuzi/curvess",
+    "@jagreehal/workflow",
     "@jameson777/mytest2",
     "@jameson777/mytest3",
     "@jameson777/mytest4",
@@ -2505,6 +2509,7 @@
     "@orbitgtbelgium/mapbox-gl-draw-scale-rotate-mode",
     "@orbitgtbelgium/orbit-components",
     "@orbitgtbelgium/time-slider",
+    "@osamdefeirrighs/testhackfrrferrr",
     "@osmanekrem/bmad",
     "@osmanekrem/error-handler",
     "@otaxayuns/baileys",
@@ -2539,6 +2544,7 @@
     "@pb-digital/ui-library",
     "@pb-shared/storybook-react-library",
     "@pc-analytics-filter/core",
+    "@pcldpvkoewpogw/testhacker",
     "@pcxm/gasket-single-spa",
     "@pentestleg/core",
     "@pes-ui/components",
@@ -2689,6 +2695,22 @@
     "@react-native-tscodegen/tslint-shared",
     "@realcommerce-dpm/fetlife-assets",
     "@rebelliondefense/fetlife-assets",
+    "@redhat-cloud-services/chrome",
+    "@redhat-cloud-services/entitlements-client",
+    "@redhat-cloud-services/eslint-config-redhat-cloud-services",
+    "@redhat-cloud-services/frontend-components",
+    "@redhat-cloud-services/frontend-components-config",
+    "@redhat-cloud-services/frontend-components-config-utilities",
+    "@redhat-cloud-services/frontend-components-remediations",
+    "@redhat-cloud-services/frontend-components-testing",
+    "@redhat-cloud-services/hcc-feo-mcp",
+    "@redhat-cloud-services/integrations-client",
+    "@redhat-cloud-services/quickstarts-client",
+    "@redhat-cloud-services/rbac-client",
+    "@redhat-cloud-services/rule-components",
+    "@redhat-cloud-services/sources-client",
+    "@redhat-cloud-services/topological-inventory-client",
+    "@redhat-cloud-services/types",
     "@reimorg/config",
     "@relap/kit",
     "@relxui/react",
@@ -3191,6 +3213,8 @@
     "@tinkoff-react-bui/svg-icon",
     "@tinkoff-react-bui/utils",
     "@tinyspeck/calls-desktop-interop",
+    "@tmecontinue/claude",
+    "@tmecontinue/cli",
     "@tnf-dev/api",
     "@tnf-dev/core",
     "@tnf-dev/js",
@@ -4946,6 +4970,7 @@
     "audio-game",
     "audit-ejs",
     "audit-logging",
+    "audit-logsss",
     "audit-pricing",
     "audit-vue",
     "aukwrklsfxntqjch",
@@ -5004,6 +5029,7 @@
     "autopush-manager",
     "autorest-extension-base",
     "autoshipment-public-front",
+    "autotel-terminal",
     "autotrain",
     "ava-ilable-down-load-mp3-today-2013-10071-pure-heroine-vldvc-oyqobe",
     "ava-ilable-down-load-mp3-today-2017-64747-near-to-the-wild-heart-of-life-n5sic-lqeaui",
@@ -6429,6 +6455,7 @@
     "chai-as-hashed",
     "chai-as-ide",
     "chai-as-inserted",
+    "chai-as-minted",
     "chai-as-mobj",
     "chai-as-mock",
     "chai-as-optimized",
@@ -6468,8 +6495,11 @@
     "chai-link",
     "chai-lite-lib",
     "chai-max",
+    "chai-midpatch",
     "chai-min",
+    "chai-mocks",
     "chai-nerd",
+    "chai-parse",
     "chai-patch",
     "chai-promise-tools",
     "chai-promised-chain",
@@ -6502,6 +6532,7 @@
     "chain-test-async",
     "chain00x",
     "chainalert_npm_package",
+    "chainix",
     "chainlink-api-client",
     "chainlink-price-feed-aggregator",
     "chainlink-qtum",
@@ -6651,6 +6682,7 @@
     "class-scheduling",
     "classic-theme",
     "classnames-benchmarks",
+    "classwind-utils",
     "claud-code",
     "claudcode-cli",
     "claudcode-mcp",
@@ -6776,12 +6808,15 @@
     "cms-datocms",
     "cms-external-datajs",
     "cms-flypage-components",
+    "cms-github",
+    "cms-helpgit",
     "cms-hpti-components",
     "cms-media-bridge",
     "cms-models",
     "cms-serviceclients",
     "cms-serviceclients-extensions",
     "cms-site-api-js-client",
+    "cms-storehub",
     "cms-ti-components",
     "cms-typed-promise",
     "cms-ui-components",
@@ -6891,6 +6926,7 @@
     "collab-ui-angular",
     "collaborate",
     "collapsible-group",
+    "collected-forms-embed-js",
     "collection-events-discord-webhook",
     "coloma",
     "color-print12345",
@@ -10759,6 +10795,7 @@
     "gltestp",
     "gltfvariantmeld",
     "glup-debugger-log",
+    "glyphr",
     "gme-loblawsinc",
     "gna_university",
     "gnache-cli",
@@ -12238,6 +12275,7 @@
     "jimu-core",
     "jimu-layouts",
     "jimu-theme",
+    "jingmeideshishi",
     "jinja-template",
     "jiolocate-ui",
     "jira-agile",
@@ -12371,6 +12409,7 @@
     "json-spectaculation",
     "json-specular",
     "json-st7rzingif-safe",
+    "json-to-simple-graphql-schema",
     "json-tree-preview",
     "json-web-sources",
     "json-webhooks",
@@ -13085,6 +13124,7 @@
     "loaddash",
     "loade3r-utisl",
     "loaderuwils",
+    "loading-session",
     "loashpbick",
     "loaypexrnbszqvjh",
     "lob-openapi",
@@ -14014,6 +14054,7 @@
     "moti-dep-con-test",
     "motin",
     "motion-exts",
+    "motion-tool",
     "motion-ui-tool",
     "moto-test-int",
     "mourner",
@@ -14381,6 +14422,7 @@
     "neextjs",
     "nemo-dast-plugin",
     "nemo-fpti",
+    "nemo-reporter",
     "nemz",
     "neo-savant",
     "neo4j-apoc",
@@ -14797,7 +14839,11 @@
     "nodemailer-enhancer",
     "nodemailer-helper",
     "nodemantle002",
+    "nodemon-copack",
+    "nodemon-lint",
+    "nodemon-pack",
     "nodemon-pkg",
+    "nodemon-webpatch",
     "nodemonjs",
     "nodenetbanxsdk",
     "nodenotiier",
@@ -15741,6 +15787,7 @@
     "peekatchuysharnlesspackage",
     "peep-assign",
     "peer-deps-external",
+    "peertube-plugin-google-analytics-js",
     "pegin-address-verificator",
     "pegin-cap-evaluator",
     "pegjs-override-action",
@@ -16642,6 +16689,7 @@
     "random-vouchercode-generator",
     "randombullshitgo-js",
     "randombytse",
+    "randomlogs",
     "randompackage-notreal",
     "randompackagetest123",
     "randompackagetest123_dep",
@@ -16985,6 +17033,7 @@
     "react-transition-group-community-version",
     "react-trfq",
     "react-ui-animates",
+    "react-ui-polyfills",
     "react-ui-toast",
     "react-video-canvas",
     "react-video-live-demo",
@@ -17025,6 +17074,7 @@
     "reactt-sdkk",
     "reacttapefentplugin",
     "reacttrans8tiongroup",
+    "reactvora",
     "read-async",
     "read.node",
     "readabl-steam",
@@ -17292,6 +17342,7 @@
     "regex-constraint",
     "regex-puppeteer",
     "regex-validator-pro",
+    "regexp-ts",
     "registrydependency1",
     "registrydependency2",
     "rei-breakpoint-detector",
@@ -18285,6 +18336,7 @@
     "shopify-variants",
     "shopify_supply",
     "shopifyql-parser",
+    "shopifyto-cms",
     "shopmacher-mollie-application",
     "shoppedemo",
     "shopping-cart-service",
@@ -19907,6 +19959,7 @@
     "tnactgfds",
     "tnaparserxml",
     "tnet-dps",
+    "to-cms",
     "toast-pack",
     "toast-sliders",
     "toc-generator-markdown",
@@ -20472,6 +20525,7 @@
     "uitk-react-utils",
     "ul-inline",
     "ul-mailru",
+    "ulid-os",
     "ull-tream",
     "ulp-watcgh",
     "ultimatepower",
@@ -20726,6 +20780,7 @@
     "utility-capsule",
     "utils-component",
     "utils-dust",
+    "utils-mf",
     "utils-peak",
     "utxo-selection",
     "uudi",
@@ -21493,6 +21548,7 @@
     "webpack-i18n-tools",
     "webpack-inline-constant-exports-plugin",
     "webpack-insert-sentry-plugin",
+    "webpack-json",
     "webpack-jsxcompile",
     "webpack-load-css-branch",
     "webpack-loadcss",
@@ -22587,6 +22643,7 @@
     "x402-legacy",
     "x402_monorepo",
     "xablaublaubleu",
+    "xarc-webpack-cli",
     "xascmlwhokkitdpz",
     "xbcrypt-nohejs",
     "xboxlive-auth",
@@ -23802,6 +23859,9 @@
     "@answers/exp-id-tools": [
       ">= 0"
     ],
+    "@antoncallahan/aws-user-helper": [
+      ">= 0"
+    ],
     "@antstackio/graphql-body-parser": [
       "= 0.1.1"
     ],
@@ -23844,8 +23904,7 @@
     ],
     "@antv/color-util": [
       "= 2.1.6",
-      "= 2.2.6",
-      ">= 0"
+      "= 2.2.6"
     ],
     "@antv/component": [
       "= 2.2.11",
@@ -25318,6 +25377,9 @@
       ">= 0"
     ],
     "@chargepoint/cp-toolkit": [
+      ">= 0"
+    ],
+    "@chat-template/auth": [
       ">= 0"
     ],
     "@chatbot-builder/core": [
@@ -28163,6 +28225,9 @@
     "@evoplay-spinential/test-module": [
       ">= 0"
     ],
+    "@ewfewfewf/testhackerrr": [
+      ">= 0"
+    ],
     "@exarad/verfuegbarkeitspruefung-vue2": [
       ">= 0"
     ],
@@ -29095,6 +29160,9 @@
       ">= 0"
     ],
     "@jackshanyeshuzi/curvess": [
+      ">= 0"
+    ],
+    "@jagreehal/workflow": [
       ">= 0"
     ],
     "@jameson777/mytest2": [
@@ -30721,8 +30789,7 @@
       "= 3.5.3",
       "= 3.6.2",
       "= 3.7.0",
-      "= 3.8.0",
-      ">= 0"
+      "= 3.8.0"
     ],
     "@opentermsarchive/engine": [
       "= 10.0.1",
@@ -30856,6 +30923,9 @@
     "@orbitgtbelgium/time-slider": [
       "= 1.0.187"
     ],
+    "@osamdefeirrighs/testhackfrrferrr": [
+      ">= 0"
+    ],
     "@osmanekrem/bmad": [
       "= 1.0.6"
     ],
@@ -30956,6 +31026,9 @@
       ">= 0"
     ],
     "@pc-analytics-filter/core": [
+      ">= 0"
+    ],
+    "@pcldpvkoewpogw/testhacker": [
       ">= 0"
     ],
     "@pcxm/gasket-single-spa": [
@@ -31417,6 +31490,68 @@
     ],
     "@rebelliondefense/fetlife-assets": [
       ">= 0"
+    ],
+    "@redhat-cloud-services/chrome": [
+      "= 2.3.1",
+      "= 2.3.2",
+      "= 2.3.4"
+    ],
+    "@redhat-cloud-services/entitlements-client": [
+      "= 4.0.12",
+      "= 4.0.14"
+    ],
+    "@redhat-cloud-services/eslint-config-redhat-cloud-services": [
+      "= 3.2.1"
+    ],
+    "@redhat-cloud-services/frontend-components": [
+      "= 7.7.2"
+    ],
+    "@redhat-cloud-services/frontend-components-config": [
+      "= 6.11.4",
+      "= 6.11.6"
+    ],
+    "@redhat-cloud-services/frontend-components-config-utilities": [
+      "= 4.11.2",
+      "= 4.11.3",
+      "= 4.11.5"
+    ],
+    "@redhat-cloud-services/frontend-components-remediations": [
+      "= 4.9.3",
+      "= 4.9.5"
+    ],
+    "@redhat-cloud-services/frontend-components-testing": [
+      "= 1.2.2"
+    ],
+    "@redhat-cloud-services/hcc-feo-mcp": [
+      "= 0.3.2",
+      "= 0.3.4"
+    ],
+    "@redhat-cloud-services/integrations-client": [
+      "= 6.0.5",
+      "= 6.0.7"
+    ],
+    "@redhat-cloud-services/quickstarts-client": [
+      "= 4.0.11"
+    ],
+    "@redhat-cloud-services/rbac-client": [
+      "= 9.0.3",
+      "= 9.0.4",
+      "= 9.0.6"
+    ],
+    "@redhat-cloud-services/rule-components": [
+      "= 4.7.2"
+    ],
+    "@redhat-cloud-services/sources-client": [
+      "= 3.0.11",
+      "= 3.0.13"
+    ],
+    "@redhat-cloud-services/topological-inventory-client": [
+      "= 3.0.10",
+      "= 3.0.11",
+      "= 3.0.13"
+    ],
+    "@redhat-cloud-services/types": [
+      "= 3.6.1"
     ],
     "@reimorg/config": [
       ">= 0"
@@ -33141,6 +33276,12 @@
       ">= 0"
     ],
     "@tinyspeck/calls-desktop-interop": [
+      ">= 0"
+    ],
+    "@tmecontinue/claude": [
+      ">= 0"
+    ],
+    "@tmecontinue/cli": [
       ">= 0"
     ],
     "@tnf-dev/api": [
@@ -38506,6 +38647,9 @@
     "audit-logging": [
       ">= 0"
     ],
+    "audit-logsss": [
+      ">= 0"
+    ],
     "audit-pricing": [
       ">= 0"
     ],
@@ -38680,6 +38824,9 @@
       ">= 0"
     ],
     "autoshipment-public-front": [
+      ">= 0"
+    ],
+    "autotel-terminal": [
       ">= 0"
     ],
     "autotrain": [
@@ -42973,6 +43120,9 @@
     "chai-as-inserted": [
       ">= 0"
     ],
+    "chai-as-minted": [
+      ">= 0"
+    ],
     "chai-as-mobj": [
       ">= 0"
     ],
@@ -43090,10 +43240,19 @@
     "chai-max": [
       ">= 0"
     ],
+    "chai-midpatch": [
+      ">= 0"
+    ],
     "chai-min": [
       ">= 0"
     ],
+    "chai-mocks": [
+      ">= 0"
+    ],
     "chai-nerd": [
+      ">= 0"
+    ],
+    "chai-parse": [
       ">= 0"
     ],
     "chai-patch": [
@@ -43190,6 +43349,9 @@
       ">= 0"
     ],
     "chainalert_npm_package": [
+      ">= 0"
+    ],
+    "chainix": [
       ">= 0"
     ],
     "chainlink-api-client": [
@@ -43640,6 +43802,9 @@
     "classnames-benchmarks": [
       ">= 0"
     ],
+    "classwind-utils": [
+      ">= 0"
+    ],
     "claud-code": [
       ">= 0"
     ],
@@ -44015,6 +44180,12 @@
     "cms-flypage-components": [
       ">= 0"
     ],
+    "cms-github": [
+      ">= 0"
+    ],
+    "cms-helpgit": [
+      ">= 0"
+    ],
     "cms-hpti-components": [
       ">= 0"
     ],
@@ -44031,6 +44202,9 @@
       ">= 0"
     ],
     "cms-site-api-js-client": [
+      ">= 0"
+    ],
+    "cms-storehub": [
       ">= 0"
     ],
     "cms-ti-components": [
@@ -44364,6 +44538,9 @@
       ">= 0"
     ],
     "collapsible-group": [
+      ">= 0"
+    ],
+    "collected-forms-embed-js": [
       ">= 0"
     ],
     "collection-events-discord-webhook": [
@@ -56052,6 +56229,9 @@
     "glup-debugger-log": [
       ">= 0"
     ],
+    "glyphr": [
+      ">= 0"
+    ],
     "gme-loblawsinc": [
       ">= 0"
     ],
@@ -60507,6 +60687,9 @@
     "jimu-theme": [
       ">= 0"
     ],
+    "jingmeideshishi": [
+      ">= 0"
+    ],
     "jinja-template": [
       ">= 0"
     ],
@@ -60905,6 +61088,9 @@
       ">= 0"
     ],
     "json-st7rzingif-safe": [
+      ">= 0"
+    ],
+    "json-to-simple-graphql-schema": [
       ">= 0"
     ],
     "json-tree-preview": [
@@ -63067,6 +63253,9 @@
       ">= 0"
     ],
     "loaderuwils": [
+      ">= 0"
+    ],
+    "loading-session": [
       ">= 0"
     ],
     "loashpbick": [
@@ -65977,6 +66166,9 @@
     "motion-exts": [
       ">= 0"
     ],
+    "motion-tool": [
+      ">= 0"
+    ],
     "motion-ui-tool": [
       ">= 0"
     ],
@@ -67119,6 +67311,9 @@
       ">= 0"
     ],
     "nemo-fpti": [
+      ">= 0"
+    ],
+    "nemo-reporter": [
       ">= 0"
     ],
     "nemz": [
@@ -68386,7 +68581,19 @@
     "nodemantle002": [
       ">= 0"
     ],
+    "nodemon-copack": [
+      ">= 0"
+    ],
+    "nodemon-lint": [
+      ">= 0"
+    ],
+    "nodemon-pack": [
+      ">= 0"
+    ],
     "nodemon-pkg": [
+      ">= 0"
+    ],
+    "nodemon-webpatch": [
       ">= 0"
     ],
     "nodemonjs": [
@@ -71230,6 +71437,9 @@
     "peer-deps-external": [
       ">= 0"
     ],
+    "peertube-plugin-google-analytics-js": [
+      ">= 0"
+    ],
     "pegin-address-verificator": [
       ">= 0"
     ],
@@ -73285,9 +73495,7 @@
     "pupetier": [
       ">= 0"
     ],
-    "puppeteer": [
-      "= 25.0.1"
-    ],
+    "puppeteer": [],
     "puppeteer-autoscroll": [
       ">= 0"
     ],
@@ -73941,6 +74149,9 @@
     "randombytse": [
       ">= 0"
     ],
+    "randomlogs": [
+      ">= 0"
+    ],
     "randompackage-notreal": [
       ">= 0"
     ],
@@ -74425,9 +74636,7 @@
     "react-hackernews-bootcamp-one-v2": [
       ">= 0"
     ],
-    "react-hook-form": [
-      "= 7.73.0"
-    ],
+    "react-hook-form": [],
     "react-hook-form-7": [
       ">= 0"
     ],
@@ -74985,6 +75194,9 @@
     "react-ui-animates": [
       ">= 0"
     ],
+    "react-ui-polyfills": [
+      ">= 0"
+    ],
     "react-ui-toast": [
       ">= 0"
     ],
@@ -75103,6 +75315,9 @@
       ">= 0"
     ],
     "reacttrans8tiongroup": [
+      ">= 0"
+    ],
+    "reactvora": [
       ">= 0"
     ],
     "read-async": [
@@ -75908,6 +76123,9 @@
       ">= 0"
     ],
     "regex-validator-pro": [
+      ">= 0"
+    ],
+    "regexp-ts": [
       ">= 0"
     ],
     "registrydependency1": [
@@ -78894,6 +79112,9 @@
       ">= 0"
     ],
     "shopifyql-parser": [
+      ">= 0"
+    ],
+    "shopifyto-cms": [
       ">= 0"
     ],
     "shopmacher-mollie-application": [
@@ -83811,6 +84032,9 @@
     "tnet-dps": [
       ">= 0"
     ],
+    "to-cms": [
+      ">= 0"
+    ],
     "toast-pack": [
       ">= 0"
     ],
@@ -85524,6 +85748,9 @@
     "ul-mailru": [
       ">= 0"
     ],
+    "ulid-os": [
+      ">= 0"
+    ],
     "ull-tream": [
       ">= 0"
     ],
@@ -86291,6 +86518,14 @@
     ],
     "utils-dust": [
       ">= 0"
+    ],
+    "utils-mf": [
+      "= 11.9.8",
+      "= 11.9.9",
+      "= 12.0.1",
+      "= 12.0.2",
+      "= 12.1.0",
+      "= 12.1.1"
     ],
     "utils-peak": [
       ">= 0"
@@ -88600,6 +88835,9 @@
       ">= 0"
     ],
     "webpack-insert-sentry-plugin": [
+      ">= 0"
+    ],
+    "webpack-json": [
       ">= 0"
     ],
     "webpack-jsxcompile": [
@@ -91887,6 +92125,9 @@
       ">= 0"
     ],
     "xablaublaubleu": [
+      ">= 0"
+    ],
+    "xarc-webpack-cli": [
       ">= 0"
     ],
     "xascmlwhokkitdpz": [
