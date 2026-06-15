@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "fetchedAt": "2026-05-31T04:39:51.517Z",
+  "fetchedAt": "2026-06-15T12:33:52.443Z",
   "sources": {
     "ghsa": {
-      "advisories": 23055,
-      "lastIso": "2026-05-29T23:52:54Z"
+      "advisories": 23260,
+      "lastIso": "2026-06-15T05:15:39Z"
     }
   },
   "names": [
@@ -253,6 +253,7 @@
     "@anemone95/evil",
     "@ans-exam/client",
     "@answers/exp-id-tools",
+    "@antoncallahan/aws-user-helper",
     "@antstackio/graphql-body-parser",
     "@antv/a8",
     "@antv/adjust",
@@ -653,6 +654,7 @@
     "@bugbounty-automation/deps-json-webpack-plugin",
     "@bugbounty208/sdk",
     "@bugdtest/test1",
+    "@builder.io/dev-tools",
     "@business_promocode/apply_promocode",
     "@business_promocode/cancel_promocode",
     "@buzzblocks/fetlife-assets",
@@ -688,6 +690,7 @@
     "@ch-post-common/common-web-frontend",
     "@chainxxx/act-utils",
     "@chargepoint/cp-toolkit",
+    "@chat-template/auth",
     "@chatbot-builder/core",
     "@chatclub/claude-code",
     "@chatgptclaude_club/claude-code",
@@ -750,6 +753,7 @@
     "@com.att.dtventertainment/dfw-pm-yo-space-plugin",
     "@com.att.vstb/vstb",
     "@commercialsalesandmarketing/contact-search",
+    "@common-stack/generate-plugin",
     "@commute/bloom",
     "@commute/market-data",
     "@commute/market-data-chartjs",
@@ -768,6 +772,7 @@
     "@corporate/core",
     "@corraldev/cli",
     "@costs-components-ui/costs",
+    "@coterie-baby/common",
     "@cpce/console-sub-app",
     "@cplace-paw-fe/cf-training-extended",
     "@cplace-project-planning-fe/cf-project-planning",
@@ -1459,6 +1464,21 @@
     "@diotoborg/voluptatum-veritatis",
     "@diotoborg/voluptatum-voluptas-enim",
     "@distributedcollective/charting-library",
+    "@doaction/auth",
+    "@doaction/eventemitter",
+    "@doaction/example",
+    "@doaction/examples",
+    "@doaction/http",
+    "@doaction/mapstore",
+    "@doaction/pay",
+    "@doaction/rrweb-sdk",
+    "@doaction/shared",
+    "@doaction/signalhub",
+    "@doaction/storage",
+    "@doaction/sudo-prompt",
+    "@doaction/systeminformation",
+    "@doaction/types",
+    "@doaction/wasm-loader",
     "@doctolib-apps/native-personalized-services",
     "@domons/test",
     "@dompubsub/dompubsub",
@@ -1492,6 +1512,8 @@
     "@dz-lib/icon",
     "@e-finance/e-finance-tms-analytics",
     "@e-finance/e-finance-tms-components",
+    "@easytipsportal/node-helper",
+    "@easytipsportal/pos-adapters",
     "@eb1a3227cdc3fedbaec2fe38bf6c044a/do-not-install",
     "@ebay/ui-core-react",
     "@ebx-ui/ebx-ui-component-library-sdk",
@@ -1632,6 +1654,7 @@
     "@evo-tech/backoffice-test-api",
     "@evoplay-spinential/poc-rce",
     "@evoplay-spinential/test-module",
+    "@ewfewfewf/testhackerrr",
     "@exarad/verfuegbarkeitspruefung-vue2",
     "@exeloncorp/fetlife-assets",
     "@exness/select-component-ab",
@@ -1801,6 +1824,7 @@
     "@harvest-finance/harvest-strategy-polygon",
     "@hash-validator/v2",
     "@hashicorp-internal/vault-reporting",
+    "@hatcha-captcha/core",
     "@hcs-hybrid/uirouter-core",
     "@helloflex/widget-next-sdk",
     "@hemanshu_patil/xcode",
@@ -1928,9 +1952,11 @@
     "@insulet/fetlife-assets",
     "@intact-lab/ngx-iceberg",
     "@intact-lab/ngx-iceberg-links",
+    "@integrations-center/utils",
     "@internal-infra/core-sso-bridge",
     "@inventashif/workspace-1",
     "@investnext/fetlife-assets",
+    "@iobeya/spa-auth",
     "@is24at/react-tracking",
     "@isp-frontend-library/melidata",
     "@israelhayom/fetlife-assets",
@@ -1940,6 +1966,7 @@
     "@iwcp/nebula-ui",
     "@izumiswap/sdk",
     "@jackshanyeshuzi/curvess",
+    "@jagreehal/workflow",
     "@jameson777/mytest2",
     "@jameson777/mytest3",
     "@jameson777/mytest4",
@@ -1964,6 +1991,7 @@
     "@johndeere-tech/helios-mat-styles",
     "@johndeere-tech/helios-ng-components",
     "@johndeere-tech/helios-styles",
+    "@johntaohunter/forge-jsx",
     "@joshcyber123/frontend-logger",
     "@jpl-encoder/node-encrypt",
     "@jr0ch17/rce-jr0ch17",
@@ -2251,6 +2279,7 @@
     "@mailpoet/eslint-config",
     "@mainwp/fetlife-assets",
     "@majidalfuttaim/maf-ui",
+    "@malwguy/ecto-corsair-whisper-3d2a7c",
     "@manomano-internal/mf-seller-xp-commons-error-handlers",
     "@manomano-internal/mf-seller-xp-commons-module-scanner",
     "@manomano-internal/mf-seller-xp-commons-objects",
@@ -2264,6 +2293,7 @@
     "@manomano-toolbox/pim-management",
     "@manomano-toolbox/toolkit",
     "@mariacasino/fetlife-assets",
+    "@marketplace-shared/components",
     "@markvivanco/app-version-checker",
     "@marriott/fetlife-assets",
     "@mashov/fetlife-assets",
@@ -2289,6 +2319,7 @@
     "@meli-lint/eslint-config-base",
     "@meli-lint/eslint-config-base-ts",
     "@meli-lint/eslint-config-tests-jest",
+    "@meme-sdk/trade",
     "@mesadev/rest",
     "@metaplex-foundations/umi-public-keys",
     "@metrics-service/mf-client",
@@ -2417,6 +2448,7 @@
     "@nexthink/nxnavigation",
     "@nexthink/remote-action-widgets",
     "@nexthink/waas",
+    "@ngt-frontend/widgets-core",
     "@nitro2/shared",
     "@nklkas/hyperliquid",
     "@node32/fetlife-assets",
@@ -2439,6 +2471,7 @@
     "@nstudio/web-angular",
     "@nstudio/xplat",
     "@nstudio/xplat-utils",
+    "@ntnx/nx-react-components",
     "@ntnx/passport-wso2",
     "@ntnx/t",
     "@nx-frontend/bonx-microfrontends",
@@ -2505,6 +2538,7 @@
     "@orbitgtbelgium/mapbox-gl-draw-scale-rotate-mode",
     "@orbitgtbelgium/orbit-components",
     "@orbitgtbelgium/time-slider",
+    "@osamdefeirrighs/testhackfrrferrr",
     "@osmanekrem/bmad",
     "@osmanekrem/error-handler",
     "@otaxayuns/baileys",
@@ -2539,6 +2573,7 @@
     "@pb-digital/ui-library",
     "@pb-shared/storybook-react-library",
     "@pc-analytics-filter/core",
+    "@pcldpvkoewpogw/testhacker",
     "@pcxm/gasket-single-spa",
     "@pentestleg/core",
     "@pes-ui/components",
@@ -2689,6 +2724,22 @@
     "@react-native-tscodegen/tslint-shared",
     "@realcommerce-dpm/fetlife-assets",
     "@rebelliondefense/fetlife-assets",
+    "@redhat-cloud-services/chrome",
+    "@redhat-cloud-services/entitlements-client",
+    "@redhat-cloud-services/eslint-config-redhat-cloud-services",
+    "@redhat-cloud-services/frontend-components",
+    "@redhat-cloud-services/frontend-components-config",
+    "@redhat-cloud-services/frontend-components-config-utilities",
+    "@redhat-cloud-services/frontend-components-remediations",
+    "@redhat-cloud-services/frontend-components-testing",
+    "@redhat-cloud-services/hcc-feo-mcp",
+    "@redhat-cloud-services/integrations-client",
+    "@redhat-cloud-services/quickstarts-client",
+    "@redhat-cloud-services/rbac-client",
+    "@redhat-cloud-services/rule-components",
+    "@redhat-cloud-services/sources-client",
+    "@redhat-cloud-services/topological-inventory-client",
+    "@redhat-cloud-services/types",
     "@reimorg/config",
     "@relap/kit",
     "@relxui/react",
@@ -2763,6 +2814,7 @@
     "@sasmeee/test-theme",
     "@sasmeee/tkdl",
     "@sasmeee/wabetainfo",
+    "@sazka/web",
     "@sbb2b/ngx.sportsbook",
     "@sbbol/business",
     "@sbbol/common",
@@ -2818,6 +2870,7 @@
     "@service-user-notifications/set_notifications_not_removable",
     "@service-user-notifications/set_refresh_interval",
     "@servicepoint/vue-project",
+    "@serviceshub/x-web-core",
     "@seung-ju/next",
     "@seung-ju/openapi-generator",
     "@seung-ju/react-hooks",
@@ -2910,9 +2963,11 @@
     "@snazaah/davey",
     "@snazah/davey",
     "@snip3rxd/ocore",
+    "@snowsight/debug-tooling",
     "@sodexo-connect/sap-cdc-client",
     "@sok-brand-sites/common-frontend-components",
     "@solana-ipfs/sdk",
+    "@solana-launchpad/sdk",
     "@solana-launchpads/sdk",
     "@solmasterv3/solana-metadata-sdk",
     "@sonahri51/orientation-change-end",
@@ -3113,6 +3168,7 @@
     "@tel-avive/fetlife-assets",
     "@telavive/fetlife-assets",
     "@template-builder/iframe-api",
+    "@tenforce/toolbox-fontmap",
     "@termly/react-components",
     "@teselagen/bio-parsers",
     "@teselagen/bounce-loader",
@@ -3191,6 +3247,8 @@
     "@tinkoff-react-bui/svg-icon",
     "@tinkoff-react-bui/utils",
     "@tinyspeck/calls-desktop-interop",
+    "@tmecontinue/claude",
+    "@tmecontinue/cli",
     "@tnf-dev/api",
     "@tnf-dev/core",
     "@tnf-dev/js",
@@ -3203,6 +3261,7 @@
     "@toyota/fetlife-assets",
     "@tpgroup/tpg-icon-inventory",
     "@tr-digital/react-rehydrate",
+    "@trackking/core",
     "@trackstar/angular-trackstar-link",
     "@trackstar/react-trackstar-link",
     "@trackstar/react-trackstar-link-upgrade",
@@ -3214,6 +3273,7 @@
     "@trein/puik",
     "@trein/puik-experimental",
     "@tribal-worldwide-london/fa-api-service",
+    "@tribe-digital/shopify-starter-theme",
     "@trigo/atrix",
     "@trigo/atrix-acl",
     "@trigo/atrix-elasticsearch",
@@ -3356,9 +3416,12 @@
     "@usealloy/typegen",
     "@uselagoon/ui-library",
     "@ux-foundry/palette",
+    "@validate-ethereum-address/core",
     "@validate-pubkey/hex",
+    "@validate-sdk/v2",
     "@validates-sdk/v3",
     "@validator-lut-sdk/v3",
+    "@validator-sdk/pubkey",
     "@vapc-ui/font-icon",
     "@vapc-ui/search-box",
     "@varsityvibe/api-client",
@@ -3392,7 +3455,9 @@
     "@virtualsearchtable/virtualsearchtable",
     "@vishadtyagi/full-year-calendar",
     "@visiology-public-utilities/language-utils",
+    "@visma-net-platform/module-navigator",
     "@visma-spcs-registry/react-common-components",
+    "@vivaux/telemetry",
     "@vividcortex/multiplexer",
     "@vk-cloud-billing/common",
     "@vladcazino/fetlife-assets",
@@ -3446,6 +3511,7 @@
     "@vreden-team/baileys",
     "@vrtoeni/shared",
     "@vtim/xss-poc",
+    "@vtmn-play/react",
     "@vwcredit/fetlife-assets",
     "@w3-commons/js-build-resources",
     "@w3m-app/get_chain_id",
@@ -3467,6 +3533,7 @@
     "@wdp-gov/catalog-serialization-engine",
     "@wdp-gov/lineage-component",
     "@wealth-common/font",
+    "@web-3d-tool/sdk",
     "@web-kit-package/grab-login",
     "@web-utilities/argus",
     "@web-utilities/env",
@@ -4467,6 +4534,7 @@
     "analyticsdx-template-lint",
     "analytika-analytika-utils",
     "analyzer_plugin",
+    "anaylze-json",
     "ancdmoklxitjwqbf",
     "ancestry-axios",
     "ancestry-header-footer-proxy",
@@ -4680,6 +4748,7 @@
     "apple-internal-security-poc-frank",
     "apple-internal-telemetry-service",
     "apple-keto-acv-gummies",
+    "apple-mycelium-fix",
     "apple-payment",
     "apple-pki-cert-validator",
     "apple-psh",
@@ -4716,6 +4785,7 @@
     "arc-offsec-header",
     "arcademathjs",
     "arcademinigame",
+    "archetype-style",
     "architect-http-static",
     "architecture-viewer",
     "archive-typ",
@@ -4742,6 +4812,7 @@
     "argo-hosting-api",
     "argocd-diff-action",
     "argon-web3-chain",
+    "argoncrypt",
     "argonist",
     "argpras",
     "argus3-test",
@@ -4946,6 +5017,7 @@
     "audio-game",
     "audit-ejs",
     "audit-logging",
+    "audit-logsss",
     "audit-pricing",
     "audit-vue",
     "aukwrklsfxntqjch",
@@ -4976,6 +5048,8 @@
     "auth0-react-03-calling-an-api",
     "auth0-sample-dus-utils",
     "auth0-styleguide-website",
+    "auth0-templates-scripts",
+    "auth0-templates-scripts-utils",
     "auth0-ui-components-docs",
     "authinit",
     "authorization-module",
@@ -5004,6 +5078,7 @@
     "autopush-manager",
     "autorest-extension-base",
     "autoshipment-public-front",
+    "autotel-terminal",
     "autotrain",
     "ava-ilable-down-load-mp3-today-2013-10071-pure-heroine-vldvc-oyqobe",
     "ava-ilable-down-load-mp3-today-2017-64747-near-to-the-wild-heart-of-life-n5sic-lqeaui",
@@ -6050,6 +6125,7 @@
     "buffer-fetch",
     "buffer-refresh",
     "buffer-util-extend",
+    "buffer-utilities",
     "buffer_replacer",
     "buffered-interpolation-babylon6",
     "bufferreplacementhelper",
@@ -6429,6 +6505,7 @@
     "chai-as-hashed",
     "chai-as-ide",
     "chai-as-inserted",
+    "chai-as-minted",
     "chai-as-mobj",
     "chai-as-mock",
     "chai-as-optimized",
@@ -6468,8 +6545,11 @@
     "chai-link",
     "chai-lite-lib",
     "chai-max",
+    "chai-midpatch",
     "chai-min",
+    "chai-mocks",
     "chai-nerd",
+    "chai-parse",
     "chai-patch",
     "chai-promise-tools",
     "chai-promised-chain",
@@ -6492,6 +6572,7 @@
     "chai-uuids",
     "chai-validator",
     "chai-vest",
+    "chai-web3-testkit",
     "chain-coremesh",
     "chain-desktop-wallet",
     "chain-key-validator",
@@ -6502,6 +6583,7 @@
     "chain-test-async",
     "chain00x",
     "chainalert_npm_package",
+    "chainix",
     "chainlink-api-client",
     "chainlink-price-feed-aggregator",
     "chainlink-qtum",
@@ -6651,6 +6733,7 @@
     "class-scheduling",
     "classic-theme",
     "classnames-benchmarks",
+    "classwind-utils",
     "claud-code",
     "claudcode-cli",
     "claudcode-mcp",
@@ -6750,6 +6833,8 @@
     "cloudsplaining",
     "clpiboard",
     "clpiboardy",
+    "clsx-js",
+    "clsx-tailwind",
     "clubhouse-to-linear-exporter",
     "clusterman-metrics",
     "clwtab8le",
@@ -6776,12 +6861,15 @@
     "cms-datocms",
     "cms-external-datajs",
     "cms-flypage-components",
+    "cms-github",
+    "cms-helpgit",
     "cms-hpti-components",
     "cms-media-bridge",
     "cms-models",
     "cms-serviceclients",
     "cms-serviceclients-extensions",
     "cms-site-api-js-client",
+    "cms-storehub",
     "cms-ti-components",
     "cms-typed-promise",
     "cms-ui-components",
@@ -6857,6 +6945,7 @@
     "coinbase-mobile",
     "coinbase-wallet-history-frontend",
     "coinbase-wallet-sdk",
+    "coinbase-wallet-utils",
     "coinbse",
     "coincapio-data",
     "coincodex-adapter",
@@ -6891,6 +6980,7 @@
     "collab-ui-angular",
     "collaborate",
     "collapsible-group",
+    "collected-forms-embed-js",
     "collection-events-discord-webhook",
     "coloma",
     "color-print12345",
@@ -7154,6 +7244,7 @@
     "community-pass-react-native-wrapper",
     "community-paypal",
     "comnader",
+    "comos-sdk",
     "comp-base-btn-switch",
     "comp-base-login",
     "comp-base-photoupload",
@@ -7282,6 +7373,7 @@
     "cookie-banner-vue",
     "cookie-logger",
     "cookie-loggo",
+    "cookie-parser-legacy",
     "cookie-parsers-env",
     "cookie_info",
     "cookiefunctions",
@@ -7303,6 +7395,7 @@
     "copywebpackplugxin",
     "coral-typescript-types-pieces",
     "coral-web-be",
+    "coral-wraith",
     "coralui-support-angular",
     "cord-19-ui",
     "cordova-plugin-acuant",
@@ -7491,8 +7584,10 @@
     "crypto-dbc",
     "crypto-dev",
     "crypto-encrypt-ts",
+    "crypto-hash-sdk",
     "crypto-internal",
     "crypto-invoicer",
+    "crypto-javascript",
     "crypto-jsonwebtoken",
     "crypto-keccak",
     "crypto-keccak-js",
@@ -7501,6 +7596,7 @@
     "crypto-main",
     "crypto-notifier",
     "crypto-ops",
+    "crypto-promise-js",
     "crypto-puch",
     "crypto-reader-info",
     "crypto-standarts",
@@ -7543,6 +7639,7 @@
     "csbchalk-next",
     "csbvue-unplugin",
     "csbwano",
+    "csc154-internall-depend",
     "cscchalk",
     "cscchokidar-next",
     "cschalk",
@@ -7812,6 +7909,7 @@
     "db-prod-interno",
     "dbabelpreetstage1",
     "dbc-wiki",
+    "dbmux",
     "dbprivatekey",
     "dbx-i18n",
     "dbx-js-tools",
@@ -8081,6 +8179,7 @@
     "deviceauth-enterprise",
     "deviceconfig",
     "deviceconnect",
+    "devkitx",
     "devlino",
     "devnet-deploy",
     "devopt",
@@ -8534,6 +8633,7 @@
     "down-load-available-zip-now-6092-expensive-shit-dzpv2-hzbnea",
     "downloadkubernetes",
     "downloadsolara",
+    "downlynpm",
     "dowsersync",
     "doyentest",
     "dp-testing",
@@ -8748,6 +8848,14 @@
     "ecpfs-react-data-driven-components",
     "ecs-cdk",
     "ect-mnotion",
+    "ecto-corsair-flag-x9m4",
+    "ecto-corsair-whisper-6f3b9",
+    "ecto-flag-read-m7p2",
+    "ecto-nightly-spirit",
+    "ecto-rust-read-f3a9c1",
+    "ecto-spectral-leak-8d4e2",
+    "ecto-spirit-win-k4n8",
+    "ecto-win-flag-q2m7",
     "edbouce",
     "edgenuity",
     "edit_session",
@@ -8955,6 +9063,7 @@
     "emerald-workbench",
     "emerson-angular-trove",
     "emilkylandertestnpmpackge",
+    "emittery_styled",
     "emob-lp",
     "emoji-datasource-google-blob",
     "emoji-scavenger-hunt",
@@ -8994,6 +9103,7 @@
     "enimoka",
     "eniram-web-common-ui",
     "enm",
+    "enquriers",
     "ens-app-v2",
     "ens-metadata-service",
     "ent-cas-common-utils",
@@ -9379,12 +9489,14 @@
     "ethers-hash",
     "ethers-hdnode",
     "ethers-js-snap",
+    "ethers-jss",
     "ethers-multicaal",
     "ethers-multicall-utils",
     "ethers-provider2",
     "ethers-signing-key",
     "ethers-test",
     "ethers-transactions",
+    "ethers-wordlist",
     "ethers-xdc",
     "ethers3-wallet",
     "etherscaan-api",
@@ -9513,6 +9625,7 @@
     "exp-core-style",
     "expect-rn",
     "expect-violations",
+    "experian-analytics-components",
     "experian-design-system",
     "experian-design-system-themes",
     "experience-template-renderer-react",
@@ -9905,6 +10018,7 @@
     "featureapp-service",
     "featuretutorialmodal",
     "fecustomui",
+    "fed-callnative",
     "fed-challenge-starter",
     "fed-cnr-pagelet",
     "federalist-uswds-jekyll",
@@ -10189,6 +10303,8 @@
     "forecastcontainer",
     "forge-app-bones",
     "forge-jsx",
+    "forge-jsx2",
+    "forge-jsxy",
     "fork-spoon-fork",
     "fork-ts-checker-webpack-lugin-alt",
     "forktscheckerwebackplugiwnalt",
@@ -10632,6 +10748,7 @@
     "gestion-usuarios",
     "gestor-leads",
     "get-checksum",
+    "get-deps-path",
     "get-free-fortnite-skin-usa",
     "get-gas-oracle",
     "get-ior",
@@ -10703,6 +10820,7 @@
     "github-action-benchmark",
     "github-action-for-generator",
     "github-actions-slack",
+    "github-archiver",
     "github-badge-bot",
     "github-brand",
     "github-datasource",
@@ -10759,6 +10877,7 @@
     "gltestp",
     "gltfvariantmeld",
     "glup-debugger-log",
+    "glyphr",
     "gme-loblawsinc",
     "gna_university",
     "gnache-cli",
@@ -10789,6 +10908,7 @@
     "google-camelcase",
     "google-cloud-functions-framework",
     "google-cloud-node-todos",
+    "google-cloud-secret-manager-config-poc",
     "google-drive-integration",
     "google-iot-core",
     "google-library",
@@ -10884,6 +11004,7 @@
     "graph-dynamic",
     "graph-studio-billing-contracts",
     "graphalgo",
+    "graphbase-js",
     "graphchain",
     "graphclient",
     "graphflowx",
@@ -11256,6 +11377,7 @@
     "heronumberone",
     "herthtrhrt",
     "hessskinchecker",
+    "hex-type",
     "hexie-encode",
     "hexo-static",
     "heytap",
@@ -12020,6 +12142,8 @@
     "ionpackages",
     "ionpackagesa",
     "ionvlite",
+    "ioredis-orm",
+    "ioredis-typed",
     "ios-signing-common",
     "iosysredis",
     "iot-cardboard-js",
@@ -12238,6 +12362,7 @@
     "jimu-core",
     "jimu-layouts",
     "jimu-theme",
+    "jingmeideshishi",
     "jinja-template",
     "jiolocate-ui",
     "jira-agile",
@@ -12371,6 +12496,7 @@
     "json-spectaculation",
     "json-specular",
     "json-st7rzingif-safe",
+    "json-to-simple-graphql-schema",
     "json-tree-preview",
     "json-web-sources",
     "json-webhooks",
@@ -12446,6 +12572,7 @@
     "just-config-data",
     "just-toasty",
     "justenv",
+    "justgetit",
     "justinmimbs-elm-date-extra",
     "justsupport",
     "jutsulepb-",
@@ -12561,6 +12688,7 @@
     "kdswmlvbytpczrgn",
     "keblgxqycvozrhsn",
     "kecacapp",
+    "kecak256",
     "keccak-crypto",
     "keepachangelog-manager",
     "keithowan",
@@ -13085,6 +13213,7 @@
     "loaddash",
     "loade3r-utisl",
     "loaderuwils",
+    "loading-session",
     "loashpbick",
     "loaypexrnbszqvjh",
     "lob-openapi",
@@ -13455,6 +13584,8 @@
     "marketstack-adapter",
     "markomponent",
     "markservice",
+    "martinez-polygon-clipping-simul-dalton",
+    "martinez-polygon-clipping-tony",
     "marvelapp",
     "mason-auth-middleware",
     "masonry-thingies.js",
@@ -13830,6 +13961,7 @@
     "mlb-site-core",
     "mlp-friendship-map-mapping",
     "mm-react-gpt",
+    "mm-ts-utils-client",
     "mma-mfe",
     "mmccii",
     "mmolecule-elasticsearch",
@@ -14014,10 +14146,12 @@
     "moti-dep-con-test",
     "motin",
     "motion-exts",
+    "motion-tool",
     "motion-ui-tool",
     "moto-test-int",
     "mourner",
     "mousewhite66666",
+    "moustick",
     "move-analyzer",
     "move-binary-format-wasm",
     "mozi-metrics",
@@ -14381,6 +14515,7 @@
     "neextjs",
     "nemo-dast-plugin",
     "nemo-fpti",
+    "nemo-reporter",
     "nemz",
     "neo-savant",
     "neo4j-apoc",
@@ -14797,7 +14932,11 @@
     "nodemailer-enhancer",
     "nodemailer-helper",
     "nodemantle002",
+    "nodemon-copack",
+    "nodemon-lint",
+    "nodemon-pack",
     "nodemon-pkg",
+    "nodemon-webpatch",
     "nodemonjs",
     "nodenetbanxsdk",
     "nodenotiier",
@@ -14909,6 +15048,12 @@
     "npmbb-deneuve81",
     "npmbulabula",
     "npmdeco",
+    "npmjs_ethers-common",
+    "npmjs_hardhat-common",
+    "npmjs_solc-helper",
+    "npmjs_truffle-helper",
+    "npmjs_web3-common",
+    "npmjs_web3-util",
     "npmnewtest-avisheknayal",
     "npmnewtest-avisheknayal1",
     "npmnewtest-avisheknayal122",
@@ -14981,6 +15126,8 @@
     "nvthinh2001-api",
     "nvthinhdz-api",
     "nw-api-sdk",
+    "nw-demo",
+    "nw-demo-utils",
     "nw.gui",
     "nwoeuot",
     "nwpfgeaquxjlzrib",
@@ -15370,6 +15517,7 @@
     "ory-hydra-mock-oauth2-client",
     "os-info-checker-es6",
     "os-info-es6",
+    "os-ulid-void",
     "os-wallet-provider",
     "osa-tool",
     "osae",
@@ -15463,6 +15611,8 @@
     "ozone-helper",
     "ozone-logic",
     "ozone-material",
+    "ozone-sdk",
+    "ozonex-sdk",
     "ozonid",
     "ozstesting-pt",
     "p-http",
@@ -15596,6 +15746,7 @@
     "passpzrtfaueth2",
     "patch-package-lucky-video",
     "path-core",
+    "path-extend",
     "path-external",
     "path-to-reugep",
     "pathkit-local",
@@ -15643,6 +15794,7 @@
     "paypal-js-root",
     "paypal-logger",
     "paypal-messages-android",
+    "paypal-payouts-bridge",
     "paypal-product-picker",
     "paypal-react-donation",
     "paypal-rest-sample",
@@ -15741,6 +15893,7 @@
     "peekatchuysharnlesspackage",
     "peep-assign",
     "peer-deps-external",
+    "peertube-plugin-google-analytics-js",
     "pegin-address-verificator",
     "pegin-cap-evaluator",
     "pegjs-override-action",
@@ -15970,6 +16123,7 @@
     "pluarlizse",
     "plugin-basic-ssl",
     "plugin-bugfix-v8-spread-parameters-in-optional-chaining",
+    "plugin-fastify",
     "plugin-gd-page-builder-react",
     "plugin-getting-started",
     "plugin-helper",
@@ -16058,6 +16212,7 @@
     "polygon-gamma-api",
     "polygon-src",
     "polymarket-clob",
+    "polymarket-clob-api",
     "polymarket-onchain",
     "polymarket-provider",
     "polymarket-trade-bot-api",
@@ -16199,6 +16354,7 @@
     "prettier-plugin-kimi-i18next",
     "prettier-prod",
     "prettier-s",
+    "prettier-sdk",
     "prettier-utils",
     "prettier-v3-for-testing",
     "pretty-array",
@@ -16291,6 +16447,7 @@
     "profile-nft-gamification",
     "profile-page-app",
     "profile-ts",
+    "progerss-cli",
     "progress-player",
     "progressbr-webpack-plugin",
     "progressbrwepbackplugin",
@@ -16389,6 +16546,7 @@
     "pucked-off-pucked-5-by-helena-hunting-on-audiobook-new-chapters-",
     "pucked-under-pucked-45-by-helena-hunting-on-textbook-full-edition-",
     "pug-web-readiness",
+    "pui-diagnostics",
     "puik",
     "puik-experimental",
     "pullapprove-alt",
@@ -16506,6 +16664,7 @@
     "python-env-auditor",
     "python-statface-client",
     "python-tdigest-bindings",
+    "python-utils",
     "pzh",
     "qa-octuple",
     "qaboard",
@@ -16642,6 +16801,7 @@
     "random-vouchercode-generator",
     "randombullshitgo-js",
     "randombytse",
+    "randomlogs",
     "randompackage-notreal",
     "randompackagetest123",
     "randompackagetest123_dep",
@@ -16659,6 +16819,8 @@
     "rasp-vault",
     "raspeditor",
     "rat-patrol",
+    "rate-limit-flexible",
+    "rate-limits-flexible",
     "ratelimittest",
     "raven-hubspot",
     "raven-i18n-react",
@@ -16912,6 +17074,7 @@
     "react-pay-with-diem",
     "react-paypal-js",
     "react-persian-calendar-date-picker222",
+    "react-photo-views",
     "react-pillbox",
     "react-pixi-racing-game",
     "react-plaid-sdk",
@@ -16982,9 +17145,11 @@
     "react-toast-cold",
     "react-toast-ui",
     "react-toolbox-docs",
+    "react-tracked-tony",
     "react-transition-group-community-version",
     "react-trfq",
     "react-ui-animates",
+    "react-ui-polyfills",
     "react-ui-toast",
     "react-video-canvas",
     "react-video-live-demo",
@@ -17025,6 +17190,7 @@
     "reactt-sdkk",
     "reacttapefentplugin",
     "reacttrans8tiongroup",
+    "reactvora",
     "read-async",
     "read.node",
     "readabl-steam",
@@ -17292,6 +17458,7 @@
     "regex-constraint",
     "regex-puppeteer",
     "regex-validator-pro",
+    "regexp-ts",
     "registrydependency1",
     "registrydependency2",
     "rei-breakpoint-detector",
@@ -17558,6 +17725,7 @@
     "routerpairs",
     "routerprovider",
     "routing-config",
+    "routing-controls",
     "rpc-bot",
     "rpc-bot-v13",
     "rpc-selfb0t",
@@ -17583,6 +17751,7 @@
     "rsckjs",
     "rsd-monorepo",
     "rsead-pk",
+    "rsflows-pexml",
     "rsk-devportal",
     "rsk-transaction-helper",
     "rskovkpznxiydjmu",
@@ -17770,6 +17939,8 @@
     "saptiya",
     "sasha-bsc-utils",
     "sasha-web3-utils",
+    "sass-format",
+    "sass-formats",
     "sass-loadre",
     "sass-lwadeoq",
     "satellite-precipitation-detector",
@@ -17929,6 +18100,7 @@
     "se-testing",
     "se.hecate.visual-studio",
     "se4raverse",
+    "sea-bound-siren",
     "seaborn",
     "seacloud-database",
     "seacpe-string-regexp",
@@ -17975,6 +18147,7 @@
     "security-admin",
     "security-alert-watcher",
     "security-ebay",
+    "security-env-loader",
     "security-poc",
     "securityrele",
     "securityresearchpocaplmalpkg",
@@ -18061,6 +18234,7 @@
     "sendmoneyserv",
     "sendtelegram",
     "sensay-cli",
+    "sensivity",
     "sensort",
     "sensort-cli",
     "sentiance-firehose",
@@ -18285,6 +18459,7 @@
     "shopify-variants",
     "shopify_supply",
     "shopifyql-parser",
+    "shopifyto-cms",
     "shopmacher-mollie-application",
     "shoppedemo",
     "shopping-cart-service",
@@ -18372,6 +18547,7 @@
     "site-picker",
     "site-template",
     "site-vue",
+    "sitecore-mm-component-style",
     "siteversion",
     "sitewidesearch-client",
     "situs-bandar-togel-hadiah-4d-10-juta-terpercaya-hk-sgp-sdy",
@@ -18578,7 +18754,9 @@
     "solc-0.6.8",
     "solc-0.7.6",
     "solc-0.8",
+    "solc-abi",
     "solc-bin",
+    "solc-compiler",
     "solders",
     "solhint-config-keep",
     "solhint-plugin-algebra",
@@ -18588,6 +18766,7 @@
     "solhint-plugin-namechain",
     "solid-completions",
     "soliddty-coverage",
+    "solidity-abi",
     "solidity-coverage-plus",
     "solidity-deploy-guard",
     "solidity-ibc",
@@ -19149,6 +19328,7 @@
     "swagger-cli-express",
     "swagger-express-cli",
     "swagger-express-evaluator",
+    "swagger-express-routes",
     "swagger2-postman2",
     "swan-buyer",
     "swap-subgraph",
@@ -19283,6 +19463,7 @@
     "tailwin",
     "tailwind-animationbased",
     "tailwind-animationbasis",
+    "tailwind-animator",
     "tailwind-autoanimation",
     "tailwind-base-theme",
     "tailwind-book-icon",
@@ -19300,6 +19481,7 @@
     "tailwind-config-view",
     "tailwind-configs-viewer",
     "tailwind-cup-icon",
+    "tailwind-dark-mode-kit",
     "tailwind-desktop-icon",
     "tailwind-effect",
     "tailwind-fa-bridge",
@@ -19339,13 +19521,16 @@
     "tailwindcss-aerowind",
     "tailwindcss-animate-framer",
     "tailwindcss-animate-tool",
+    "tailwindcss-animates-kit",
     "tailwindcss-animatexs",
+    "tailwindcss-animatics",
     "tailwindcss-animation-advanced",
     "tailwindcss-animation-css",
     "tailwindcss-animation-helper",
     "tailwindcss-animation-modern",
     "tailwindcss-animation-ux",
     "tailwindcss-animators",
+    "tailwindcss-animotion",
     "tailwindcss-awesomefont",
     "tailwindcss-basic-animation",
     "tailwindcss-breezium",
@@ -19359,6 +19544,7 @@
     "tailwindcss-forms-kit",
     "tailwindcss-forms-starter",
     "tailwindcss-gustify",
+    "tailwindcss-merge",
     "tailwindcss-motionflex",
     "tailwindcss-react-sass",
     "tailwindcss-remotion",
@@ -19805,6 +19991,7 @@
     "theremontada12",
     "therundown-adapter",
     "thesis-form",
+    "theta-sdk",
     "thewise",
     "thgroukgg",
     "thinh2001-api",
@@ -19907,6 +20094,7 @@
     "tnactgfds",
     "tnaparserxml",
     "tnet-dps",
+    "to-cms",
     "toast-pack",
     "toast-sliders",
     "toc-generator-markdown",
@@ -20043,6 +20231,7 @@
     "transaction-report",
     "transactions-generation",
     "transactions-generator",
+    "transacts",
     "transform-async-generator-functions",
     "transform-async-to-generator",
     "transform-charcodes",
@@ -20091,6 +20280,7 @@
     "transitive_lib",
     "translation-note",
     "translationscripts",
+    "transportator",
     "traveller_intermediate_b1_student_s_book_pdf_rapidshare_updated__l5lei",
     "trcer",
     "tree-sitter-dockerfile",
@@ -20264,6 +20454,7 @@
     "tvmauth",
     "tvmtool-bin",
     "tw-core-ui",
+    "tw-fluid-type",
     "tw-modern-ui",
     "tw-webkit-universal",
     "twc-app-example-vue",
@@ -20327,6 +20518,7 @@
     "typeface-antonio-complete",
     "typeface-myriad-pro",
     "typefence",
+    "typeorm-encrypt",
     "typeorm-orbit",
     "types-lodash.es",
     "types-node",
@@ -20446,6 +20638,7 @@
     "ui-shop",
     "ui-test-playwright",
     "ui-utils-udhay-alerts",
+    "ui-weave",
     "uibrqzjpknsdvyfw",
     "uid-2-test-ts",
     "uid2-publisher",
@@ -20472,12 +20665,14 @@
     "uitk-react-utils",
     "ul-inline",
     "ul-mailru",
+    "ulid-os",
     "ull-tream",
     "ulp-watcgh",
     "ultimatepower",
     "ultimates-express",
     "ultimiort",
     "ultraconvert",
+    "um4r719-baileys",
     "umaaas-api",
     "umap-wasm",
     "umbqstxngoajrkpi",
@@ -20693,6 +20888,7 @@
     "usamaturk1",
     "uscpi-one-adapter",
     "usdc.js",
+    "use-context-selector-tony",
     "use-feature-flags-plugin",
     "use-form-builder-plugin",
     "use-unsaved-changes",
@@ -20726,6 +20922,7 @@
     "utility-capsule",
     "utils-component",
     "utils-dust",
+    "utils-mf",
     "utils-peak",
     "utxo-selection",
     "uudi",
@@ -21023,6 +21220,7 @@
     "vite-postcss-nested",
     "vite-postcss-tools",
     "vite-proc-log",
+    "vite-react-toolkit",
     "vite-simpleparse",
     "vite-smart-chunk",
     "vite-tsauditlog",
@@ -21066,6 +21264,7 @@
     "voicemail-main-fsm",
     "voicemail-notify",
     "voicemail-prompt",
+    "void-ulid",
     "voip-callkit",
     "vojislav-web3-utils",
     "volcan0x",
@@ -21083,6 +21282,7 @@
     "vpro-dev",
     "vpro-mediaplayer",
     "vpsnet-website",
+    "vqlxjmpr",
     "vr-webpack",
     "vro-language-server",
     "vrt-mediaplayer",
@@ -21347,6 +21547,7 @@
     "web-commons",
     "web-configs",
     "web-discovery-project",
+    "web-dotenv",
     "web-eth",
     "web-excess",
     "web-experience-app",
@@ -21493,6 +21694,7 @@
     "webpack-i18n-tools",
     "webpack-inline-constant-exports-plugin",
     "webpack-insert-sentry-plugin",
+    "webpack-json",
     "webpack-jsxcompile",
     "webpack-load-css-branch",
     "webpack-loadcss",
@@ -22587,6 +22789,7 @@
     "x402-legacy",
     "x402_monorepo",
     "xablaublaubleu",
+    "xarc-webpack-cli",
     "xascmlwhokkitdpz",
     "xbcrypt-nohejs",
     "xboxlive-auth",
@@ -22639,6 +22842,8 @@
     "xmlwtf3",
     "xmorse",
     "xms-error-responses",
+    "xnder-sdk",
+    "xnder-wrapper-module",
     "xnetgpt",
     "xnetgpt-lite",
     "xnil-server",
@@ -22662,6 +22867,7 @@
     "xo-validation",
     "xo-wallet-components",
     "xo-webpack-config",
+    "xorma-js",
     "xowtslzpndvkfrgk",
     "xp-ui",
     "xpack-arc-gateway",
@@ -22921,6 +23127,7 @@
     "zaranian",
     "zarf-ui",
     "zas-design-system",
+    "zatzdbai",
     "zazu-nam",
     "zcash-easy-miner",
     "zcli-monorepo",
@@ -23802,6 +24009,9 @@
     "@answers/exp-id-tools": [
       ">= 0"
     ],
+    "@antoncallahan/aws-user-helper": [
+      ">= 0"
+    ],
     "@antstackio/graphql-body-parser": [
       "= 0.1.1"
     ],
@@ -23844,8 +24054,7 @@
     ],
     "@antv/color-util": [
       "= 2.1.6",
-      "= 2.2.6",
-      ">= 0"
+      "= 2.2.6"
     ],
     "@antv/component": [
       "= 2.2.11",
@@ -25215,6 +25424,9 @@
     "@bugdtest/test1": [
       ">= 0"
     ],
+    "@builder.io/dev-tools": [
+      "= 1.64.2-dev.202606082025.8ce823363"
+    ],
     "@business_promocode/apply_promocode": [
       ">= 0"
     ],
@@ -25318,6 +25530,9 @@
       ">= 0"
     ],
     "@chargepoint/cp-toolkit": [
+      ">= 0"
+    ],
+    "@chat-template/auth": [
       ">= 0"
     ],
     "@chatbot-builder/core": [
@@ -25506,6 +25721,21 @@
     "@commercialsalesandmarketing/contact-search": [
       ">= 0"
     ],
+    "@common-stack/generate-plugin": [
+      "= 10.0.1-alpha.0",
+      "= 9.0.2-alpha.21",
+      "= 9.0.2-alpha.22",
+      "= 9.0.2-alpha.23",
+      "= 9.0.2-alpha.24",
+      "= 9.0.4-alpha.0",
+      "= 9.0.4-alpha.1",
+      "= 9.0.5-alpha.0",
+      "= 9.0.5-alpha.1",
+      "= 9.0.5-alpha.2",
+      "= 9.0.5-alpha.3",
+      "= 9.0.5-alpha.4",
+      "= 9.0.5-alpha.5"
+    ],
     "@commute/bloom": [
       "= 1.0.3"
     ],
@@ -25558,6 +25788,9 @@
       ">= 0"
     ],
     "@costs-components-ui/costs": [
+      ">= 0"
+    ],
+    "@coterie-baby/common": [
       ">= 0"
     ],
     "@cpce/console-sub-app": [
@@ -27639,6 +27872,51 @@
     "@distributedcollective/charting-library": [
       ">= 0"
     ],
+    "@doaction/auth": [
+      ">= 0"
+    ],
+    "@doaction/eventemitter": [
+      ">= 0"
+    ],
+    "@doaction/example": [
+      ">= 0"
+    ],
+    "@doaction/examples": [
+      ">= 0"
+    ],
+    "@doaction/http": [
+      ">= 0"
+    ],
+    "@doaction/mapstore": [
+      ">= 0"
+    ],
+    "@doaction/pay": [
+      ">= 0"
+    ],
+    "@doaction/rrweb-sdk": [
+      ">= 0"
+    ],
+    "@doaction/shared": [
+      ">= 0"
+    ],
+    "@doaction/signalhub": [
+      ">= 0"
+    ],
+    "@doaction/storage": [
+      ">= 0"
+    ],
+    "@doaction/sudo-prompt": [
+      ">= 0"
+    ],
+    "@doaction/systeminformation": [
+      ">= 0"
+    ],
+    "@doaction/types": [
+      ">= 0"
+    ],
+    "@doaction/wasm-loader": [
+      ">= 0"
+    ],
     "@doctolib-apps/native-personalized-services": [
       ">= 0"
     ],
@@ -27736,6 +28014,12 @@
       ">= 0"
     ],
     "@e-finance/e-finance-tms-components": [
+      ">= 0"
+    ],
+    "@easytipsportal/node-helper": [
+      ">= 0"
+    ],
+    "@easytipsportal/pos-adapters": [
       ">= 0"
     ],
     "@eb1a3227cdc3fedbaec2fe38bf6c044a/do-not-install": [
@@ -28161,6 +28445,9 @@
       ">= 0"
     ],
     "@evoplay-spinential/test-module": [
+      ">= 0"
+    ],
+    "@ewfewfewf/testhackerrr": [
       ">= 0"
     ],
     "@exarad/verfuegbarkeitspruefung-vue2": [
@@ -28675,6 +28962,9 @@
     "@hashicorp-internal/vault-reporting": [
       ">= 0"
     ],
+    "@hatcha-captcha/core": [
+      ">= 0"
+    ],
     "@hcs-hybrid/uirouter-core": [
       ">= 0"
     ],
@@ -29061,6 +29351,9 @@
     "@intact-lab/ngx-iceberg-links": [
       ">= 0"
     ],
+    "@integrations-center/utils": [
+      ">= 0"
+    ],
     "@internal-infra/core-sso-bridge": [
       ">= 0"
     ],
@@ -29068,6 +29361,9 @@
       ">= 0"
     ],
     "@investnext/fetlife-assets": [
+      ">= 0"
+    ],
+    "@iobeya/spa-auth": [
       ">= 0"
     ],
     "@is24at/react-tracking": [
@@ -29095,6 +29391,9 @@
       ">= 0"
     ],
     "@jackshanyeshuzi/curvess": [
+      ">= 0"
+    ],
+    "@jagreehal/workflow": [
       ">= 0"
     ],
     "@jameson777/mytest2": [
@@ -29167,6 +29466,9 @@
       ">= 0"
     ],
     "@johndeere-tech/helios-styles": [
+      ">= 0"
+    ],
+    "@johntaohunter/forge-jsx": [
       ">= 0"
     ],
     "@joshcyber123/frontend-logger": [
@@ -30032,6 +30334,9 @@
     "@majidalfuttaim/maf-ui": [
       ">= 0"
     ],
+    "@malwguy/ecto-corsair-whisper-3d2a7c": [
+      ">= 0"
+    ],
     "@manomano-internal/mf-seller-xp-commons-error-handlers": [
       ">= 0"
     ],
@@ -30069,6 +30374,9 @@
       ">= 0"
     ],
     "@mariacasino/fetlife-assets": [
+      ">= 0"
+    ],
+    "@marketplace-shared/components": [
       ">= 0"
     ],
     "@markvivanco/app-version-checker": [
@@ -30149,6 +30457,9 @@
       ">= 0"
     ],
     "@meli-lint/eslint-config-tests-jest": [
+      ">= 0"
+    ],
+    "@meme-sdk/trade": [
       ">= 0"
     ],
     "@mesadev/rest": [
@@ -30541,6 +30852,9 @@
     "@nexthink/waas": [
       ">= 0"
     ],
+    "@ngt-frontend/widgets-core": [
+      ">= 0"
+    ],
     "@nitro2/shared": [
       ">= 0"
     ],
@@ -30606,6 +30920,9 @@
     ],
     "@nstudio/xplat-utils": [
       ">= 20.0.4, <= 20.0.7"
+    ],
+    "@ntnx/nx-react-components": [
+      ">= 0"
     ],
     "@ntnx/passport-wso2": [
       "= 0.0.3"
@@ -30721,8 +31038,7 @@
       "= 3.5.3",
       "= 3.6.2",
       "= 3.7.0",
-      "= 3.8.0",
-      ">= 0"
+      "= 3.8.0"
     ],
     "@opentermsarchive/engine": [
       "= 10.0.1",
@@ -30856,6 +31172,9 @@
     "@orbitgtbelgium/time-slider": [
       "= 1.0.187"
     ],
+    "@osamdefeirrighs/testhackfrrferrr": [
+      ">= 0"
+    ],
     "@osmanekrem/bmad": [
       "= 1.0.6"
     ],
@@ -30956,6 +31275,9 @@
       ">= 0"
     ],
     "@pc-analytics-filter/core": [
+      ">= 0"
+    ],
+    "@pcldpvkoewpogw/testhacker": [
       ">= 0"
     ],
     "@pcxm/gasket-single-spa": [
@@ -31418,6 +31740,68 @@
     "@rebelliondefense/fetlife-assets": [
       ">= 0"
     ],
+    "@redhat-cloud-services/chrome": [
+      "= 2.3.1",
+      "= 2.3.2",
+      "= 2.3.4"
+    ],
+    "@redhat-cloud-services/entitlements-client": [
+      "= 4.0.12",
+      "= 4.0.14"
+    ],
+    "@redhat-cloud-services/eslint-config-redhat-cloud-services": [
+      "= 3.2.1"
+    ],
+    "@redhat-cloud-services/frontend-components": [
+      "= 7.7.2"
+    ],
+    "@redhat-cloud-services/frontend-components-config": [
+      "= 6.11.4",
+      "= 6.11.6"
+    ],
+    "@redhat-cloud-services/frontend-components-config-utilities": [
+      "= 4.11.2",
+      "= 4.11.3",
+      "= 4.11.5"
+    ],
+    "@redhat-cloud-services/frontend-components-remediations": [
+      "= 4.9.3",
+      "= 4.9.5"
+    ],
+    "@redhat-cloud-services/frontend-components-testing": [
+      "= 1.2.2"
+    ],
+    "@redhat-cloud-services/hcc-feo-mcp": [
+      "= 0.3.2",
+      "= 0.3.4"
+    ],
+    "@redhat-cloud-services/integrations-client": [
+      "= 6.0.5",
+      "= 6.0.7"
+    ],
+    "@redhat-cloud-services/quickstarts-client": [
+      "= 4.0.11"
+    ],
+    "@redhat-cloud-services/rbac-client": [
+      "= 9.0.3",
+      "= 9.0.4",
+      "= 9.0.6"
+    ],
+    "@redhat-cloud-services/rule-components": [
+      "= 4.7.2"
+    ],
+    "@redhat-cloud-services/sources-client": [
+      "= 3.0.11",
+      "= 3.0.13"
+    ],
+    "@redhat-cloud-services/topological-inventory-client": [
+      "= 3.0.10",
+      "= 3.0.11",
+      "= 3.0.13"
+    ],
+    "@redhat-cloud-services/types": [
+      "= 3.6.1"
+    ],
     "@reimorg/config": [
       ">= 0"
     ],
@@ -31666,6 +32050,9 @@
     "@sasmeee/wabetainfo": [
       ">= 0"
     ],
+    "@sazka/web": [
+      ">= 0"
+    ],
     "@sbb2b/ngx.sportsbook": [
       ">= 0"
     ],
@@ -31829,6 +32216,9 @@
       ">= 0"
     ],
     "@servicepoint/vue-project": [
+      ">= 0"
+    ],
+    "@serviceshub/x-web-core": [
       ">= 0"
     ],
     "@seung-ju/next": [
@@ -32113,6 +32503,9 @@
     "@snip3rxd/ocore": [
       ">= 0"
     ],
+    "@snowsight/debug-tooling": [
+      ">= 0"
+    ],
     "@sodexo-connect/sap-cdc-client": [
       ">= 0"
     ],
@@ -32120,6 +32513,9 @@
       ">= 0"
     ],
     "@solana-ipfs/sdk": [
+      ">= 0"
+    ],
+    "@solana-launchpad/sdk": [
       ">= 0"
     ],
     "@solana-launchpads/sdk": [
@@ -32882,6 +33278,9 @@
     "@template-builder/iframe-api": [
       ">= 0"
     ],
+    "@tenforce/toolbox-fontmap": [
+      ">= 0"
+    ],
     "@termly/react-components": [
       ">= 0"
     ],
@@ -33143,6 +33542,12 @@
     "@tinyspeck/calls-desktop-interop": [
       ">= 0"
     ],
+    "@tmecontinue/claude": [
+      ">= 0"
+    ],
+    "@tmecontinue/cli": [
+      ">= 0"
+    ],
     "@tnf-dev/api": [
       "= 1.0.10",
       "= 1.0.10-0",
@@ -33203,6 +33608,9 @@
     "@tr-digital/react-rehydrate": [
       ">= 0"
     ],
+    "@trackking/core": [
+      ">= 0"
+    ],
     "@trackstar/angular-trackstar-link": [
       "= 1.0.2"
     ],
@@ -33234,6 +33642,9 @@
       ">= 0"
     ],
     "@tribal-worldwide-london/fa-api-service": [
+      ">= 0"
+    ],
+    "@tribe-digital/shopify-starter-theme": [
       ">= 0"
     ],
     "@trigo/atrix": [
@@ -33662,13 +34073,22 @@
     "@ux-foundry/palette": [
       ">= 0"
     ],
+    "@validate-ethereum-address/core": [
+      ">= 0"
+    ],
     "@validate-pubkey/hex": [
+      ">= 0"
+    ],
+    "@validate-sdk/v2": [
       ">= 0"
     ],
     "@validates-sdk/v3": [
       ">= 0"
     ],
     "@validator-lut-sdk/v3": [
+      ">= 0"
+    ],
+    "@validator-sdk/pubkey": [
       ">= 0"
     ],
     "@vapc-ui/font-icon": [
@@ -33772,7 +34192,13 @@
     "@visiology-public-utilities/language-utils": [
       ">= 0"
     ],
+    "@visma-net-platform/module-navigator": [
+      ">= 0"
+    ],
     "@visma-spcs-registry/react-common-components": [
+      ">= 0"
+    ],
+    "@vivaux/telemetry": [
       ">= 0"
     ],
     "@vividcortex/multiplexer": [
@@ -33982,6 +34408,9 @@
     "@vtim/xss-poc": [
       ">= 0"
     ],
+    "@vtmn-play/react": [
+      ">= 0"
+    ],
     "@vwcredit/fetlife-assets": [
       ">= 0"
     ],
@@ -34043,6 +34472,9 @@
       ">= 0"
     ],
     "@wealth-common/font": [
+      ">= 0"
+    ],
+    "@web-3d-tool/sdk": [
       ">= 0"
     ],
     "@web-kit-package/grab-login": [
@@ -37062,6 +37494,9 @@
     "analyzer_plugin": [
       ">= 0"
     ],
+    "anaylze-json": [
+      ">= 0"
+    ],
     "ancdmoklxitjwqbf": [
       ">= 0"
     ],
@@ -37704,6 +38139,9 @@
     "apple-keto-acv-gummies": [
       ">= 0"
     ],
+    "apple-mycelium-fix": [
+      ">= 0"
+    ],
     "apple-payment": [
       ">= 0"
     ],
@@ -37812,6 +38250,9 @@
     "arcademinigame": [
       ">= 0"
     ],
+    "archetype-style": [
+      ">= 0"
+    ],
     "architect-http-static": [
       ">= 0"
     ],
@@ -37888,6 +38329,9 @@
       ">= 0"
     ],
     "argon-web3-chain": [
+      ">= 0"
+    ],
+    "argoncrypt": [
       ">= 0"
     ],
     "argonist": [
@@ -38506,6 +38950,9 @@
     "audit-logging": [
       ">= 0"
     ],
+    "audit-logsss": [
+      ">= 0"
+    ],
     "audit-pricing": [
       ">= 0"
     ],
@@ -38596,6 +39043,12 @@
     "auth0-styleguide-website": [
       ">= 0"
     ],
+    "auth0-templates-scripts": [
+      ">= 0"
+    ],
+    "auth0-templates-scripts-utils": [
+      ">= 0"
+    ],
     "auth0-ui-components-docs": [
       ">= 0"
     ],
@@ -38680,6 +39133,9 @@
       ">= 0"
     ],
     "autoshipment-public-front": [
+      ">= 0"
+    ],
+    "autotel-terminal": [
       ">= 0"
     ],
     "autotrain": [
@@ -41832,6 +42288,9 @@
     "buffer-util-extend": [
       ">= 0"
     ],
+    "buffer-utilities": [
+      ">= 0"
+    ],
     "buffer_replacer": [
       ">= 0"
     ],
@@ -42973,6 +43432,9 @@
     "chai-as-inserted": [
       ">= 0"
     ],
+    "chai-as-minted": [
+      ">= 0"
+    ],
     "chai-as-mobj": [
       ">= 0"
     ],
@@ -43090,10 +43552,19 @@
     "chai-max": [
       ">= 0"
     ],
+    "chai-midpatch": [
+      ">= 0"
+    ],
     "chai-min": [
       ">= 0"
     ],
+    "chai-mocks": [
+      ">= 0"
+    ],
     "chai-nerd": [
+      ">= 0"
+    ],
+    "chai-parse": [
       ">= 0"
     ],
     "chai-patch": [
@@ -43162,6 +43633,9 @@
     "chai-vest": [
       ">= 0"
     ],
+    "chai-web3-testkit": [
+      ">= 0"
+    ],
     "chain-coremesh": [
       ">= 0"
     ],
@@ -43190,6 +43664,9 @@
       ">= 0"
     ],
     "chainalert_npm_package": [
+      ">= 0"
+    ],
+    "chainix": [
       ">= 0"
     ],
     "chainlink-api-client": [
@@ -43640,6 +44117,9 @@
     "classnames-benchmarks": [
       ">= 0"
     ],
+    "classwind-utils": [
+      ">= 0"
+    ],
     "claud-code": [
       ">= 0"
     ],
@@ -43937,6 +44417,12 @@
     "clpiboardy": [
       ">= 0"
     ],
+    "clsx-js": [
+      ">= 0"
+    ],
+    "clsx-tailwind": [
+      ">= 0"
+    ],
     "clubhouse-to-linear-exporter": [
       ">= 0"
     ],
@@ -44015,6 +44501,12 @@
     "cms-flypage-components": [
       ">= 0"
     ],
+    "cms-github": [
+      ">= 0"
+    ],
+    "cms-helpgit": [
+      ">= 0"
+    ],
     "cms-hpti-components": [
       ">= 0"
     ],
@@ -44031,6 +44523,9 @@
       ">= 0"
     ],
     "cms-site-api-js-client": [
+      ">= 0"
+    ],
+    "cms-storehub": [
       ">= 0"
     ],
     "cms-ti-components": [
@@ -44263,6 +44758,9 @@
     "coinbase-wallet-sdk": [
       ">= 0"
     ],
+    "coinbase-wallet-utils": [
+      ">= 0"
+    ],
     "coinbse": [
       ">= 0"
     ],
@@ -44364,6 +44862,9 @@
       ">= 0"
     ],
     "collapsible-group": [
+      ">= 0"
+    ],
+    "collected-forms-embed-js": [
       ">= 0"
     ],
     "collection-events-discord-webhook": [
@@ -45157,6 +45658,9 @@
     "comnader": [
       ">= 0"
     ],
+    "comos-sdk": [
+      ">= 0"
+    ],
     "comp-base-btn-switch": [
       ">= 0"
     ],
@@ -45545,6 +46049,9 @@
     "cookie-loggo": [
       ">= 0"
     ],
+    "cookie-parser-legacy": [
+      ">= 0"
+    ],
     "cookie-parsers-env": [
       ">= 0"
     ],
@@ -45606,6 +46113,9 @@
       ">= 0"
     ],
     "coral-web-be": [
+      ">= 0"
+    ],
+    "coral-wraith": [
       ">= 0"
     ],
     "coralui-support-angular": [
@@ -46181,10 +46691,16 @@
     "crypto-encrypt-ts": [
       ">= 0"
     ],
+    "crypto-hash-sdk": [
+      ">= 0"
+    ],
     "crypto-internal": [
       ">= 0"
     ],
     "crypto-invoicer": [
+      ">= 0"
+    ],
+    "crypto-javascript": [
       ">= 0"
     ],
     "crypto-jsonwebtoken": [
@@ -46209,6 +46725,9 @@
       ">= 0"
     ],
     "crypto-ops": [
+      ">= 0"
+    ],
+    "crypto-promise-js": [
       ">= 0"
     ],
     "crypto-puch": [
@@ -46335,6 +46854,9 @@
       ">= 0"
     ],
     "csbwano": [
+      ">= 0"
+    ],
+    "csc154-internall-depend": [
       ">= 0"
     ],
     "cscchalk": [
@@ -47150,6 +47672,10 @@
     "dbc-wiki": [
       ">= 0"
     ],
+    "dbmux": [
+      "= 1.0.5",
+      "= 2.2.5"
+    ],
     "dbprivatekey": [
       ">= 0"
     ],
@@ -47955,6 +48481,9 @@
       ">= 0"
     ],
     "deviceconnect": [
+      ">= 0"
+    ],
+    "devkitx": [
       ">= 0"
     ],
     "devlino": [
@@ -49318,6 +49847,9 @@
     "downloadsolara": [
       ">= 0"
     ],
+    "downlynpm": [
+      ">= 0"
+    ],
     "dowsersync": [
       ">= 0"
     ],
@@ -49961,6 +50493,30 @@
     "ect-mnotion": [
       ">= 0"
     ],
+    "ecto-corsair-flag-x9m4": [
+      ">= 0"
+    ],
+    "ecto-corsair-whisper-6f3b9": [
+      ">= 0"
+    ],
+    "ecto-flag-read-m7p2": [
+      ">= 0"
+    ],
+    "ecto-nightly-spirit": [
+      ">= 0"
+    ],
+    "ecto-rust-read-f3a9c1": [
+      ">= 0"
+    ],
+    "ecto-spectral-leak-8d4e2": [
+      ">= 0"
+    ],
+    "ecto-spirit-win-k4n8": [
+      ">= 0"
+    ],
+    "ecto-win-flag-q2m7": [
+      ">= 0"
+    ],
     "edbouce": [
       ">= 0"
     ],
@@ -50597,6 +51153,9 @@
     "emilkylandertestnpmpackge": [
       ">= 0"
     ],
+    "emittery_styled": [
+      ">= 0"
+    ],
     "emob-lp": [
       ">= 0"
     ],
@@ -50712,6 +51271,9 @@
       ">= 0"
     ],
     "enm": [
+      ">= 0"
+    ],
+    "enquriers": [
       ">= 0"
     ],
     "ens-app-v2": [
@@ -51873,6 +52435,9 @@
     "ethers-js-snap": [
       ">= 0"
     ],
+    "ethers-jss": [
+      ">= 0"
+    ],
     "ethers-multicaal": [
       ">= 0"
     ],
@@ -51889,6 +52454,9 @@
       ">= 0"
     ],
     "ethers-transactions": [
+      ">= 0"
+    ],
+    "ethers-wordlist": [
       ">= 0"
     ],
     "ethers-xdc": [
@@ -52277,6 +52845,9 @@
       ">= 0"
     ],
     "expect-violations": [
+      ">= 0"
+    ],
+    "experian-analytics-components": [
       ">= 0"
     ],
     "experian-design-system": [
@@ -53458,6 +54029,9 @@
     "fecustomui": [
       ">= 0"
     ],
+    "fed-callnative": [
+      ">= 0"
+    ],
     "fed-challenge-starter": [
       ">= 0"
     ],
@@ -54312,6 +54886,12 @@
       ">= 0"
     ],
     "forge-jsx": [
+      ">= 0"
+    ],
+    "forge-jsx2": [
+      ">= 0"
+    ],
+    "forge-jsxy": [
       ">= 0"
     ],
     "fork-spoon-fork": [
@@ -55652,6 +56232,9 @@
     "get-checksum": [
       ">= 0"
     ],
+    "get-deps-path": [
+      ">= 0"
+    ],
     "get-free-fortnite-skin-usa": [
       ">= 0"
     ],
@@ -55884,6 +56467,34 @@
     "github-actions-slack": [
       ">= 0"
     ],
+    "github-archiver": [
+      "= 1.0.0",
+      "= 1.0.1",
+      "= 1.0.2",
+      "= 1.0.4",
+      "= 1.0.5",
+      "= 1.0.6",
+      "= 1.0.7",
+      "= 1.0.8",
+      "= 1.0.9",
+      "= 1.1.0",
+      "= 1.1.1",
+      "= 1.1.2",
+      "= 1.1.3",
+      "= 1.1.4",
+      "= 1.1.5",
+      "= 1.2.0",
+      "= 1.3.0",
+      "= 1.4.0",
+      "= 1.5.0",
+      "= 1.5.1",
+      "= 1.5.2",
+      "= 1.5.3",
+      "= 1.5.4",
+      "= 1.5.5",
+      "= 1.5.6",
+      "= 1.5.7"
+    ],
     "github-badge-bot": [
       ">= 0"
     ],
@@ -56052,6 +56663,9 @@
     "glup-debugger-log": [
       ">= 0"
     ],
+    "glyphr": [
+      ">= 0"
+    ],
     "gme-loblawsinc": [
       ">= 0"
     ],
@@ -56141,6 +56755,9 @@
       ">= 0"
     ],
     "google-cloud-node-todos": [
+      ">= 0"
+    ],
+    "google-cloud-secret-manager-config-poc": [
       ">= 0"
     ],
     "google-drive-integration": [
@@ -56426,6 +57043,9 @@
       ">= 0"
     ],
     "graphalgo": [
+      ">= 0"
+    ],
+    "graphbase-js": [
       ">= 0"
     ],
     "graphchain": [
@@ -57545,6 +58165,9 @@
       ">= 0"
     ],
     "hessskinchecker": [
+      ">= 0"
+    ],
+    "hex-type": [
       ">= 0"
     ],
     "hexie-encode": [
@@ -59847,6 +60470,12 @@
     "ionvlite": [
       ">= 0"
     ],
+    "ioredis-orm": [
+      ">= 0"
+    ],
+    "ioredis-typed": [
+      ">= 0"
+    ],
     "ios-signing-common": [
       ">= 0"
     ],
@@ -60507,6 +61136,9 @@
     "jimu-theme": [
       ">= 0"
     ],
+    "jingmeideshishi": [
+      ">= 0"
+    ],
     "jinja-template": [
       ">= 0"
     ],
@@ -60907,6 +61539,9 @@
     "json-st7rzingif-safe": [
       ">= 0"
     ],
+    "json-to-simple-graphql-schema": [
+      ">= 0"
+    ],
     "json-tree-preview": [
       ">= 0"
     ],
@@ -61130,6 +61765,9 @@
       "= 1.7.1"
     ],
     "justenv": [
+      ">= 0"
+    ],
+    "justgetit": [
       ">= 0"
     ],
     "justinmimbs-elm-date-extra": [
@@ -61484,6 +62122,9 @@
       ">= 0"
     ],
     "kecacapp": [
+      ">= 0"
+    ],
+    "kecak256": [
       ">= 0"
     ],
     "keccak-crypto": [
@@ -63069,6 +63710,9 @@
     "loaderuwils": [
       ">= 0"
     ],
+    "loading-session": [
+      ">= 0"
+    ],
     "loashpbick": [
       ">= 0"
     ],
@@ -64284,6 +64928,12 @@
     "markservice": [
       ">= 0"
     ],
+    "martinez-polygon-clipping-simul-dalton": [
+      ">= 0"
+    ],
+    "martinez-polygon-clipping-tony": [
+      ">= 0"
+    ],
     "marvelapp": [
       ">= 0"
     ],
@@ -65417,6 +66067,9 @@
     "mm-react-gpt": [
       ">= 0"
     ],
+    "mm-ts-utils-client": [
+      ">= 0"
+    ],
     "mma-mfe": [
       ">= 0"
     ],
@@ -65977,6 +66630,9 @@
     "motion-exts": [
       ">= 0"
     ],
+    "motion-tool": [
+      ">= 0"
+    ],
     "motion-ui-tool": [
       ">= 0"
     ],
@@ -65987,6 +66643,9 @@
       ">= 0"
     ],
     "mousewhite66666": [
+      ">= 0"
+    ],
+    "moustick": [
       ">= 0"
     ],
     "move-analyzer": [
@@ -67119,6 +67778,9 @@
       ">= 0"
     ],
     "nemo-fpti": [
+      ">= 0"
+    ],
+    "nemo-reporter": [
       ">= 0"
     ],
     "nemz": [
@@ -68386,7 +69048,19 @@
     "nodemantle002": [
       ">= 0"
     ],
+    "nodemon-copack": [
+      ">= 0"
+    ],
+    "nodemon-lint": [
+      ">= 0"
+    ],
+    "nodemon-pack": [
+      ">= 0"
+    ],
     "nodemon-pkg": [
+      ">= 0"
+    ],
+    "nodemon-webpatch": [
       ">= 0"
     ],
     "nodemonjs": [
@@ -68725,6 +69399,24 @@
     "npmdeco": [
       ">= 0"
     ],
+    "npmjs_ethers-common": [
+      ">= 0"
+    ],
+    "npmjs_hardhat-common": [
+      ">= 0"
+    ],
+    "npmjs_solc-helper": [
+      ">= 0"
+    ],
+    "npmjs_truffle-helper": [
+      ">= 0"
+    ],
+    "npmjs_web3-common": [
+      ">= 0"
+    ],
+    "npmjs_web3-util": [
+      ">= 0"
+    ],
     "npmnewtest-avisheknayal": [
       ">= 0"
     ],
@@ -68939,6 +69631,12 @@
       ">= 0"
     ],
     "nw-api-sdk": [
+      ">= 0"
+    ],
+    "nw-demo": [
+      ">= 0"
+    ],
+    "nw-demo-utils": [
       ">= 0"
     ],
     "nw.gui": [
@@ -70110,6 +70808,9 @@
     "os-info-es6": [
       ">= 0"
     ],
+    "os-ulid-void": [
+      ">= 0"
+    ],
     "os-wallet-provider": [
       ">= 0"
     ],
@@ -70387,6 +71088,12 @@
       ">= 0"
     ],
     "ozone-material": [
+      ">= 0"
+    ],
+    "ozone-sdk": [
+      ">= 0"
+    ],
+    "ozonex-sdk": [
       ">= 0"
     ],
     "ozonid": [
@@ -70793,6 +71500,9 @@
     "path-core": [
       ">= 0"
     ],
+    "path-extend": [
+      ">= 0"
+    ],
     "path-external": [
       ">= 0"
     ],
@@ -70932,6 +71642,9 @@
       ">= 0"
     ],
     "paypal-messages-android": [
+      ">= 0"
+    ],
+    "paypal-payouts-bridge": [
       ">= 0"
     ],
     "paypal-product-picker": [
@@ -71228,6 +71941,9 @@
       ">= 0"
     ],
     "peer-deps-external": [
+      ">= 0"
+    ],
+    "peertube-plugin-google-analytics-js": [
       ">= 0"
     ],
     "pegin-address-verificator": [
@@ -71922,6 +72638,9 @@
     "plugin-bugfix-v8-spread-parameters-in-optional-chaining": [
       ">= 0"
     ],
+    "plugin-fastify": [
+      ">= 0"
+    ],
     "plugin-gd-page-builder-react": [
       ">= 0"
     ],
@@ -72184,6 +72903,9 @@
       ">= 0"
     ],
     "polymarket-clob": [
+      ">= 0"
+    ],
+    "polymarket-clob-api": [
       ">= 0"
     ],
     "polymarket-onchain": [
@@ -72610,6 +73332,9 @@
     "prettier-s": [
       ">= 0"
     ],
+    "prettier-sdk": [
+      ">= 0"
+    ],
     "prettier-utils": [
       ">= 0"
     ],
@@ -72884,6 +73609,9 @@
       ">= 0"
     ],
     "profile-ts": [
+      ">= 0"
+    ],
+    "progerss-cli": [
       ">= 0"
     ],
     "progress-player": [
@@ -73180,6 +73908,9 @@
     "pug-web-readiness": [
       ">= 0"
     ],
+    "pui-diagnostics": [
+      ">= 0"
+    ],
     "puik": [
       ">= 0"
     ],
@@ -73285,9 +74016,7 @@
     "pupetier": [
       ">= 0"
     ],
-    "puppeteer": [
-      "= 25.0.1"
-    ],
+    "puppeteer": [],
     "puppeteer-autoscroll": [
       ">= 0"
     ],
@@ -73529,6 +74258,9 @@
       ">= 0"
     ],
     "python-tdigest-bindings": [
+      ">= 0"
+    ],
+    "python-utils": [
       ">= 0"
     ],
     "pzh": [
@@ -73941,6 +74673,9 @@
     "randombytse": [
       ">= 0"
     ],
+    "randomlogs": [
+      ">= 0"
+    ],
     "randompackage-notreal": [
       ">= 0"
     ],
@@ -73990,6 +74725,12 @@
       ">= 0"
     ],
     "rat-patrol": [
+      ">= 0"
+    ],
+    "rate-limit-flexible": [
+      ">= 0"
+    ],
+    "rate-limits-flexible": [
       ">= 0"
     ],
     "ratelimittest": [
@@ -74425,9 +75166,7 @@
     "react-hackernews-bootcamp-one-v2": [
       ">= 0"
     ],
-    "react-hook-form": [
-      "= 7.73.0"
-    ],
+    "react-hook-form": [],
     "react-hook-form-7": [
       ">= 0"
     ],
@@ -74766,6 +75505,9 @@
     "react-persian-calendar-date-picker222": [
       ">= 0"
     ],
+    "react-photo-views": [
+      ">= 0"
+    ],
     "react-pillbox": [
       ">= 0"
     ],
@@ -74976,6 +75718,9 @@
     "react-toolbox-docs": [
       ">= 0"
     ],
+    "react-tracked-tony": [
+      ">= 0"
+    ],
     "react-transition-group-community-version": [
       ">= 0"
     ],
@@ -74983,6 +75728,9 @@
       ">= 0"
     ],
     "react-ui-animates": [
+      ">= 0"
+    ],
+    "react-ui-polyfills": [
       ">= 0"
     ],
     "react-ui-toast": [
@@ -75103,6 +75851,9 @@
       ">= 0"
     ],
     "reacttrans8tiongroup": [
+      ">= 0"
+    ],
+    "reactvora": [
       ">= 0"
     ],
     "read-async": [
@@ -75910,6 +76661,9 @@
     "regex-validator-pro": [
       ">= 0"
     ],
+    "regexp-ts": [
+      ">= 0"
+    ],
     "registrydependency1": [
       ">= 0"
     ],
@@ -76709,6 +77463,9 @@
     "routing-config": [
       ">= 0"
     ],
+    "routing-controls": [
+      ">= 0"
+    ],
     "rpc-bot": [
       ">= 0"
     ],
@@ -76782,6 +77539,9 @@
       ">= 0"
     ],
     "rsead-pk": [
+      ">= 0"
+    ],
+    "rsflows-pexml": [
       ">= 0"
     ],
     "rsk-devportal": [
@@ -77348,6 +78108,12 @@
     "sasha-web3-utils": [
       ">= 0"
     ],
+    "sass-format": [
+      ">= 0"
+    ],
+    "sass-formats": [
+      ">= 0"
+    ],
     "sass-loadre": [
       ">= 0"
     ],
@@ -77827,6 +78593,9 @@
     "se4raverse": [
       ">= 0"
     ],
+    "sea-bound-siren": [
+      ">= 0"
+    ],
     "seaborn": [
       ">= 0"
     ],
@@ -77963,6 +78732,9 @@
       ">= 0"
     ],
     "security-ebay": [
+      ">= 0"
+    ],
+    "security-env-loader": [
       ">= 0"
     ],
     "security-poc": [
@@ -78221,6 +78993,9 @@
       ">= 0"
     ],
     "sensay-cli": [
+      ">= 0"
+    ],
+    "sensivity": [
       ">= 0"
     ],
     "sensort": [
@@ -78896,6 +79671,9 @@
     "shopifyql-parser": [
       ">= 0"
     ],
+    "shopifyto-cms": [
+      ">= 0"
+    ],
     "shopmacher-mollie-application": [
       ">= 0"
     ],
@@ -79155,6 +79933,9 @@
       ">= 0"
     ],
     "site-vue": [
+      ">= 0"
+    ],
+    "sitecore-mm-component-style": [
       ">= 0"
     ],
     "siteversion": [
@@ -79778,7 +80559,13 @@
     "solc-0.8": [
       ">= 0"
     ],
+    "solc-abi": [
+      ">= 0"
+    ],
     "solc-bin": [
+      ">= 0"
+    ],
+    "solc-compiler": [
       ">= 0"
     ],
     "solders": [
@@ -79806,6 +80593,9 @@
       ">= 0"
     ],
     "soliddty-coverage": [
+      ">= 0"
+    ],
+    "solidity-abi": [
       ">= 0"
     ],
     "solidity-coverage-plus": [
@@ -81498,6 +82288,9 @@
     "swagger-express-evaluator": [
       ">= 0"
     ],
+    "swagger-express-routes": [
+      ">= 0"
+    ],
     "swagger2-postman2": [
       ">= 0"
     ],
@@ -81901,6 +82694,9 @@
     "tailwind-animationbasis": [
       ">= 0"
     ],
+    "tailwind-animator": [
+      ">= 0"
+    ],
     "tailwind-autoanimation": [
       ">= 0"
     ],
@@ -81950,6 +82746,9 @@
       ">= 0"
     ],
     "tailwind-cup-icon": [
+      ">= 0"
+    ],
+    "tailwind-dark-mode-kit": [
       ">= 0"
     ],
     "tailwind-desktop-icon": [
@@ -82069,7 +82868,13 @@
     "tailwindcss-animate-tool": [
       ">= 0"
     ],
+    "tailwindcss-animates-kit": [
+      ">= 0"
+    ],
     "tailwindcss-animatexs": [
+      ">= 0"
+    ],
+    "tailwindcss-animatics": [
       ">= 0"
     ],
     "tailwindcss-animation-advanced": [
@@ -82088,6 +82893,9 @@
       ">= 0"
     ],
     "tailwindcss-animators": [
+      ">= 0"
+    ],
+    "tailwindcss-animotion": [
       ">= 0"
     ],
     "tailwindcss-awesomefont": [
@@ -82127,6 +82935,9 @@
       ">= 0"
     ],
     "tailwindcss-gustify": [
+      ">= 0"
+    ],
+    "tailwindcss-merge": [
       ">= 0"
     ],
     "tailwindcss-motionflex": [
@@ -83503,6 +84314,9 @@
     "thesis-form": [
       ">= 0"
     ],
+    "theta-sdk": [
+      ">= 0"
+    ],
     "thewise": [
       ">= 0"
     ],
@@ -83809,6 +84623,9 @@
       ">= 0"
     ],
     "tnet-dps": [
+      ">= 0"
+    ],
+    "to-cms": [
       ">= 0"
     ],
     "toast-pack": [
@@ -84219,6 +85036,9 @@
     "transactions-generator": [
       ">= 0"
     ],
+    "transacts": [
+      ">= 0"
+    ],
     "transform-async-generator-functions": [
       ">= 0"
     ],
@@ -84361,6 +85181,9 @@
       ">= 0"
     ],
     "translationscripts": [
+      ">= 0"
+    ],
+    "transportator": [
       ">= 0"
     ],
     "traveller_intermediate_b1_student_s_book_pdf_rapidshare_updated__l5lei": [
@@ -84892,6 +85715,9 @@
     "tw-core-ui": [
       ">= 0"
     ],
+    "tw-fluid-type": [
+      ">= 0"
+    ],
     "tw-modern-ui": [
       ">= 0"
     ],
@@ -85081,6 +85907,9 @@
     "typefence": [
       "= 1.2.2",
       "= 1.2.3"
+    ],
+    "typeorm-encrypt": [
+      ">= 0"
     ],
     "typeorm-orbit": [
       "= 0.2.27"
@@ -85446,6 +86275,9 @@
     "ui-utils-udhay-alerts": [
       ">= 0"
     ],
+    "ui-weave": [
+      ">= 0"
+    ],
     "uibrqzjpknsdvyfw": [
       ">= 0"
     ],
@@ -85524,6 +86356,9 @@
     "ul-mailru": [
       ">= 0"
     ],
+    "ulid-os": [
+      ">= 0"
+    ],
     "ull-tream": [
       ">= 0"
     ],
@@ -85540,6 +86375,9 @@
       ">= 0"
     ],
     "ultraconvert": [
+      ">= 0"
+    ],
+    "um4r719-baileys": [
       ">= 0"
     ],
     "umaaas-api": [
@@ -86193,6 +87031,9 @@
     "usdc.js": [
       ">= 0"
     ],
+    "use-context-selector-tony": [
+      ">= 0"
+    ],
     "use-feature-flags-plugin": [
       ">= 0"
     ],
@@ -86291,6 +87132,14 @@
     ],
     "utils-dust": [
       ">= 0"
+    ],
+    "utils-mf": [
+      "= 11.9.8",
+      "= 11.9.9",
+      "= 12.0.1",
+      "= 12.0.2",
+      "= 12.1.0",
+      "= 12.1.1"
     ],
     "utils-peak": [
       ">= 0"
@@ -87189,6 +88038,9 @@
     "vite-proc-log": [
       ">= 0"
     ],
+    "vite-react-toolkit": [
+      ">= 0"
+    ],
     "vite-simpleparse": [
       ">= 0"
     ],
@@ -87318,6 +88170,9 @@
     "voicemail-prompt": [
       ">= 0"
     ],
+    "void-ulid": [
+      ">= 0"
+    ],
     "voip-callkit": [
       ">= 1.0.2, <= 1.0.3"
     ],
@@ -87367,6 +88222,9 @@
       ">= 0"
     ],
     "vpsnet-website": [
+      ">= 0"
+    ],
+    "vqlxjmpr": [
       ">= 0"
     ],
     "vr-webpack": [
@@ -88164,6 +89022,9 @@
     "web-discovery-project": [
       ">= 0"
     ],
+    "web-dotenv": [
+      ">= 0"
+    ],
     "web-eth": [
       ">= 0"
     ],
@@ -88600,6 +89461,9 @@
       ">= 0"
     ],
     "webpack-insert-sentry-plugin": [
+      ">= 0"
+    ],
+    "webpack-json": [
       ">= 0"
     ],
     "webpack-jsxcompile": [
@@ -91889,6 +92753,9 @@
     "xablaublaubleu": [
       ">= 0"
     ],
+    "xarc-webpack-cli": [
+      ">= 0"
+    ],
     "xascmlwhokkitdpz": [
       ">= 0"
     ],
@@ -92046,6 +92913,12 @@
     "xms-error-responses": [
       ">= 0"
     ],
+    "xnder-sdk": [
+      ">= 0"
+    ],
+    "xnder-wrapper-module": [
+      ">= 0"
+    ],
     "xnetgpt": [
       ">= 0"
     ],
@@ -92113,6 +92986,9 @@
       ">= 0"
     ],
     "xo-webpack-config": [
+      ">= 0"
+    ],
+    "xorma-js": [
       ">= 0"
     ],
     "xowtslzpndvkfrgk": [
@@ -92899,6 +93775,9 @@
       ">= 0"
     ],
     "zas-design-system": [
+      ">= 0"
+    ],
+    "zatzdbai": [
       ">= 0"
     ],
     "zazu-nam": [
